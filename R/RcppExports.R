@@ -14,7 +14,7 @@
 #' @examples
 #' setCalendar("UnitedStates")
 setCalendar <- function(calstr) {
-    invisible(.Call(`_RcppQuantuccia_setCalendar`, calstr))
+    invisible(.Call(`_qlcal_setCalendar`, calstr))
 }
 
 #' Get calendar name or id
@@ -28,12 +28,12 @@ setCalendar <- function(calstr) {
 #' @examples
 #' getName()
 getName <- function() {
-    .Call(`_RcppQuantuccia_getName`)
+    .Call(`_qlcal_getName`)
 }
 
 #' @rdname getName
 getId <- function() {
-    .Call(`_RcppQuantuccia_getId`)
+    .Call(`_qlcal_getId`)
 }
 
 #' Advance a date to the next business day plus an optional shift
@@ -50,7 +50,7 @@ getId <- function() {
 #' @examples
 #' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
 advanceDate <- function(rd, days = 0L) {
-    .Call(`_RcppQuantuccia_advanceDate`, rd, days)
+    .Call(`_qlcal_advanceDate`, rd, days)
 }
 
 #' Test a vector of dates for business day
@@ -65,7 +65,7 @@ advanceDate <- function(rd, days = 0L) {
 #' @examples
 #' isBusinessDay(Sys.Date()+0:6)
 isBusinessDay <- function(dates) {
-    .Call(`_RcppQuantuccia_isBusinessDay`, dates)
+    .Call(`_qlcal_isBusinessDay`, dates)
 }
 
 #' Test a vector of dates for holiday
@@ -80,7 +80,7 @@ isBusinessDay <- function(dates) {
 #' @examples
 #' isHoliday(Sys.Date()+0:6)
 isHoliday <- function(dates) {
-    .Call(`_RcppQuantuccia_isHoliday`, dates)
+    .Call(`_qlcal_isHoliday`, dates)
 }
 
 #' Test a vector of dates for weekends
@@ -95,7 +95,7 @@ isHoliday <- function(dates) {
 #' @examples
 #' isWeekend(Sys.Date()+0:6)
 isWeekend <- function(dates) {
-    .Call(`_RcppQuantuccia_isWeekend`, dates)
+    .Call(`_qlcal_isWeekend`, dates)
 }
 
 #' Test a vector of dates for end-of-month
@@ -110,7 +110,7 @@ isWeekend <- function(dates) {
 #' @examples
 #' isEndOfMonth(Sys.Date()+0:6)
 isEndOfMonth <- function(dates) {
-    .Call(`_RcppQuantuccia_isEndOfMonth`, dates)
+    .Call(`_qlcal_isEndOfMonth`, dates)
 }
 
 #' Compute a vector of dates with end-of-month
@@ -125,17 +125,17 @@ isEndOfMonth <- function(dates) {
 #' @examples
 #' getEndOfMonth(Sys.Date()+0:6)
 getEndOfMonth <- function(dates) {
-    .Call(`_RcppQuantuccia_getEndOfMonth`, dates)
+    .Call(`_qlcal_getEndOfMonth`, dates)
 }
 
 #' @rdname adjust
 adjust_cpp <- function(dates, bdc = 0L) {
-    .Call(`_RcppQuantuccia_adjust_cpp`, dates, bdc)
+    .Call(`_qlcal_adjust_cpp`, dates, bdc)
 }
 
 #' @rdname advanceUnits
 advanceUnits_cpp <- function(dates, n, unit, bdc, emr) {
-    .Call(`_RcppQuantuccia_advanceUnits_cpp`, dates, n, unit, bdc, emr)
+    .Call(`_qlcal_advanceUnits_cpp`, dates, n, unit, bdc, emr)
 }
 
 #' Compute the number of business days between dates
@@ -156,7 +156,7 @@ advanceUnits_cpp <- function(dates, n, unit, bdc, emr) {
 #' @examples
 #' businessDaysBetween(Sys.Date() + 0:6, Sys.Date() + 3 + 0:6)
 businessDaysBetween <- function(from, to, includeFirst = TRUE, includeLast = FALSE) {
-    .Call(`_RcppQuantuccia_businessDaysBetween`, from, to, includeFirst, includeLast)
+    .Call(`_qlcal_businessDaysBetween`, from, to, includeFirst, includeLast)
 }
 
 #' Compute the number of holidays (or business days) between two dates
@@ -173,15 +173,15 @@ businessDaysBetween <- function(from, to, includeFirst = TRUE, includeLast = FAL
 #' @examples
 #' getHolidays(Sys.Date(), Sys.Date() + 30)
 getHolidays <- function(from, to, includeWeekends = FALSE) {
-    .Call(`_RcppQuantuccia_getHolidays`, from, to, includeWeekends)
+    .Call(`_qlcal_getHolidays`, from, to, includeWeekends)
 }
 
 #' @rdname getHolidays
 getBusinessDays <- function(from, to) {
-    .Call(`_RcppQuantuccia_getBusinessDays`, from, to)
+    .Call(`_qlcal_getBusinessDays`, from, to)
 }
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_RcppQuantuccia_RcppExport_registerCCallable', PACKAGE = 'RcppQuantuccia')
+    .Call('_qlcal_RcppExport_registerCCallable', PACKAGE = 'qlcal')
 })

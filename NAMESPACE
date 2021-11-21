@@ -1,4 +1,4 @@
-useDynLib(RcppQuantuccia, .registration=TRUE)
+useDynLib(qlcal, .registration=TRUE)
 export("adjust",
        "advanceDate",
        "advanceUnits",
