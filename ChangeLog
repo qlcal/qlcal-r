@@ -1,0 +1,354 @@
+2021-11-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Roll minor version and date
+
+	* src/calendars.cpp: Factored out from header file
+	* inst/include/RcppQuantuccia_types.h: Idem
+	* src/Makevars: Idem
+
+2021-10-30  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.1.0
+
+2021-10-29  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Edits
+
+	* local/changes_from_quantlib_1.24.diff: Diff file relative to
+	QuantLib 1.24
+
+2021-10-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Roll minor version and date
+
+	* README.md: Small edits
+
+2021-10-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/RcppQuantuccia_types.h (setCalendar): Calendar
+	construction supports all calendars from upstream QuantLib 0.2.4
+
+	* R/calendars.R: Added data vector with all calendar identifiers
+	* man/calendars.Rd: Documentation
+
+	* inst/include/RcppQuantuccia_types.h: Added name and id getters
+	* man/getName.Rd: Documentation
+
+2021-10-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Release 0.0.5
+
+ 	* src/ql/*: Refactored to use upstream cpp and hpp files
+	* inst/include/ql/: Removed
+
+2021-10-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp: Added getBusinessDays() accessor
+	* man/getHolidays.Rd: Documentation
+
+	* README.md: Updated
+
+2021-10-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Roll minor version and date
+
+	* README.md: Updated
+
+	* inst/include/ql/time/ecb.hpp: Added
+	* inst/include/ql/daycounter.hpp: Removed unused header
+	* inst/include/ql/daycounters/*: Idem
+
+2021-10-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/brazil.hpp: Added
+
+2021-10-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/unitedkingdom.hpp: QuantLib 1.24
+	* inst/include/ql/time/calendars/japan.hpp: Idem
+	* inst/include/ql/time/calendars/target.hpp: Idem
+	* inst/include/ql/time/calendars/nullcalendar.hpp: Idem
+	* inst/include/ql/time/utilities/*: Idem
+	* inst/include/ql/time/patterns/singleton.hpp: Idem
+	* inst/include/ql/time/patterns/error.hpp: Idem
+	* inst/include/ql/time/patterns/settings.hpp: Idem
+
+2021-10-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/daycounters/*: Updated from QuantLib 1.24
+	* inst/include/ql/daycounters/all.hpp: Comment out business252.hpp
+	which needs the (currently missing) Brazil calendar
+	* inst/include/ql/time/calendars/unitedstates.hpp: QuantLib 1.24
+	* inst/include/ql/time/calendars/china.hpp: Idem
+	* inst/include/ql/time/calendars/bespokecalendar.hpp: Idem
+	* inst/include/ql/time/calendars/jointcalendar.hpp: Idem
+	* inst/include/ql/time/calendars/canada.hpp: Idem
+	* inst/include/ql/time/calendars/germany.hpp: Idem
+
+2021-10-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/version.hpp: Removed unused header
+	* inst/include/ql/userconfig.hpp: Idem
+	* inst/include/ql/mathconstants.hpp: Idem
+	* inst/include/ql/config.sun.hpp: Idem
+	* inst/include/ql/config.msvc.hpp: Idem
+	* inst/include/ql/config.mingw.hpp: Idem
+	* inst/include/ql/config.ansi.hpp: Idem
+	* inst/include/ql/patterns/lazyobject.hpp: Idem
+	* inst/include/ql/patterns/curiouslyrecurring.hpp: Idem
+	* inst/include/ql/utilities/vectors.hpp: Idem
+	* inst/include/ql/utilities/steppingiterator.hpp: Idem
+	* inst/include/ql/utilities/disposable.hpp: Idem
+	* inst/include/ql/qldefines.hpp: Adjusted accordingly
+	* inst/include/ql/quantlib.hpp: Idem
+	* inst/include/ql/patterns/all.hpp: Idem
+	* inst/include/ql/utilities/all.hpp: Idem
+
+2021-10-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor release
+
+	* inst/include/ql/quantlib.hpp: Focus on calendering
+
+	* inst/include/ql/compunding.hpp: Removed unused header
+	* inst/include/ql/currency.hpp: Idem
+	* inst/include/ql/handle.hpp: Idem
+	* inst/include/ql/stochasticprocess.hpp: Idem
+	* inst/include/ql/timegrid.hpp: Idem
+	* inst/include/ql/math/*: Removed unused header directory
+	* inst/include/ql/methods/*: Idem
+	* inst/include/ql/models/*: Idem
+
+2021-10-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Release 0.0.4
+
+	* man/RcppQuantuccia-package.Rd: Update one URL to https
+	* README.md: Remove Travis badge following support withdrawal
+	* inst/include/RcppQuantuccia_types.h: No longer need to explicit
+	select new date types
+
+2021-10-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor release
+
+	* inst/include/ql/time/calendars/unitedstates.hpp: Update US calendar
+	to current QuantLib calendar, add LiborImpact and FederalReserve
+	* inst/include/RcppQuantuccia_types.h (setCalendar): Add subcalendars
+
+2021-05-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (URL, BugReports): Added fields
+
+2021-01-11  Dirk Eddelbuettel  <edd@debian.org>
+
+        * .github/workflows/ci.yaml: Add CI runner using r-ci
+	* README.md: Add new badge
+
+2020-04-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add 'last commit' badge
+
+2019-08-24  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll minor release
+
+	* inst/include/RcppQuantuccia_types.h: Allow for Null calendar
+
+2019-08-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Release 0.0.3
+
+	* README.md: Switch some http URLs to https
+
+2019-08-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .Rbuildignore: Do not include sobolrsg.h and models/ directory
+	* inst/include/ql/math/randomnumbers/all.hpp: Exclude sobolrsg and
+	sobolbrownianbridge
+	* inst/include/ql/quantlib.hpp: Exclude models/all.hpp
+	* inst/include/ql/math/randomnumbers/rngtraits.hpp: Comment-out use
+	of SobolRsg
+
+	* inst/include/ql/math/functional.hpp: Updated from current QL
+
+	* inst/include/ql/math/array.hpp: Add functional.hpp and replace
+	deprecated older constructs suchs as bind1st, bind2nd or ptr_fun
+	* inst/include/ql/math/matrix.hpp: Idem
+	* inst/include/ql/timegrid.hpp: Idem
+	* inst/include/ql/math/generallinearleastsquares.hpp: Idem
+
+	* inst/include/ql/math/matrix.hpp: Comment out pragma for warnings
+	* inst/include/ql/math/distributions/normaldistribution.hpp: Idem
+	* inst/include/ql/math/optimization/levenbergmarquardt.hpp: Idem
+	* inst/include/ql/math/statistics/incrementalstatistics.hpp: Idem
+	* inst/include/ql/time/date.hpp: Idem
+	* inst/include/ql/time/imm.hpp: Idem
+	* inst/include/ql/utilities/dataparsers.hpp: Idem
+	* inst/include/ql/utilities/null.hpp: Idem
+
+	* src/Makevars (PKG_CPPFLAGS): Add -DBOOST_NO_AUTO_PTRE
+
+	* README.md: Add dependencies badge
+
+2019-02-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/unitedstates.hpp: Updated (as in QL
+	upstream) to include the President George HW Bush funeral
+
+2018-09-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* .travis.yml: Switch Travis CI to R 3.5 repo
+
+2017-11-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Date, Version): Release 0.0.2
+
+2017-11-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/RcppQuantuccia_types.h: Define for new Rcpp date(time)
+	vector, will be default with Rcpp 0.12.14
+	* src/dates.cpp: Simplified throughout with new date(time) vectors
+
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* src/init.c: Remove as registrations generated by Rcpp
+
+2017-08-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/math/randomnumbers/sobolrsg.hpp: Aligned macro
+	in two places to avoid g++-6 warning message
+
+	* man/RcppQuantuccia-package.Rd: Simplified using Rd macros
+
+2017-06-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Use alternate for img.shields.io GPL-2+ badge
+
+2017-04-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/china.hpp: Updated from QL
+	* inst/include/ql/time/calendars/jointcalendar.hpp: Added
+	* inst/include/ql/time/calendars/bespokecalendar.hpp: Idem
+
+2017-04-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/canada.hpp: Added
+
+2017-04-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/ql/time/calendars/china.hpp: Added
+	* inst/include/ql/time/calendars/japan.hpp: Idem
+	* inst/include/ql/time/calendars/germany.hpp: Added
+	* inst/include/ql/time/calendars/unitedkingdom.hpp: Idem
+
+2017-04-18  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Initial release 0.0.1
+
+	* inst/AUTHORS: Added
+	* inst/COPYRIGHTS: Added
+
+	* README.md: Edited to reflect CRAN upload
+
+2017-04-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tests/calendars.R: Added a number of UnitedState::NYSE tests
+
+2017-04-16  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/NEWS.Rd: Added
+
+2017-04-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Added example section
+
+	* inst/include/RcppQuantuccia_as_wrap.h (QL_HIGH_RESOLUTION_DATE):
+	Ensure compilation done with intra-day option turned on
+	(as): Added conversion from Datetime
+	* inst/include/RcppQuantuccia_types.h (QL_HIGH_RESOLUTION_DATE):
+	Ensure compilation done with intra-day option turned on;
+	declare new converter
+
+2017-04-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/init.c (R_init_RcppQuantuccia): Call R_registerRoutines() and
+	R_useDynamicSymbols()
+        * NAMESPACE: Use .registration=TRUE on useDynLib
+
+2017-04-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (businessDaysBetween): New function
+	(businessDaysBetween): Idem
+	* R/dates.R (adjust): New R front-end calling C++ function in
+	order to better match input arguments
+	(advanceUnits): Idem
+
+	* man/businessDaysBetween.Rd: New documentation
+	* man/getHolidays.Rd: Idem
+	* man/adjust.Rd: Updated documentation
+	* man/advanceUnits.Rd: Idem
+
+	* inst/include/RcppQuantuccia_types.h (RcppQuantuccia): Update
+	calendar support for specific US calendars Settlment, NYSE,
+	GovernmentBond and NERC
+
+	* README.md: Added
+
+	* tests/calendars.R: First set of tests added
+
+2017-04-11  Dirk Eddelbuettel  <edd@debian.org>
+
+	* R/dates.R (advanceUnits): R frontend with higher-level argument
+	parsing to be more user-friendly
+	* src/dates.cpp (advanceUnits_cpp): C++ implementation
+	* man/advanceUnits.Rd: Added documentation
+
+2017-04-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (adjust): New function
+	* man/adjust.Rd: New file
+
+	* src/utils.cpp (getBusinessDayConvention): New helper function
+	* inst/include/RcppQuantuccia_as_wrap.h (qlDate2Rcpp): Idem
+
+2017-04-06  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp: Added more documentation
+	* man/getEndOfMonth.Rd: Added
+	* man/isEndOfMonth.Rd
+	* man/isWeekend.Rd
+
+2017-04-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/RcppQuantuccia_types.h: Moved header file
+	* inst/include/RcppQuantuccia_as_wrap.h: Ditto
+
+	* inst/include/RcppQuantuccia_types.h: Use unique_ptr for calendar
+
+	* src/dates.cpp (isBusinessDay,isHoliday,advanceDate,setCalendar):
+	Added roxygen documentation
+	* man/advanceDate.Rd: Added
+	* man/isBusinessDay.Rd: Added
+	* man/isHoliday.Rd: Added
+	* man/setCalendar.Rd: Added
+
+2017-04-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (isBusinessDay,isHoliday): Added functions
+	* src/src/RcppQuantuccia_types.h: Added simple container class for
+	global calendar instance
+
+2017-04-02  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (advanceDate): Added first useful function
+
+	* src/RcppQuantuccia_as_wrap.h: Date as<> and wrap helpers
+
+	* inst/include/ql: Synchronised with Quantuccia
+
+	* .travis.yml: Adding Travis CI
+
+2017-04-01  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION: Initial minimal version 0.0.1
