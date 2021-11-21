@@ -24,7 +24,7 @@
 
 // [[Rcpp::interfaces(r, cpp)]]
 
-#include "RcppQuantuccia_types.h"
+#include "qlcal_types.h"
 
 namespace ql = QuantLib;
 

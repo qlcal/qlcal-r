@@ -23,9 +23,9 @@
 
 // [[Rcpp::interfaces(r, cpp)]]
 
-#include "RcppQuantuccia_types.h"
-#include "RcppQuantuccia_declarations.h"
-#include "RcppQuantuccia_as_wrap.h"
+#include "qlcal_types.h"
+#include "qlcal_declarations.h"
+#include "qlcal_as_wrap.h"
 
 #include <boost/date_time/posix_time/conversion.hpp>
 

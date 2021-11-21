@@ -1,5 +1,5 @@
 
-#include <RcppQuantuccia_types.h>
+#include <qlcal_types.h>
 
 void RcppQuantuccia::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
     if (txt != m_id) {
