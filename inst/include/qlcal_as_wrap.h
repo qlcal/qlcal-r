@@ -1,6 +1,6 @@
 
-#ifndef rcpp_quantuccia_date_wrappers_h
-#define rcpp_quantuccia_date_wrappers_h
+#ifndef qlcal_date_wrappers_h
+#define qlcal_date_wrappers_h
 
 #ifndef QL_HIGH_RESOLUTION_DATE
   #define QL_HIGH_RESOLUTION_DATE

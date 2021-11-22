@@ -1,7 +1,7 @@
 
 #include <qlcal_types.h>
 
-void RcppQuantuccia::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
+void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
     if (txt != m_id) {
         m_id = txt;
         if (txt == "TARGET") {

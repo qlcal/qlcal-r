@@ -1,6 +1,6 @@
 
-#ifndef rcpp_quantuccia_declarations_h
-#define rcpp_quantuccia_declarations_h
+#ifndef qlcal_declarations_h
+#define qlcal_declarations_h
 
 #ifndef QL_HIGH_RESOLUTION_DATE
   #define QL_HIGH_RESOLUTION_DATE

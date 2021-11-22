@@ -1,6 +1,6 @@
 
-#ifndef rcpp_quantuccia_types_h
-#define rcpp_quantuccia_types_h
+#ifndef qlcal_types_h
+#define qlcal_types_h
 
 #ifndef QL_HIGH_RESOLUTION_DATE
   #define QL_HIGH_RESOLUTION_DATE
@@ -42,7 +42,7 @@ namespace Rcpp {
 
 }
 
-namespace RcppQuantuccia {
+namespace QlCal {
 
     namespace ql = QuantLib;
 

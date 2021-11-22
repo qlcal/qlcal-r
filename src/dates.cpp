@@ -32,7 +32,7 @@
 
 namespace ql = QuantLib;
 
-RcppQuantuccia::CalendarContainer gblcal;
+QlCal::CalendarContainer gblcal;
 
 //' Set a calendar
 //'
