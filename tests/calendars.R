@@ -1,9 +1,9 @@
 
-## simple tests, to be replaced "eventually" by something better using RUnit
+## simple tests, to be replaced "eventually" by something better using tinytest
 
-if (requireNamespace("RcppQuantuccia", quietly=TRUE)) {
+if (requireNamespace("qlcal", quietly=TRUE)) {
 
-    library(RcppQuantuccia)
+    library(qlcal)
 
     setCalendar("UnitedStates::NYSE")   # use / or :: to separate instance from country calendar
 
