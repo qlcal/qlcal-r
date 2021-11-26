@@ -12,23 +12,20 @@
 // define template specialisations for as and wrap
 namespace Rcpp {
 
+    namespace bg = boost::gregorian;
+    namespace bpt = boost::posix_time;
+
     static const unsigned int QLtoJan1970Offset = 25569;  	// Offset to R / Unix epoch
 
     inline unsigned int getQLtoJan1970offset(void) { return QLtoJan1970Offset; }
 
-    template <> QuantLib::Date as(SEXP dtsexp) {
-        Rcpp::Date dt(dtsexp);
-        return QuantLib::Date(static_cast<int>(dt.getDate()) + QLtoJan1970Offset);
-    }
     template <> QuantLib::Date as(Rcpp::Date dt) {
         return QuantLib::Date(static_cast<int>(dt.getDate()) + QLtoJan1970Offset);
     }
     template <> QuantLib::Date as(Rcpp::Datetime dt) {
-        const boost::posix_time::ptime pt(boost::gregorian::date(dt.getYear(), dt.getMonth(), dt.getDay()),
-                                          boost::posix_time::time_duration(dt.getHours(),
-                                                                           dt.getMinutes(),
-                                                                           dt.getSeconds(),
-                                                                           dt.getMicroSeconds()*1000.0));
+        const bpt::ptime pt(bg::date(dt.getYear(), dt.getMonth(), dt.getDay()),
+                            bpt::time_duration(dt.getHours(), dt.getMinutes(),
+                                               dt.getSeconds(), dt.getMicroSeconds()*1000.0));
         return QuantLib::Date(pt);
     }
 
@@ -36,7 +33,6 @@ namespace Rcpp {
         double dt = static_cast<double>(d.serialNumber()); // QL::BigInteger can cast to double
         return Rcpp::wrap(Rcpp::Date(dt - QLtoJan1970Offset));
     }
-
 
     // non-intrusive extension via template specialisation
     template <> std::vector<QuantLib::Date> as(SEXP dtvecsexp) {

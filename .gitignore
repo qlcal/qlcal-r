@@ -6,3 +6,6 @@ src/*.so
 src/*.dll
 /FIXME
 rcppquantuccia.Rproj
+GPATH
+GRTAGS
+GTAGS
