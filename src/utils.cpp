@@ -1,5 +1,5 @@
 
-//  QlCal -- R interface to QuantLib via Quantuccia
+//  QlCal -- R interface to QuantLib Calendars
 //
 //  Copyright (C) 2002 - 2021  Dirk Eddelbuettel <edd@debian.org>
 //
