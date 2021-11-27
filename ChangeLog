@@ -1,3 +1,7 @@
+2021-11-27  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/qldefines.hpp: Updated from QuantLib
+
 2021-11-26  Dirk Eddelbuettel  <edd@debian.org>
 
 	* README.md: Expanded
