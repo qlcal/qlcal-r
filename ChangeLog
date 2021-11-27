@@ -1,6 +1,7 @@
 2021-11-27  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/ql/qldefines.hpp: Updated from QuantLib
+	* src/ql/time/calendar.cpp: Ditto
 
 2021-11-26  Dirk Eddelbuettel  <edd@debian.org>
 
