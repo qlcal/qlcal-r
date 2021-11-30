@@ -10,10 +10,23 @@
 
 `qlcal` brings the calendaring functionality from the [QuantLib]() project to R.
 
+### Motivation
+
+`qlcal` lets us access various global (exchange or settlement) calendars.
+Here is a quick example for the NYSE in 2022 where Juneteenth is making a first appearance as the most recently added federal holiday:
+
+```r
+> library(qlcal)
+> setCalendar("UnitedStates/NYSE")
+> getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"))
+[1] "2022-01-17" "2022-02-21" "2022-04-15" "2022-05-30" "2022-06-20"
+[6] "2022-07-04" "2022-09-05" "2022-11-24" "2022-12-26"
+>
+```
+
 ### Brief History
 
-This package started as an integration of the (somewhat experimental)
-[Quantuccia](https://github.com/pcaspers/Quantuccia) package (see next section) to R by means of [Rcpp](https://github.com/RcppCore/Rcpp) in package [RcppQuantuccia](https://github.com/eddelbuettel/rcppquantuccia).
+This package started as an integration of the (somewhat experimental) [Quantuccia](https://github.com/pcaspers/Quantuccia) package (see next section) to R by means of [Rcpp](https://github.com/RcppCore/Rcpp) in package [RcppQuantuccia](https://github.com/eddelbuettel/rcppquantuccia).
 But [Quantuccia](https://github.com/pcaspers/Quantuccia) did not continue beyond its initial proof of concept.
 So as of RcppQuantuccia release 0.0.5, we have refocused it on an _even smaller subset_ of
 [QuantLib](https://github.com/lballabio/quantlib): just the calendaring.  So code for pricers, math, models, schedules, ... that was in [Quantuccia](https://github.com/pcaspers/Quantuccia) has been removed. The calendaring, along with all its support code, is now current with the current
@@ -21,7 +34,7 @@ So as of RcppQuantuccia release 0.0.5, we have refocused it on an _even smaller 
 
 Going forward, the idea is to regroup the QuantLib calendaring functionality in a small and self-contained library `qlcal`, and provide frontends such as this R package.
 
-### Example
+### Longer Example
 
 Here we examine holiday lists for given calendars, specified by country and possibly exchange:
 
@@ -82,9 +95,9 @@ As all calendars are now supported (and are listed in a convenience vector `cale
 [59] "UnitedKingdom"                  "UnitedKingdom/Exchange"
 [61] "UnitedKingdom/Metals"           "WeekendsOnly"
 >
+```
 
- We can then for example quickly count number of holiday per calendar (by computing the length of the returned
-vector of holidays) and show a shortened print, all in a handful of lines continuing from above
+We can then for example quickly count number of holiday per calendar (by computing the length of the returned vector of holidays) and show a shortened print, all in a handful of lines continuing from above
 
 ```r
 > getHols <- function(cal) {    # simple helper function
@@ -138,17 +151,17 @@ We can also access the calendar 'name' from the underlying (QuantLib Calendar) o
 
 <!--The package can be installed from [CRAN](https://cran.r-project.org) via
 
-```r
-install.packages("RcppQuantuccia")
-```
+<!-- ```r -->
+<!-- install.packages("RcppQuantuccia") -->
+<!-- ``` -->
 
-or if you prefer non-release development version these can be installed from GitHub via e.g.
+<!-- or if you prefer non-release development version these can be installed from GitHub via e.g. -->
 
-```r
-remotes::install_github("eddelbuettel/rcppquantuccia")
-```
+<!-- ```r -->
+<!-- remotes::install_github("eddelbuettel/rcppquantuccia") -->
+<!-- ``` -->
 
-or maybe just checkout the repository locally.-->
+<!-- or maybe just checkout the repository locally. -->
 
 The package can be installed via
 
@@ -160,9 +173,9 @@ It only requires `Rcpp` and `BH` both of which are available whereever `R` itsel
 
 ### Authors
 
-Dirk Eddelbuettel for the package and integration
+Dirk Eddelbuettel for the package and integration.
 
-The authors and contributors of QuantLib for the underlying calendaring code
+The authors and contributors of QuantLib for the underlying calendaring code.
 
 ### License
 
