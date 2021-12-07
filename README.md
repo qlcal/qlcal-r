@@ -8,7 +8,7 @@
 <!-- [![Dependencies](https://tinyverse.netlify.com/badge/qlcal)](https://cran.r-project.org/package=qlcal) -->
 <!-- [![Downloads](https://cranlogs.r-pkg.org/badges/qlcal?color=brightgreen)](https://www.r-pkg.org/pkg/qlcal) -->
 
-`qlcal` brings the calendaring functionality from the [QuantLib]() project to R.
+`qlcal` brings the calendaring functionality from the [QuantLib](https://www.quantlib.org) project to R.
 
 ### Motivation
 

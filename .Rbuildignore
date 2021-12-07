@@ -10,3 +10,6 @@
 inst/include/ql/models
 inst/include/ql/math/randomnumbers/sobolrsg.hpp
 ^\.github
+^GPATH
+^GRTAGS
+^GTAGS
