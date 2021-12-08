@@ -4,9 +4,9 @@
 [![CI](https://github.com/qlcal/qlcal-r/workflows/ci/badge.svg)](https://github.com/qlcal/qlcal-r/actions?query=workflow%3Aci)
 [![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![Last Commit](https://img.shields.io/github/last-commit/qlcal/qlcal-r)](https://github.com/qlcal/qlcal-r)
-<!-- [![CRAN](https://www.r-pkg.org/badges/version/qlcal)](https://cran.r-project.org/package=qlcal) -->
-<!-- [![Dependencies](https://tinyverse.netlify.com/badge/qlcal)](https://cran.r-project.org/package=qlcal) -->
-<!-- [![Downloads](https://cranlogs.r-pkg.org/badges/qlcal?color=brightgreen)](https://www.r-pkg.org/pkg/qlcal) -->
+[![CRAN](https://www.r-pkg.org/badges/version/qlcal)](https://cran.r-project.org/package=qlcal)
+[![Dependencies](https://tinyverse.netlify.com/badge/qlcal)](https://cran.r-project.org/package=qlcal)
+[![Downloads](https://cranlogs.r-pkg.org/badges/qlcal?color=brightgreen)](https://www.r-pkg.org/pkg/qlcal)
 
 `qlcal` brings the calendaring functionality from the [QuantLib](https://www.quantlib.org) project to R.
 
@@ -149,21 +149,13 @@ We can also access the calendar 'name' from the underlying (QuantLib Calendar) o
 
 ### Installation
 
-<!--The package can be installed from [CRAN](https://cran.r-project.org) via
+The package can be installed from [CRAN](https://cran.r-project.org) via
 
-<!-- ```r -->
-<!-- install.packages("RcppQuantuccia") -->
-<!-- ``` -->
+```r
+install.packages("qlcal")
+```
 
-<!-- or if you prefer non-release development version these can be installed from GitHub via e.g. -->
-
-<!-- ```r -->
-<!-- remotes::install_github("eddelbuettel/rcppquantuccia") -->
-<!-- ``` -->
-
-<!-- or maybe just checkout the repository locally. -->
-
-The package can be installed via
+or if you prefer non-release development version these can be installed from GitHub via e.g.
 
 ```r
 remotes::install_github("qlcal/qlcal-r")
