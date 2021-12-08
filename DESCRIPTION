@@ -1,15 +1,14 @@
 Package: qlcal
 Type: Package
 Title: R Bindings to the Calendaring Functionality of 'QuantLib'
-Version: 0.0.0.1
-Date: 2021-11-21
+Version: 0.0.1
+Date: 2021-12-07
 Author: Dirk Eddelbuettel; the authors and contributors of QuantLib
 Maintainer: Dirk Eddelbuettel <edd@debian.org>
 Description: 'QuantLib' bindings are provided for R using 'Rcpp' via an evolved version
- of the initial header-only 'Quantuccia' project (put together initially by Peter
- Caspers) offering an subset of 'QuantLib' (now maintained separately just for the
- calendaring subset). See the included file 'AUTHORS' for a full list of contributors
- to both 'QuantLib' and 'Quantuccia'.
+ of the initial header-only 'Quantuccia' project offering an subset of 'QuantLib' (now
+ maintained separately just for the calendaring subset). See the included file 'AUTHORS'
+ for a full list of contributors to 'QuantLib' (and hence also 'Quantuccia').
 URL: https://github.com/qlcal/qlcal-r, https://dirk.eddelbuettel.com/code/rcpp.quantuccia.html
 BugReports: https://github.com/qlcal/qlcal-r/issues
 License: GPL (>= 2)
