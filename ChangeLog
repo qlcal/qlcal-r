@@ -8,8 +8,9 @@
 	* src/ql/time/ecb.cpp: Idem
 	* src/ql/time/imm.cpp: Idem
 	* src/ql/time/schedule.cpp: Idem
-	* src/Makevars: Adjusted accordingly
-	* src/Makevars.win: Adjusted accordingly
+	* src/ql/time/all.hpp: Adjusted accordingly
+	* src/Makevars: Idem
+	* src/Makevars.win: Idem
 
 2021-12-08  Dirk Eddelbuettel  <edd@debian.org>
 
