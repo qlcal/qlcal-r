@@ -1,5 +1,7 @@
 2021-12-09  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Daye): Roll minor version
+
 	* src/ql/time/asx.cpp: Remove file unused by calendaring
 	* src/ql/time/dategenerationrule.cpp: Idem
 	* src/ql/time/dategenerationrule.hpp: Idem
