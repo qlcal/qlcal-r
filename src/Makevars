@@ -52,16 +52,11 @@ SOURCES = \
         ql/time/calendars/unitedkingdom.cpp \
         ql/time/calendars/unitedstates.cpp \
         ql/time/calendars/weekendsonly.cpp \
-	ql/time/asx.cpp \
 	ql/time/businessdayconvention.cpp \
 	ql/time/calendar.cpp \
-	ql/time/dategenerationrule.cpp \
 	ql/time/date.cpp \
-	ql/time/ecb.cpp \
 	ql/time/frequency.cpp \
-	ql/time/imm.cpp \
 	ql/time/period.cpp \
-	ql/time/schedule.cpp \
 	ql/time/timeunit.cpp \
 	ql/time/weekday.cpp \
         ql/utilities/dataformatters.cpp \
