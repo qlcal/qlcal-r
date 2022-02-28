@@ -135,7 +135,7 @@ Rcpp::LogicalVector isHoliday(Rcpp::DateVector dates) {
     Rcpp::LogicalVector holdays(n);
     std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
     for (auto i=0; i<n; i++) {
-        holdays[i] = cal.isBusinessDay(dv[i]);
+        holdays[i] = !cal.isBusinessDay(dv[i]);
     }
     return holdays;
 }
