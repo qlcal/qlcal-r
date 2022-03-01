@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.3 (2022-xx-yy)}{
+  \itemize{
+    \item Correct the \code{isBusinessDay()} functionality (Fixes \ghit{2})
+  }
+}
+
 \section{Changes in version 0.0.2 (2022-01-21)}{
   \itemize{
     \item Further minimize set of files needed for calendaring
