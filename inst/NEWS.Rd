@@ -6,6 +6,7 @@
 \section{Changes in version 0.0.3 (2022-xx-yy)}{
   \itemize{
     \item Correct the \code{isBusinessDay()} functionality (Fixes \ghit{2})
+    \item Update Australia and Saudi Arabia calendars from QuantLib 1.27
   }
 }
 
