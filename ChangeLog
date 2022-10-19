@@ -1,3 +1,7 @@
+2022-10-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/time/calendars/argentina.cpp: Set to utf-8 for clang++-15
+
 2022-07-31  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll minor version
