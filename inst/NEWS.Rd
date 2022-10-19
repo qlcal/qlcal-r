@@ -3,10 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
-\section{Changes in version 0.0.3 (2022-xx-yy)}{
+\section{Changes in version 0.0.3 (2022-10-19)}{
   \itemize{
     \item Correct the \code{isBusinessDay()} functionality (Fixes \ghit{2})
     \item Update Australia and Saudi Arabia calendars from QuantLib 1.27
+    \item Update United Kingdom calendar from QuantLib 1.28
+    \item Convert one source file to utf-8 to appease \code{clang-15}
   }
 }
 

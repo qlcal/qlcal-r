@@ -1,8 +1,10 @@
 2022-10-19  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Release 0.0.3
+
 	* src/ql/time/calendars/argentina.cpp: Set to utf-8 for clang++-15
 	* src/ql/time/calendars/unitedkingdom.cpp: Add the Queen's Funeral
-	Bank Holiday
+	Bank Holiday from QuantLib 1.28
 
 2022-07-31  Dirk Eddelbuettel  <edd@debian.org>
 
