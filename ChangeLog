@@ -7,6 +7,8 @@
 	* R/RcppExports.R: Idem
 	* inst/include/qlcal_RcppExports.h: Idem
 
+	* tests/calendars.R: Add simple tests
+
 2022-11-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3
