@@ -1,3 +1,12 @@
+2022-12-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (advanceDate): Add new parameter to select a business
+	day convention (via an integer, mapper from character could be added)
+	* man/advanceDate.Rd: Updated documentation
+	* src/RcppExports.cpp: Updated
+	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+
 2022-11-10  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v3

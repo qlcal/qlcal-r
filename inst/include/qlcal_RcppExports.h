@@ -4,6 +4,7 @@
 #ifndef RCPP_qlcal_RCPPEXPORTS_H_GEN_
 #define RCPP_qlcal_RCPPEXPORTS_H_GEN_
 
+#include "qlcal_types.h"
 #include <Rcpp.h>
 
 namespace qlcal {
@@ -86,17 +87,17 @@ namespace qlcal {
         return Rcpp::as<std::string >(rcpp_result_gen);
     }
 
-    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0) {
-        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP);
+    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, int bdc = 0) {
+        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP);
         static Ptr_advanceDate p_advanceDate = NULL;
         if (p_advanceDate == NULL) {
-            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int)");
+            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int)");
             p_advanceDate = (Ptr_advanceDate)R_GetCCallable("qlcal", "_qlcal_advanceDate");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)));
+            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)), Shield<SEXP>(Rcpp::wrap(bdc)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
