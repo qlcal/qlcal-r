@@ -83,16 +83,19 @@ std::string getId() {
 //' @param rd A Date object describing the date to be advanced to the
 //' next business day.
 //' @param days An optional integer offset applied to the date
+//' @param unit An optional time unit value applied to the date (default is day)
 //' @param bdc An optional integer defining a business day convention
+//' @param eom An optional boolean toggle whether end-of-month is to be respected
 //' @return The advanced date is returned
 //' @examples
 //' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
 // [[Rcpp::export]]
-Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, int bdc=0) {
+Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, int unit=0, int bdc=0, bool eom=false) {
     ql::Calendar cal = gblcal.getCalendar();
     ql::Date d = Rcpp::as<ql::Date>(rd);
     ql::BusinessDayConvention bdcval = getBusinessDayConvention(bdc);
-    ql::Date newdate = cal.adjust(d, bdcval) + days;
+    ql::TimeUnit tuval = getTimeUnit(unit);
+    ql::Date newdate = cal.advance(d, days, tuval, bdcval, eom);
     return Rcpp::wrap(newdate);
 }
 

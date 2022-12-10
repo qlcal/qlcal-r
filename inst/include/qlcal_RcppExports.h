@@ -87,17 +87,17 @@ namespace qlcal {
         return Rcpp::as<std::string >(rcpp_result_gen);
     }
 
-    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, int bdc = 0) {
-        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP);
+    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, int unit = 0, int bdc = 0, bool eom = false) {
+        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_advanceDate p_advanceDate = NULL;
         if (p_advanceDate == NULL) {
-            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int)");
+            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int,int,bool)");
             p_advanceDate = (Ptr_advanceDate)R_GetCCallable("qlcal", "_qlcal_advanceDate");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)), Shield<SEXP>(Rcpp::wrap(bdc)));
+            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)), Shield<SEXP>(Rcpp::wrap(unit)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(eom)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

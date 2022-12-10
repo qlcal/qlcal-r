@@ -114,22 +114,24 @@ RcppExport SEXP _qlcal_getId() {
     return rcpp_result_gen;
 }
 // advanceDate
-Rcpp::Date advanceDate(Rcpp::Date rd, int days, int bdc);
-static SEXP _qlcal_advanceDate_try(SEXP rdSEXP, SEXP daysSEXP, SEXP bdcSEXP) {
+Rcpp::Date advanceDate(Rcpp::Date rd, int days, int unit, int bdc, bool eom);
+static SEXP _qlcal_advanceDate_try(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP eomSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::Date >::type rd(rdSEXP);
     Rcpp::traits::input_parameter< int >::type days(daysSEXP);
+    Rcpp::traits::input_parameter< int >::type unit(unitSEXP);
     Rcpp::traits::input_parameter< int >::type bdc(bdcSEXP);
-    rcpp_result_gen = Rcpp::wrap(advanceDate(rd, days, bdc));
+    Rcpp::traits::input_parameter< bool >::type eom(eomSEXP);
+    rcpp_result_gen = Rcpp::wrap(advanceDate(rd, days, unit, bdc, eom));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_advanceDate(SEXP rdSEXP, SEXP daysSEXP, SEXP bdcSEXP) {
+RcppExport SEXP _qlcal_advanceDate(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP eomSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_advanceDate_try(rdSEXP, daysSEXP, bdcSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_advanceDate_try(rdSEXP, daysSEXP, unitSEXP, bdcSEXP, eomSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -508,7 +510,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("void(*setCalendar)(std::string)");
         signatures.insert("std::string(*getName)()");
         signatures.insert("std::string(*getId)()");
-        signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int)");
+        signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int,int,bool)");
         signatures.insert("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isHoliday)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::DateVector)");
@@ -547,7 +549,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_setCalendar", (DL_FUNC) &_qlcal_setCalendar, 1},
     {"_qlcal_getName", (DL_FUNC) &_qlcal_getName, 0},
     {"_qlcal_getId", (DL_FUNC) &_qlcal_getId, 0},
-    {"_qlcal_advanceDate", (DL_FUNC) &_qlcal_advanceDate, 3},
+    {"_qlcal_advanceDate", (DL_FUNC) &_qlcal_advanceDate, 5},
     {"_qlcal_isBusinessDay", (DL_FUNC) &_qlcal_isBusinessDay, 1},
     {"_qlcal_isHoliday", (DL_FUNC) &_qlcal_isHoliday, 1},
     {"_qlcal_isWeekend", (DL_FUNC) &_qlcal_isWeekend, 1},

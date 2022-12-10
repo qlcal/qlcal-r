@@ -4,7 +4,7 @@
 \alias{advanceDate}
 \title{Advance a date}
 \usage{
-advanceDate(rd, days = 0L, bdc = 0L)
+advanceDate(rd, days = 0L, unit = 0L, bdc = 0L, eom = FALSE)
 }
 \arguments{
 \item{rd}{A Date object describing the date to be advanced to the
@@ -12,7 +12,11 @@ next business day.}
 
 \item{days}{An optional integer offset applied to the date}
 
+\item{unit}{An optional time unit value applied to the date (default is day)}
+
 \item{bdc}{An optional integer defining a business day convention}
+
+\item{eom}{An optional boolean toggle whether end-of-month is to be respected}
 }
 \value{
 The advanced date is returned

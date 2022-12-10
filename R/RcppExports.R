@@ -46,12 +46,14 @@ getId <- function() {
 #' @param rd A Date object describing the date to be advanced to the
 #' next business day.
 #' @param days An optional integer offset applied to the date
+#' @param unit An optional time unit value applied to the date (default is day)
 #' @param bdc An optional integer defining a business day convention
+#' @param eom An optional boolean toggle whether end-of-month is to be respected
 #' @return The advanced date is returned
 #' @examples
 #' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
-advanceDate <- function(rd, days = 0L, bdc = 0L) {
-    .Call(`_qlcal_advanceDate`, rd, days, bdc)
+advanceDate <- function(rd, days = 0L, unit = 0L, bdc = 0L, eom = FALSE) {
+    .Call(`_qlcal_advanceDate`, rd, days, unit, bdc, eom)
 }
 
 #' Test a vector of dates for business day
