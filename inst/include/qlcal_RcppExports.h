@@ -87,11 +87,11 @@ namespace qlcal {
         return Rcpp::as<std::string >(rcpp_result_gen);
     }
 
-    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, int unit = 0, int bdc = 0, bool eom = false) {
+    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, const std::string& unit = "Days", const std::string& bdc = "Following", bool eom = false) {
         typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_advanceDate p_advanceDate = NULL;
         if (p_advanceDate == NULL) {
-            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int,int,bool)");
+            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool)");
             p_advanceDate = (Ptr_advanceDate)R_GetCCallable("qlcal", "_qlcal_advanceDate");
         }
         RObject rcpp_result_gen;

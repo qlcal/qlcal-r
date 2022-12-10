@@ -83,14 +83,23 @@ std::string getId() {
 //' @param rd A Date object describing the date to be advanced to the
 //' next business day.
 //' @param days An optional integer offset applied to the date
-//' @param unit An optional time unit value applied to the date (default is day)
-//' @param bdc An optional integer defining a business day convention
+//' @param unit An optional character value denoting a time unit, default value
+//' is \dQuote{Day}, and supported values are \dQuote{Days}, \dQuote{Weeks},
+//' \dQuote{Months}, \dQuote{Years}, \dQuote{Hours}, \dQuote{Seconds},
+//' \dQuote{Minutes}, \dQuote{Milliseconds}, \dQuote{Microseconds}.
+//' @param bdc An optional integer defining a business day convention, default
+//' is \dQuote{Following}, and supported values are
+//' \dQuote{Following}, \dQuote{ModifiedFollowing}, \dQuote{Preceding},
+//' \dQuote{ModifiedPreceding}, \dQuote{Unadjusted},
+//' \dQuote{HalfMonthModifiedFollowing} and \dQuote{Nearest}.
 //' @param eom An optional boolean toggle whether end-of-month is to be respected
 //' @return The advanced date is returned
 //' @examples
 //' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
+//' @seealso The \code{advanceUnits} functions offers the same functionality from R.
 // [[Rcpp::export]]
-Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, int unit=0, int bdc=0, bool eom=false) {
+Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Days",
+                       const std::string& bdc = "Following", bool eom=false) {
     ql::Calendar cal = gblcal.getCalendar();
     ql::Date d = Rcpp::as<ql::Date>(rd);
     ql::BusinessDayConvention bdcval = getBusinessDayConvention(bdc);

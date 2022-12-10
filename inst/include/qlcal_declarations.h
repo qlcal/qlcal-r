@@ -8,7 +8,9 @@
 #include <ql/quantlib.hpp>
 
 QuantLib::BusinessDayConvention getBusinessDayConvention(const int n);
+QuantLib::BusinessDayConvention getBusinessDayConvention(const std::string& s);
 QuantLib::Frequency getFrequency(const int n);
 QuantLib::TimeUnit getTimeUnit(const int n);
+QuantLib::TimeUnit getTimeUnit(const std::string& s);
 
 #endif

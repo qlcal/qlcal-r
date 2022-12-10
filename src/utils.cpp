@@ -18,9 +18,7 @@
 //  You should have received a copy of the GNU General Public License
 //  along with QlCal.  If not, see <http://www.gnu.org/licenses/>.
 
-
 // Taken from RQuantLib and adapted
-
 
 // [[Rcpp::interfaces(r, cpp)]]
 
@@ -54,6 +52,25 @@ ql::BusinessDayConvention getBusinessDayConvention(const int n) {
     default:
         return ql::Unadjusted;
     }
+}
+
+ql::BusinessDayConvention getBusinessDayConvention(const std::string& s) {
+    if (s == "Following")
+        return ql::Following;
+    else if (s == "ModifiedFollowing")
+        return ql::ModifiedFollowing;
+    else if (s == "Preceding")
+        return ql::Preceding;
+    else if (s == "ModifiedPreceding")
+        return ql::ModifiedPreceding;
+    else if (s == "Unadjusted")
+        return ql::Unadjusted;
+    else if (s == "HalfMonthModifiedFollowing")
+        return ql::HalfMonthModifiedFollowing;
+    else if (s == "Nearest")
+        return ql::Nearest;
+    else
+        return ql::Unadjusted;
 }
 
 ql::Frequency getFrequency(const int n) {
@@ -132,4 +149,27 @@ ql::TimeUnit getTimeUnit(const int n) {
         Rcpp::stop("Wrong TimeUnit value\n");
         break;
     }
+}
+
+ql::TimeUnit getTimeUnit(const std::string& s) {
+    if (s == "Days")
+        return ql::Days;
+    else if (s == "Weeks")
+        return ql::Weeks;
+    else if (s == "Months")
+        return ql::Months;
+    else if (s == "Years")
+        return ql::Years;
+    else if (s == "Hours")
+        return ql::Hours;
+    else if (s == "Seconds")
+        return ql::Seconds;
+    else if (s == "Minutes")
+        return ql::Minutes;
+    else if (s == "Milliseconds")
+        return ql::Milliseconds;
+    else if (s == "Microseconds")
+        return ql::Microseconds;
+    else
+        Rcpp::stop("Wrong TimeUnit value\n");
 }

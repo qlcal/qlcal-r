@@ -4,7 +4,8 @@
 \alias{advanceDate}
 \title{Advance a date}
 \usage{
-advanceDate(rd, days = 0L, unit = 0L, bdc = 0L, eom = FALSE)
+advanceDate(rd, days = 0L, unit = "Days", bdc = "Following",
+  eom = FALSE)
 }
 \arguments{
 \item{rd}{A Date object describing the date to be advanced to the
@@ -12,9 +13,16 @@ next business day.}
 
 \item{days}{An optional integer offset applied to the date}
 
-\item{unit}{An optional time unit value applied to the date (default is day)}
+\item{unit}{An optional character value denoting a time unit, default value
+is \dQuote{Day}, and supported values are \dQuote{Days}, \dQuote{Weeks},
+\dQuote{Months}, \dQuote{Years}, \dQuote{Hours}, \dQuote{Seconds},
+\dQuote{Minutes}, \dQuote{Milliseconds}, \dQuote{Microseconds}.}
 
-\item{bdc}{An optional integer defining a business day convention}
+\item{bdc}{An optional integer defining a business day convention, default
+is \dQuote{Following}, and supported values are
+\dQuote{Following}, \dQuote{ModifiedFollowing}, \dQuote{Preceding},
+\dQuote{ModifiedPreceding}, \dQuote{Unadjusted},
+\dQuote{HalfMonthModifiedFollowing} and \dQuote{Nearest}.}
 
 \item{eom}{An optional boolean toggle whether end-of-month is to be respected}
 }
@@ -31,4 +39,7 @@ given it is applied as well.
 }
 \examples{
 advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
+}
+\seealso{
+The \code{advanceUnits} functions offers the same functionality from R.
 }

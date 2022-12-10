@@ -1,11 +1,13 @@
 2022-12-10  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/dates.cpp (advanceDate): Generalize to wrapper to cal.advance
+	* src/dates.cpp (advanceDate): Generalize to wrapper to cal.advance()
 	by supporting new arguments for time unit and end-of-month
+	* src/utils.cpp: Two new helpers to parse unit and bdc from text
 	* man/advanceDate.Rd: Updated documentation
 	* src/RcppExports.cpp: Updated
 	* R/RcppExports.R: Idem
 	* inst/include/qlcal_RcppExports.h: Idem
+	* inst/include/qlcal_declarations.h: Idem
 	* tests/calendars.R: Adjusted test
 
 2022-12-07  Dirk Eddelbuettel  <edd@debian.org>

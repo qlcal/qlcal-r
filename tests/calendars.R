@@ -42,8 +42,8 @@ if (requireNamespace("qlcal", quietly=TRUE)) {
     stopifnot(getEndOfMonth(date) == as.Date("2017-01-31"))
 
     date <- as.Date("2022-01-16")       # Sunday preceding Martin Luther King, Jr Day
-    stopifnot(advanceDate(date, 0, bdc=0) == as.Date("2022-01-18"),  # day after holiday
-              advanceDate(date, 0, bdc=2) == as.Date("2022-01-14"))  # Friday before
+    stopifnot(advanceDate(date, 0, bdc="Following") == as.Date("2022-01-18"),  # day after holiday
+              advanceDate(date, 0, bdc="Preceding") == as.Date("2022-01-14"))  # Friday before
 
 
     ## testing New York Stock Exchange Holidays, cf quantlib/test-suite/calendars.cpp

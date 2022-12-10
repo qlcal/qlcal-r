@@ -114,14 +114,14 @@ RcppExport SEXP _qlcal_getId() {
     return rcpp_result_gen;
 }
 // advanceDate
-Rcpp::Date advanceDate(Rcpp::Date rd, int days, int unit, int bdc, bool eom);
+Rcpp::Date advanceDate(Rcpp::Date rd, int days, const std::string& unit, const std::string& bdc, bool eom);
 static SEXP _qlcal_advanceDate_try(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP eomSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::Date >::type rd(rdSEXP);
     Rcpp::traits::input_parameter< int >::type days(daysSEXP);
-    Rcpp::traits::input_parameter< int >::type unit(unitSEXP);
-    Rcpp::traits::input_parameter< int >::type bdc(bdcSEXP);
+    Rcpp::traits::input_parameter< const std::string& >::type unit(unitSEXP);
+    Rcpp::traits::input_parameter< const std::string& >::type bdc(bdcSEXP);
     Rcpp::traits::input_parameter< bool >::type eom(eomSEXP);
     rcpp_result_gen = Rcpp::wrap(advanceDate(rd, days, unit, bdc, eom));
     return rcpp_result_gen;
@@ -510,7 +510,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("void(*setCalendar)(std::string)");
         signatures.insert("std::string(*getName)()");
         signatures.insert("std::string(*getId)()");
-        signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,int,int,bool)");
+        signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool)");
         signatures.insert("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isHoliday)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::DateVector)");
