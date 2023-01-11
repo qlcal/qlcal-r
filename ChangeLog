@@ -1,8 +1,10 @@
 2023-01-10  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/ql/time/calendars/unitedkingdom.cpp (isBankHoliday): Add King
-	Charles III Corononation Bank Holiday
+	* src/ql/time/calendars/unitedkingdom.cpp: Add King Charles III
+	Corononation Bank Holiday
 	* src/ql/time/calendars/unitedkingdom.hpp: Updated
+	* src/ql/time/calendars/australia.cpp: Queen Elizabeth Day of Morning
+	* src/ql/time/calendars/australia.hpp: Idem
 
 2022-12-10  Dirk Eddelbuettel  <edd@debian.org>
 
