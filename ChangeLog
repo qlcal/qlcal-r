@@ -8,6 +8,7 @@
 	* src/ql/time/calendars/china.cpp: Add Chinese 2023 holidays
 	* src/ql/time/calendars/southafrica.cpp: Christmas 2022 update
 	* src/ql/time/calendars/southafrica.hpp: Idem
+	* src/ql/time/calendars/unitedstates.hpp: Removed one deprecated ctor
 
 2022-12-10  Dirk Eddelbuettel  <edd@debian.org>
 
