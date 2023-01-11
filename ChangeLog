@@ -6,6 +6,8 @@
 	* src/ql/time/calendars/australia.cpp: Queen Elizabeth Day of Morning
 	* src/ql/time/calendars/australia.hpp: Idem
 	* src/ql/time/calendars/china.cpp: Add Chinese 2023 holidays
+	* src/ql/time/calendars/southafrica.cpp: Christmas 2022 update
+	* src/ql/time/calendars/southafrica.hpp: Idem
 
 2022-12-10  Dirk Eddelbuettel  <edd@debian.org>
 
