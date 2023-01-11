@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.4 (2023-01-11)}{
+  \itemize{
+    \item The \code{advanceDate{}} function can now selects a business day
+    convention, a time unit and an end-of-month convention
+    \item Calendars routines for Australia, China, South Africa, UK, US have
+    been updated to current versions from QuantLib 1.29.
+  }
+}
+
 \section{Changes in version 0.0.3 (2022-10-19)}{
   \itemize{
     \item Correct the \code{isBusinessDay()} functionality (Fixes \ghit{2})
