@@ -1,4 +1,12 @@
+2023-01-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/time/calendars/unitedkingdom.cpp (isBankHoliday): Add King
+	Charles III Corononation Bank Holiday
+	* src/ql/time/calendars/unitedkingdom.hpp: Updated
+
 2022-12-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll micro version and date
 
 	* src/dates.cpp (advanceDate): Generalize to wrapper to cal.advance()
 	by supporting new arguments for time unit and end-of-month
