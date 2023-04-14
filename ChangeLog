@@ -1,3 +1,16 @@
+2023-04-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	[ Several changes from QuantLib 1.30 ]
+	* src/ql/time/calendars/australia.cpp: Add ASX calendar
+	* src/ql/time/calendars/australia.hpp: Idem
+	* src/ql/time/calendars/denmark.cpp: Add several missing holidays
+	* src/ql/time/calendars/denmark.hpp: Idem
+	* src/ql/time/calendars/newzealand.cpp: Add Matariki holiday
+	* src/ql/time/calendars/newzealand.hpp: Idem
+	* src/ql/time/calendars/turkey.cpp: Fix for 2019 and 2023 period
+	* src/ql/time/calendars/turkey.hpp: Fix for 2019 and 2023 period
+	* src/ql/time/calendars/unitedstates.cpp: Add Good Friday 2023
+
 2023-01-11  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.4
