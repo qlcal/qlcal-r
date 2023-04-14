@@ -1,5 +1,7 @@
 2023-04-13  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* src/calendars.cpp: Add support for ASX in Australia
 	* R/calendars.R: Idem
 
