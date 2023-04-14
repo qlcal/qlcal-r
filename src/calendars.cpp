@@ -1,7 +1,7 @@
 
 //  QlCal -- R interface to QuantLib Calendars
 //
-//  Copyright (C) 2002 - 2021  Dirk Eddelbuettel <edd@debian.org>
+//  Copyright (C) 2002 - 2023  Dirk Eddelbuettel <edd@debian.org>
 //
 //  This file is part of QlCal
 //
@@ -49,8 +49,13 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "Argentina") {
             p_cal.reset(new ql::Argentina());
 
-        } else if (txt == "Australia") {
-            p_cal.reset(new ql::Australia());
+        } else if (txt == "Australia" ||
+                   txt == "Australia/Settlement" ||
+                   txt == "Australia::Settlement") {
+            p_cal.reset(new ql::Australia(ql::Australia::Settlement));
+        } else if (txt == "Austalia/ASX" ||
+                   txt == "Australia::ASX") {
+            p_cal.reset(new ql::Australia(ql::Australia::ASX));
 
         } else if (txt == "Austria" ||
                    txt == "Austria/Settlement" ||

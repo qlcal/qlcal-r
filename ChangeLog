@@ -1,5 +1,8 @@
 2023-04-13  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/calendars.cpp: Add support for ASX in Australia
+	* R/calendars.R: Idem
+
 	[ Several changes from QuantLib 1.30 ]
 	* src/ql/time/calendars/australia.cpp: Add ASX calendar
 	* src/ql/time/calendars/australia.hpp: Idem
