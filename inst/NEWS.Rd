@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.5 (2023-04-19)}{
+  \itemize{
+    \item Calendars routines for Australia, Denmark, New Zealand, Turkey and
+    the US have been updated from QuantLib 1.30.
+    \item Support for 'Australia/ASX' has been added.
+    \item Added demo showing all US holidays in current year
+  }
+}
+
 \section{Changes in version 0.0.4 (2023-01-11)}{
   \itemize{
     \item The \code{advanceDate{}} function can now selects a business day

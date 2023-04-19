@@ -1,3 +1,14 @@
+2023-04-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.5
+
+	* demo/allUScalendars.R: Some additional polishing
+
+2023-04-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* demo/allUScalendars.R: New demo showing all holidays for all US
+	calendars in one year
+
 2023-04-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
