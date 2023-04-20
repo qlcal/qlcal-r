@@ -9,7 +9,7 @@ makeHol <- function(cal) {
     setCalendar(paste0("UnitedStates/", cal))
     hols <- getHolidays(as.Date(format(Sys.Date(), "%Y-01-01")),
                         as.Date(format(Sys.Date(), "%Y-12-31")))
-    x <- xts(rep(TRUE, length(h)), order.by=hols)
+    x <- xts(rep(TRUE, length(hols)), order.by=hols)
     colnames(x) <- cal
     x
 }
