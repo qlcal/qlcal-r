@@ -1,3 +1,7 @@
+2023-04-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 2023-04-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* demo/allUScalendars.R (makeHol): Fix teeny bug
