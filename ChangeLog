@@ -1,3 +1,11 @@
+2023-05-22  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
+	* src/ql/time/asx.hpp: Remove unused file
+	* src/ql/time/ecb.hpp: Idem
+	* src/ql/time/imm.hpp: Idem
+
 2023-05-22  Sebastian Schmidt  <schmidt@lone-star.de>
 
 	[ Post-QuantLib 1.30 updates ]
