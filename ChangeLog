@@ -1,3 +1,12 @@
+2023-05-22  Sebastian Schmidt  <schmidt@lone-star.de>
+
+	[ Post-QuantLib 1.30 updates ]
+	* src/ql/time/calendars/hongkong.cpp: Updated
+	* src/ql/time/calendars/india.cpp: Idem
+	* src/ql/time/calendars/india.hpp: Idem
+	* src/ql/time/calendars/singapore.cpp: Idem
+	* src/ql/time/calendars/southkorea.cpp: Idem
+
 2023-04-23  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
