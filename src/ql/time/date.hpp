@@ -31,17 +31,16 @@
 #ifndef quantlib_date_hpp
 #define quantlib_date_hpp
 
-#include <ql/errors.hpp>
 #include <ql/time/period.hpp>
 #include <ql/time/weekday.hpp>
 #include <ql/utilities/null.hpp>
-#include <boost/cstdint.hpp>
 
 #ifdef QL_HIGH_RESOLUTION_DATE
 #include <boost/date_time/posix_time/ptime.hpp>
 #include <boost/date_time/posix_time/posix_time_duration.hpp>
 #endif
 
+#include <cstdint>
 #include <utility>
 #include <functional>
 #include <string>
@@ -126,7 +125,7 @@ namespace QuantLib {
     class Date {
       public:
         //! serial number type
-        typedef boost::int_fast32_t serial_type;
+        typedef std::int_fast32_t serial_type;
         //! \name constructors
         //@{
         //! Default constructor returning a null date.
@@ -289,10 +288,10 @@ namespace QuantLib {
       Example:
 
       \code{.cpp}
-      #include <boost/unordered_set.hpp>
+      #include <unordered_set>
 
-      boost::unordered_set<Date> set;
-      Date d = Date(1, Jan, 2020);
+      std::unordered_set<Date> set;
+      Date d = Date(1, Jan, 2020); 
 
       set.insert(d);
       assert(set.count(d)); // 'd' was added to 'set'
@@ -371,7 +370,16 @@ namespace QuantLib {
 
     }
 
+    #ifdef QL_NULL_AS_FUNCTIONS
+
     //! specialization of Null template for the Date class
+    template <>
+    inline Date Null<Date>() {
+        return {};
+    }
+
+    #else
+
     template <>
     class Null<Date> {
       public:
@@ -379,6 +387,7 @@ namespace QuantLib {
         operator Date() const { return {}; }
     };
 
+    #endif
 
 #ifndef QL_HIGH_RESOLUTION_DATE
     // inline definitions
@@ -458,6 +467,15 @@ namespace QuantLib {
         return (d1.serialNumber() >= d2.serialNumber());
     }
 #endif
+}
+
+namespace std {
+    template<>
+    struct hash<QuantLib::Date> {
+        std::size_t operator()(const QuantLib::Date& d) const {
+            return QuantLib::hash_value(d);
+        }
+    };
 }
 
 #endif
