@@ -1,3 +1,26 @@
+2023-05-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/errors.cpp: Added from current QuantLib
+        * src/ql/errors.hpp: Idem
+        * src/ql/optional.cpp: Synchronized with current QuantLib
+        * src/ql/optional.hpp: Idem
+        * src/ql/patterns/observable.cpp: Idem
+        * src/ql/patterns/observable.hpp: Idem
+        * src/ql/patterns/singleton.hpp: Idem
+        * src/ql/settings.hpp: Idem
+        * src/ql/time/date.cpp: Idem
+        * src/ql/time/date.hpp: Idem
+        * src/ql/time/period.cpp: Idem
+        * src/ql/time/period.hpp: Idem
+        * src/ql/utilities/dataformatters.hpp: Idem
+        * src/ql/utilities/dataparsers.cpp: Idem
+        * src/ql/utilities/dataparsers.hpp: Idem
+        * src/ql/utilities/null.hpp: Idem
+        * src/ql/utilities/observablevalue.hpp: Idem
+
+	* src/Makevars: Added errors.cpp
+	* src/Makevars.win: Idem
+
 2023-05-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
