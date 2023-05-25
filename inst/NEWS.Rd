@@ -3,6 +3,16 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.6 (2023-05-24)}{
+  \itemize{
+    \item Several calendars (India, Singapore, South Africa, South Korea)
+    updated with post-QuantLib 1.3.0 changes (Sebastian Schmidt in \ghpr{6})
+    \item Three now-used scheduled files were removed (Dirk in \ghpr{7}))
+    \item A number of non-calendaring files used were synchronised with the
+    current QuantLib repo (Dirk in \ghpr{8})
+  }
+}
+
 \section{Changes in version 0.0.5 (2023-04-19)}{
   \itemize{
     \item Calendars routines for Australia, Denmark, New Zealand, Turkey and
