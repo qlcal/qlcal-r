@@ -1,3 +1,17 @@
+2023-07-19  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
+	* src/ql/time/calendars/*.*pp: Bulk update of cpp and hpp files from
+	QuantLib 1.31 with fixes for rolling rules in South Korean, fixes as
+	well as additions for Hong Kong, additions for Singapore, India and
+	Taiwan, additions of election days in South Africa and South Korea,
+	updates and fixes for Denmark and Finland; see the QuantLib 1.31
+	release announcement for the full list
+
+	* src/calendars.cpp: Add support for UnitedStates/SOFR
+	* R/calendars.R: Idem
+
 2023-05-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.6
