@@ -2,6 +2,7 @@
 
 /*
  Copyright (C) 2005, 2007, 2008, 2009, 2010, 2011 StatPro Italia srl
+ Copyright (C) 2023 Skandinaviska Enskilda Banken AB (publ)
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -63,11 +64,12 @@ namespace QuantLib {
         <li>Guru Nanak Jayanti</li>
         </ul>
 
+        Note: The holidays Ramzan Id, Bakri Id and Id-E-Milad rely on estimates for 2023-2025.
         \ingroup calendars
     */
     class India : public Calendar {
       private:
-        class NseImpl : public Calendar::WesternImpl {
+        class NseImpl final : public Calendar::WesternImpl {
           public:
             std::string name() const override { return "National Stock Exchange of India"; }
             bool isBusinessDay(const Date&) const override;

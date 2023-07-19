@@ -2,6 +2,7 @@
 
 /*
  Copyright (C) 2005, 2007, 2008, 2009, 2010, 2011 StatPro Italia srl
+ Copyright (C) 2023 Skandinaviska Enskilda Banken AB (publ)
 
  This file is part of QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -346,7 +347,7 @@ namespace QuantLib {
               )
               return false;
       }
-        
+
         if (y == 2021) {
             if (// Chatrapati Shivaji Jayanti
                 (d == 19 && m == February)
@@ -474,7 +475,7 @@ namespace QuantLib {
                 return false;
         }
 
-        return true;
+     return true;
     }
 
 }

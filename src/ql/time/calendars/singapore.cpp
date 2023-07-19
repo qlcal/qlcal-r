@@ -111,12 +111,12 @@ namespace QuantLib {
             || (d == 28 && m == July && y == 2014)
             )
             return false; // NOLINT(readability-simplify-boolean-expr)
-        
-         // https://api2.sgx.com/sites/default/files/2019-01/2019%20DT%20Calendar.pdf
+
+        // https://api2.sgx.com/sites/default/files/2019-01/2019%20DT%20Calendar.pdf
         if (y == 2019)
         {
             if ( // Chinese New Year
-                ((d == 1 || d == 2) && m == February)
+                ((d == 5 || d == 6) && m == February)
                 // Vesak Poya Day
                 || (d == 20 && m == May)
                 // Hari Raya Puasa
