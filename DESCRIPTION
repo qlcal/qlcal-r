@@ -1,7 +1,7 @@
 Package: qlcal
 Type: Package
 Title: R Bindings to the Calendaring Functionality of 'QuantLib'
-Version: 0.0.6.1
+Version: 0.0.7
 Date: 2023-07-19
 Author: Dirk Eddelbuettel; the authors and contributors of QuantLib
 Maintainer: Dirk Eddelbuettel <edd@debian.org>

@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.7 (2023-07-19)}{
+  \itemize{
+    \item Updates, extensions and corrections to calendars from South Korea,
+    Hong Kong, Singapore, India, Taiwan, South Africa, Denmark and Finland
+    from QuantLib 1.31
+    \item Added support for UnitedStates/SOFR calendar
+  }
+}
+
 \section{Changes in version 0.0.6 (2023-05-24)}{
   \itemize{
     \item Several calendars (India, Singapore, South Africa, South Korea)
