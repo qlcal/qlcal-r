@@ -45,6 +45,9 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "UnitedStates/FederalReserve" ||
                    txt == "UnitedStates::FederalReserve") {
             p_cal.reset(new ql::UnitedStates(ql::UnitedStates::FederalReserve));
+        } else if (txt == "UnitedStates/SOFR" ||
+                   txt == "UnitedStates::SOFR") {
+            p_cal.reset(new ql::UnitedStates(ql::UnitedStates::SOFR));
 
         } else if (txt == "Argentina") {
             p_cal.reset(new ql::Argentina());
