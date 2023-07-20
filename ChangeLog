@@ -12,6 +12,8 @@
 	* src/calendars.cpp: Add support for UnitedStates/SOFR
 	* R/calendars.R: Idem
 
+	* demo/allUScalendars.R (makeHol): Add SOFR to holiday demo
+
 2023-05-24  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.6

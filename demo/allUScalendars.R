@@ -15,5 +15,5 @@ makeHol <- function(cal) {
 }
 
 ## see R/calendars.R in qlcal, we prepend 'UnitedStates/' in makeHol()
-cals <- c("LiborImpact", "NYSE", "GovernmentBond", "NERC", "FederalReserve")
+cals <- c("LiborImpact", "NYSE", "GovernmentBond", "NERC", "FederalReserve", "SOFR")
 print(Reduce(cbind, Map(makeHol, cals)))
