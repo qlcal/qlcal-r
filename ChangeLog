@@ -1,5 +1,7 @@
 2023-07-20  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* src/calendars.cpp: Correct type in dispatch for 'Australia/ASX'
 
 	* .gitignore: Add nested source directories
