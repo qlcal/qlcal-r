@@ -2,6 +2,9 @@
 .Rhistory
 .RData
 src/*.o
+src/*/*.o
+src/*/*/*.o
+src/*/*/*/*.o
 src/*.so
 src/*.dll
 /FIXME
@@ -9,3 +12,4 @@ rcppquantuccia.Rproj
 GPATH
 GRTAGS
 GTAGS
+local/*
