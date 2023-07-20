@@ -1,3 +1,7 @@
+2023-07-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/calendars.cpp: Correct type in dispatch for 'Australia/ASX'
+
 2023-07-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.7

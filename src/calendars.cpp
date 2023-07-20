@@ -56,7 +56,7 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
                    txt == "Australia/Settlement" ||
                    txt == "Australia::Settlement") {
             p_cal.reset(new ql::Australia(ql::Australia::Settlement));
-        } else if (txt == "Austalia/ASX" ||
+        } else if (txt == "Australia/ASX" ||
                    txt == "Australia::ASX") {
             p_cal.reset(new ql::Australia(ql::Australia::ASX));
 
