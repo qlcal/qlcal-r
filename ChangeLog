@@ -1,8 +1,14 @@
+2023-10-20  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/calendars.cpp: Sync with QuantLib 1.32
+	* src/calendar/southkorea.cpp: Idem
+	* src/patterns/observable.{c,h}pp: Idem
+
 2023-07-20  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
 
-	* src/calendars.cpp: Correct type in dispatch for 'Australia/ASX'
+	* src/calendars.cpp: Correct typo in dispatch for 'Australia/ASX'
 
 	* .gitignore: Add nested source directories
 
