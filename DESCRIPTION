@@ -12,6 +12,7 @@ Description: 'QuantLib' bindings are provided for R using 'Rcpp' via an evolved 
 URL: https://github.com/qlcal/qlcal-r, https://dirk.eddelbuettel.com/code/rcpp.quantuccia.html
 BugReports: https://github.com/qlcal/qlcal-r/issues
 License: GPL (>= 2)
+Depends: R (>= 4.2.0)
 Imports: Rcpp
 LinkingTo: Rcpp, BH
 RoxygenNote: 6.0.1

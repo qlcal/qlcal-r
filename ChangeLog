@@ -1,5 +1,11 @@
 2023-10-20  Dirk Eddelbuettel  <edd@debian.org>
 
+	* README.md: Add discussion of implicit C++14 use via R 4.2.0 or
+	newer, and detail how to build for older R if needed
+	* DESCRIPTION (Depends): Add 'R (>= 4.2.0)'
+	* src/Makevars (CXX_STD): Commented-out
+	* src/Makevars.win (CXX_STD): Ditto
+
 	* src/calendars.cpp: Sync with QuantLib 1.32
 	* src/calendar/southkorea.cpp: Idem
 	* src/patterns/observable.{c,h}pp: Idem

@@ -163,6 +163,12 @@ remotes::install_github("qlcal/qlcal-r")
 
 It only requires `Rcpp` and `BH` both of which are available whereever `R` itself runs.
 
+Note that the package requires C++14 or newer due to the `BH` (_i.e. Boost) use.
+As R nags when we set `CXX_STD` we switched to requested 'R (>= 4.2.0)' where this requirement is
+implicitly satisfies. _If you need the package on an older R version, remove that versioned
+constraint and uncomment `CXX_STD = CXX14` in `src/Makevars` (or `src/Makevars.win`)._
+
+
 ### Authors
 
 Dirk Eddelbuettel for the package and integration.
