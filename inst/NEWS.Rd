@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.8 (2023-10-21)}{
+  \itemize{
+    \item A small set of updates from QuantLib 1.32 have been applied
+    \item The explicit C++14 compilation standard has been replaced with
+    an implicit one by relying on R (>= 4.2.0)
+  }
+}
+
 \section{Changes in version 0.0.7 (2023-07-19)}{
   \itemize{
     \item Updates, extensions and corrections to calendars from South Korea,
