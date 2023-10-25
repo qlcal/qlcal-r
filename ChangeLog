@@ -1,5 +1,7 @@
 2023-10-25  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* tools/configure.R: New helper script to set C++ compilation
 	standard only when needed for R versions that are older than R 4.2.0
 	* configure: Call the new helper script
