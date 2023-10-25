@@ -1,9 +1,9 @@
 
-## This is a C++14 package.
+## This is a C++14 package due to its use of Boost headers requiring it
 ##
 ## By requesting R (>= 4.2.0) we get this automagically without a nag
 ## that we should only set CXX_STD if it is truly needed,
-#CXX_STD = CXX14
+@CXXSTD@
 
 ## We need the headers in inst/include
 ## This one helps with Boost noise but is not allowed by CRAN as 'not portable': -Wno-parentheses

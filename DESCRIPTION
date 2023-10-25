@@ -9,10 +9,9 @@ Description: 'QuantLib' bindings are provided for R using 'Rcpp' via an evolved 
  of the initial header-only 'Quantuccia' project offering an subset of 'QuantLib' (now
  maintained separately just for the calendaring subset). See the included file 'AUTHORS'
  for a full list of contributors to 'QuantLib' (and hence also 'Quantuccia').
-URL: https://github.com/qlcal/qlcal-r, https://dirk.eddelbuettel.com/code/rcpp.quantuccia.html
+URL: https://github.com/qlcal/qlcal-r, https://dirk.eddelbuettel.com/code/qlcal-r.html
 BugReports: https://github.com/qlcal/qlcal-r/issues
 License: GPL (>= 2)
-Depends: R (>= 4.2.0)
 Imports: Rcpp
 LinkingTo: Rcpp, BH
 RoxygenNote: 6.0.1

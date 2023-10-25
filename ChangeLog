@@ -1,3 +1,15 @@
+2023-10-25  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tools/configure.R: New helper script to set C++ compilation
+	standard only when needed for R versions that are older than R 4.2.0
+	* configure: Call the new helper script
+	* configure.win: Idem
+	* src/Makevars.in: Converted for use by helper
+	* src/Makevars.win.in: Idem
+	* cleanup: Also remove src/Makevars and src/Makevars.win
+	* README.md: Update note on compilation standard
+	* DESCRIPTION (Depends): Remove 'R (>= 4.2.0)'
+
 2023-10-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version): Release 0.0.8
