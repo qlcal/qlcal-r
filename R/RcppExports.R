@@ -194,5 +194,5 @@ getBusinessDays <- function(from, to) {
 
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
-    .Call('_qlcal_RcppExport_registerCCallable', PACKAGE = 'qlcal')
+    .Call(`_qlcal_RcppExport_registerCCallable`)
 })

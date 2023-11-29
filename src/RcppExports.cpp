@@ -42,7 +42,7 @@ RcppExport SEXP _qlcal_setCalendar(SEXP calstrSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -75,7 +75,7 @@ RcppExport SEXP _qlcal_getName() {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -108,7 +108,7 @@ RcppExport SEXP _qlcal_getId() {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -146,7 +146,7 @@ RcppExport SEXP _qlcal_advanceDate(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SE
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -180,7 +180,7 @@ RcppExport SEXP _qlcal_isBusinessDay(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -214,7 +214,7 @@ RcppExport SEXP _qlcal_isHoliday(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -248,7 +248,7 @@ RcppExport SEXP _qlcal_isWeekend(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -282,7 +282,7 @@ RcppExport SEXP _qlcal_isEndOfMonth(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -316,7 +316,7 @@ RcppExport SEXP _qlcal_getEndOfMonth(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -351,7 +351,7 @@ RcppExport SEXP _qlcal_adjust_cpp(SEXP datesSEXP, SEXP bdcSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -389,7 +389,7 @@ RcppExport SEXP _qlcal_advanceUnits_cpp(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEX
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -426,7 +426,7 @@ RcppExport SEXP _qlcal_businessDaysBetween(SEXP fromSEXP, SEXP toSEXP, SEXP incl
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -462,7 +462,7 @@ RcppExport SEXP _qlcal_getHolidays(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeeke
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -497,7 +497,7 @@ RcppExport SEXP _qlcal_getBusinessDays(SEXP fromSEXP, SEXP toSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
