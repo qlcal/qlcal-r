@@ -3,6 +3,15 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.9 (2023-11-29)}{
+  \itemize{
+    \item \code{configure} now uses a new helper script to only set a
+    compilation standard when needed for R versions older than 4.2.0
+    \item The file \code{RcppExports.cpp} was regenerated to avoid a string
+    format warning from R-devel
+  }
+}
+
 \section{Changes in version 0.0.8 (2023-10-21)}{
   \itemize{
     \item A small set of updates from QuantLib 1.32 have been applied
