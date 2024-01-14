@@ -3,6 +3,12 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.9.1 (2024-01-14)}{
+  \itemize{
+    \item Synchronized with (release candidate of) QuantLib 1.32
+  }
+}
+
 \section{Changes in version 0.0.9 (2023-11-29)}{
   \itemize{
     \item \code{configure} now uses a new helper script to only set a
@@ -17,6 +23,7 @@
     \item A small set of updates from QuantLib 1.32 have been applied
     \item The explicit C++14 compilation standard has been replaced with
     an implicit one by relying on R (>= 4.2.0)
+    \item Synchronized with QuantLib 1.32
   }
 }
 
@@ -32,7 +39,7 @@
 \section{Changes in version 0.0.6 (2023-05-24)}{
   \itemize{
     \item Several calendars (India, Singapore, South Africa, South Korea)
-    updated with post-QuantLib 1.3.0 changes (Sebastian Schmidt in \ghpr{6})
+    updated with post-QuantLib 1.30 changes (Sebastian Schmidt in \ghpr{6})
     \item Three now-used scheduled files were removed (Dirk in \ghpr{7}))
     \item A number of non-calendaring files used were synchronised with the
     current QuantLib repo (Dirk in \ghpr{8})

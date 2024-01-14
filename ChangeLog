@@ -1,3 +1,15 @@
+2024-01-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/time/calendars/brazil.{cpp,hpp}: Updated from QuantLib 1.33
+	* src/ql/time/calendars/chile.{cpp,hpp}: Idem
+	* src/ql/time/calendars/china.cpp: Idem
+	* src/ql/time/calendars/southafrica.cpp: Idem
+	* src/ql/time/calendars/taiwan.{cpp,hpp}: Idem
+	* src/ql/time/calendars/thailand.{cpp,hpp}: Idem
+	* src/ql/time/calendars/unitedstates.{cpp,hpp}: Idem
+	* src/ql/patterns/observable.{cpp,hpp}: Idem
+	* src/ql/time/date.hpp: Idem
+
 2023-11-29  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.9
