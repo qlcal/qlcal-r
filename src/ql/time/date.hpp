@@ -104,7 +104,7 @@ namespace QuantLib {
     typedef boost::posix_time::time_duration::fractional_seconds_type
         Millisecond;
 
-    //! Millisecond number
+    //! Microsecond number
     /*! \ingroup datetime */
     typedef boost::posix_time::time_duration::fractional_seconds_type
         Microsecond;
@@ -291,7 +291,7 @@ namespace QuantLib {
       #include <unordered_set>
 
       std::unordered_set<Date> set;
-      Date d = Date(1, Jan, 2020); 
+      Date d = Date(1, Jan, 2020);
 
       set.insert(d);
       assert(set.count(d)); // 'd' was added to 'set'
