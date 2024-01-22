@@ -13,3 +13,5 @@ inst/include/ql/math/randomnumbers/sobolrsg.hpp
 ^GPATH
 ^GRTAGS
 ^GTAGS
+src/ql/time/calendars/Makefile.am
+src/ql/time/calendars/Makefile.in

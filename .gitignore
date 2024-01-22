@@ -13,3 +13,6 @@ GPATH
 GRTAGS
 GTAGS
 local/*
+## these are in the calendars directory and always rsync
+src/ql/time/calendars/Makefile.am
+src/ql/time/calendars/Makefile.in
