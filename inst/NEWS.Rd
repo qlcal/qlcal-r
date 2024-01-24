@@ -3,9 +3,9 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
-\section{Changes in version 0.0.9.1 (2024-01-14)}{
+\section{Changes in version 0.0.10 (2024-01-24)}{
   \itemize{
-    \item Synchronized with (release candidate of) QuantLib 1.32
+    \item Synchronized with QuantLib 1.33
   }
 }
 
