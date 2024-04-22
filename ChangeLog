@@ -1,3 +1,14 @@
+2024-04-21  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/time/calendars/brazil.{cpp,hpp}: Updated from QuantLib 1.34 (rc)
+	* src/ql/time/calendars/india.cpp: Idem
+	* src/ql/time/calendars/singapore.{cpp,hpp}: Idem
+	* src/ql/time/calendars/southafrica.cpp: Idem
+	* src/ql/time/calendars/thailand.cpp: Idem
+	* src/ql/time/calendars/unitedstates.cpp: Idem
+	* src/ql/patterns/observable.{cpp,hpp}: Idem
+	* src/ql/time/date.hpp: Idem
+
 2024-02-19  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Update to actions/checkout@v4,
