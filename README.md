@@ -6,7 +6,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/qlcal/qlcal-r)](https://github.com/qlcal/qlcal-r)
 [![CRAN](https://www.r-pkg.org/badges/version/qlcal)](https://cran.r-project.org/package=qlcal)
 [![r-universe](https://qlcal.r-universe.dev/badges/qlcal)](https://qlcal.r-universe.dev/qlcal)
-[![Dependencies](https://tinyverse.netlify.com/badge/qlcal)](https://cran.r-project.org/package=qlcal)
+[![Dependencies](https://tinyverse.netlify.app/badge/qlcal)](https://cran.r-project.org/package=qlcal)
 [![Downloads](https://cranlogs.r-pkg.org/badges/qlcal?color=brightgreen)](https://www.r-pkg.org/pkg/qlcal)
 
 `qlcal` brings the calendaring functionality from the [QuantLib](https://www.quantlib.org) project to R.
