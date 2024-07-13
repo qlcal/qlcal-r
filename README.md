@@ -169,6 +169,13 @@ set `CXX_STD` we switched to requested `R (>= 4.2.0)` where this requirement is 
 satisfied.  On an older R version, the `configure` scripts uncomments `CXX_STD = CXX14` in
 `src/Makevars` (or `src/Makevars.win`).
 
+### See Also
+
+Luigi Ballabio describe [Holidays in
+QuantLib](https://www.implementingquantlib.com/2024/07/holidays-in-quantlib.html)
+in an introductory article at the [Implementing
+QuantLib](https://www.implementingquantlib.com) blog.
+
 ### Authors
 
 Dirk Eddelbuettel for the package and integration.

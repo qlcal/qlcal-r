@@ -1,3 +1,7 @@
+2024-07-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Add link to introductory 'Holidays in QuantLib' piece
+
 2024-07-12  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/ql/time/calendars/brazil.?pp: Updated from QuantLib 1.35 (rc)
