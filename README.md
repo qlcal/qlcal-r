@@ -171,7 +171,7 @@ satisfied.  On an older R version, the `configure` scripts uncomments `CXX_STD =
 
 ### See Also
 
-Luigi Ballabio describe [Holidays in
+Luigi Ballabio describes [Holidays in
 QuantLib](https://www.implementingquantlib.com/2024/07/holidays-in-quantlib.html)
 in an introductory article at the [Implementing
 QuantLib](https://www.implementingquantlib.com) blog.
