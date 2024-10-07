@@ -65,7 +65,6 @@ SOURCES = \
         ql/utilities/dataformatters.cpp \
         ql/utilities/dataparsers.cpp \
 	ql/errors.cpp \
-	ql/optional.cpp \
 	ql/settings.cpp \
         calendars.cpp \
         dates.cpp \
