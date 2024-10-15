@@ -1,8 +1,8 @@
 Package: qlcal
 Type: Package
 Title: R Bindings to the Calendaring Functionality of 'QuantLib'
-Version: 0.0.12.1
-Date: 2024-10-07
+Version: 0.0.13
+Date: 2024-10-15
 Authors@R: c(person("Dirk", "Eddelbuettel", role = c("aut", "cre"), email = "edd@debian.org",
                     comment = c(ORCID = "0000-0001-6419-907X")),
              person("QuantLib Authors", role = "aut"))
