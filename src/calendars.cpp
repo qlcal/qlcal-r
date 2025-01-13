@@ -167,8 +167,11 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "Mexico") {
             p_cal.reset(new ql::Mexico());
 
-        } else if (txt == "NewZealand") {
-            p_cal.reset(new ql::NewZealand());
+        } else if (txt == "NewZealand" ||
+                   txt == "NewZealand/Wellington") {
+            p_cal.reset(new ql::NewZealand(ql::NewZealand::Wellington));
+        } else if (txt == "NewZealand/Auckland") {
+            p_cal.reset(new ql::NewZealand(ql::NewZealand::Auckland));
 
         } else if (txt == "Norway") {
             p_cal.reset(new ql::Norway());

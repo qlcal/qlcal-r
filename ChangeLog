@@ -3,6 +3,9 @@
 	* src/ql/time/calendars/newzealand.?pp: Updated from QuantLib 1.37 (rc)
 	* src/ql/time/calendars/unitedstates.cpp: Idem
 
+	* src/calendars.cpp (QlCal::CalendarContainer::setCalendar): Add
+	'Auckland' to new New Zealand with 'Wellington' the default as before
+
 2024-10-15  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.0.13
