@@ -1,3 +1,10 @@
+2025-01-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.14
+
+	* inst/examples/allUScalendars.R: Moved from demo/
+	* demo/: Removed
+
 2025-01-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date

@@ -3,6 +3,14 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.0.14 (2025-01-23)}{
+  \itemize{
+    \item Synchronized with QuantLib 1.37 released two days ago
+    \item Calendar updates for United States and New Zealand
+    \item The \code{demo/} file is now in \code{inst/examples/}
+  }
+}
+
 \section{Changes in version 0.0.13 (2024-10-15)}{
   \itemize{
     \item Synchronized with QuantLib 1.36 released yesterday
