@@ -1,3 +1,11 @@
+2025-04-23  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.15
+
+	* src/ql/time/calendars/china.cpp: Updated from QuantLib 1.38
+	* src/ql/time/calendars/hongking.cpp: Idem
+	* src/ql/time/calendars/thailand.cpp: Idem
+
 2025-02-14  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Use r-ci action with bootstrap
