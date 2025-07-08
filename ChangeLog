@@ -1,5 +1,7 @@
 2025-07-08  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* src/Makevars.in: Adjust for QL 1.39 via DQL_USE_STD_OPTIONAL
 	* src/Makevars.win.in: Idem
 
