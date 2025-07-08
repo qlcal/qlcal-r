@@ -7,7 +7,7 @@
 
 ## We need the headers in inst/include
 ## This one helps with Boost noise but is not allowed by CRAN as 'not portable': -Wno-parentheses
-PKG_CPPFLAGS = -I. -I../inst/include/ -DBOOST_NO_AUTO_PTR -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE
+PKG_CPPFLAGS = -I. -I../inst/include/ -DBOOST_NO_AUTO_PTR -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE -DQL_USE_STD_OPTIONAL
 
 SOURCES = \
         ql/patterns/observable.cpp \

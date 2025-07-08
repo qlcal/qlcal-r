@@ -1,5 +1,8 @@
 2025-07-08  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/Makevars.in: Adjust for QL 1.39 via DQL_USE_STD_OPTIONAL
+	* src/Makevars.win.in: Idem
+
 	* src/ql/errors.cpp: Updated from QuantLib 1.39 (rc)
 	* src/ql/optional.hpp: Idem
 	* src/ql/time/calendar.cpp: Idem
