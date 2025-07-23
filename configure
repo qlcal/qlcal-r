@@ -1,5 +1,10 @@
 #!/bin/sh
 
+echo "***"
+echo "*** if compilation is 'noisy', consider adding '-Wno-parentheses -Wno-nonull' to your default compiler flags CXXFLAGS via ~/.R/Makevars"
+echo "*** we cannot add this to the package as these options are considered non-portable"
+echo "***"
+
 : ${R_HOME:=`R RHOME`}
 
 ${R_HOME}/bin/Rscript tools/configure.R
