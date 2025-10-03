@@ -1,5 +1,7 @@
 2025-10-03  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* src/ql/time/period.cpp: Updated from QuantLib 1.40rc
 	* src/ql/time/calendars/singapore.cpp: Idem (for 2025)
 	* src/ql/*: Updated QuantLib html URLs
