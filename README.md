@@ -2,7 +2,7 @@
 ## qlcal-r: QuantLib Calendaring for R
 
 [![CI](https://github.com/qlcal/qlcal-r/workflows/ci/badge.svg)](https://github.com/qlcal/qlcal-r/actions?query=workflow%3Aci)
-[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![License](https://eddelbuettel.github.io/badges/GPL2+.svg)](https://www.r-project.org/Licenses/GPL-2)
 [![Last Commit](https://img.shields.io/github/last-commit/qlcal/qlcal-r)](https://github.com/qlcal/qlcal-r)
 [![CRAN](https://www.r-pkg.org/badges/version/qlcal)](https://cran.r-project.org/package=qlcal)
 [![r-universe](https://qlcal.r-universe.dev/badges/qlcal)](https://qlcal.r-universe.dev/qlcal)

@@ -1,3 +1,9 @@
+2025-10-14  Dirk Eddelbuettel  <edd@debian.org>
+
+	* DESCRIPTION (Version, Date): Release 0.0.17
+
+	* README.md: Use www.r-project.org/Licenses/GPL-2 to avoid timeout
+
 2025-10-03  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
