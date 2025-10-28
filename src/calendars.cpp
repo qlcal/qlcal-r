@@ -245,6 +245,7 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else {        // fallback
             Rcpp::warning("Unrecognised calendar '%s' using fallback 'TARGET'", txt);
             p_cal.reset(new ql::TARGET);
+            m_id = "TARGET";
         }
     }
 }
