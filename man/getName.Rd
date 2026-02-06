@@ -9,6 +9,9 @@ getName(xp = NULL)
 
 getId(xp = NULL)
 }
+\arguments{
+\item{xp}{A calendar object created via \code{getCalendar}}
+}
 \value{
 A string with the calendar name
 }

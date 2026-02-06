@@ -276,17 +276,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::DateVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::XPtr<QlCal::CalendarContainer> getXPtr(std::string calstr) {
-        typedef SEXP(*Ptr_getXPtr)(SEXP);
-        static Ptr_getXPtr p_getXPtr = NULL;
-        if (p_getXPtr == NULL) {
-            validateSignature("Rcpp::XPtr<QlCal::CalendarContainer>(*getXPtr)(std::string)");
-            p_getXPtr = (Ptr_getXPtr)R_GetCCallable("qlcal", "_qlcal_getXPtr");
+    inline Rcpp::XPtr<QlCal::CalendarContainer> getCalendar(std::string calstr) {
+        typedef SEXP(*Ptr_getCalendar)(SEXP);
+        static Ptr_getCalendar p_getCalendar = NULL;
+        if (p_getCalendar == NULL) {
+            validateSignature("Rcpp::XPtr<QlCal::CalendarContainer>(*getCalendar)(std::string)");
+            p_getCalendar = (Ptr_getCalendar)R_GetCCallable("qlcal", "_qlcal_getCalendar");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_getXPtr(Shield<SEXP>(Rcpp::wrap(calstr)));
+            rcpp_result_gen = p_getCalendar(Shield<SEXP>(Rcpp::wrap(calstr)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

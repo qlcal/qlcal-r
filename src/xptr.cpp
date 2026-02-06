@@ -18,8 +18,19 @@ template <typename T> Rcpp::XPtr<T> make_xptr(T* p) {
     return Rcpp::XPtr<T>(p);
 }
 
+//' Get new calendar
+//'
+//' This function returns an external pointer, classed as small S3 helper class,
+//' to a new QuantLib Calendar object identified by the calendar string.
+//'
+//' @title Get new calendar objectb
+//' @param calstr Character variable identifying desired calendar
+//' @return A external pointer classed as S3 class 'qlcalendar'
+//' @examples
+//' xp <- getCalendar("UnitedStates/NYSE")
+//' xp  # invokes the print method
 // [[Rcpp::export]]
-Rcpp::XPtr<QlCal::CalendarContainer> getXPtr(std::string calstr) {
+Rcpp::XPtr<QlCal::CalendarContainer> getCalendar(std::string calstr) {
     auto p = make_xptr(new QlCal::CalendarContainer);
     p->setCalendar(calstr);
     p.attr("class") = Rcpp::CharacterVector::create("qlcalendar", "externalptr");
@@ -33,6 +44,7 @@ Rcpp::XPtr<QlCal::CalendarContainer> getXPtr(std::string calstr) {
 //' current calendar.
 //'
 //' @title Get calendar name, or id
+//' @param xp A calendar object created via \code{getCalendar}
 //' @return A string with the calendar name
 //' @examples
 //' getName()

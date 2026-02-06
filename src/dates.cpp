@@ -94,7 +94,9 @@ Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Day
 //' date is a business day in the currently active (global) calendar.
 //'
 //' @title Test for business days
-//' @param dates A Date vector with dates to be examined
+//' @param dates An optional Date vector with dates to be examined, if missing the
+//' current day is used
+//' @param xp An option calendar object
 //' @return A logical vector indicating which dates are business days
 //' @examples
 //' isBusinessDay(Sys.Date()+0:6)

@@ -52,7 +52,9 @@ advanceDate <- function(rd, days = 0L, unit = "Days", bdc = "Following", eom = F
 #' date is a business day in the currently active (global) calendar.
 #'
 #' @title Test for business days
-#' @param dates A Date vector with dates to be examined
+#' @param dates An optional Date vector with dates to be examined, if missing the
+#' current day is used
+#' @param xp An option calendar object
 #' @return A logical vector indicating which dates are business days
 #' @examples
 #' isBusinessDay(Sys.Date()+0:6)
@@ -173,8 +175,19 @@ getBusinessDays <- function(from, to) {
     .Call(`_qlcal_getBusinessDays`, from, to)
 }
 
-getXPtr <- function(calstr) {
-    .Call(`_qlcal_getXPtr`, calstr)
+#' Get new calendar
+#'
+#' This function returns an external pointer, classed as small S3 helper class,
+#' to a new QuantLib Calendar object identified by the calendar string.
+#'
+#' @title Get new calendar objectb
+#' @param calstr Character variable identifying desired calendar
+#' @return A external pointer classed as S3 class 'qlcalendar'
+#' @examples
+#' xp <- getCalendar("UnitedStates/NYSE")
+#' xp  # invokes the print method
+getCalendar <- function(calstr) {
+    .Call(`_qlcal_getCalendar`, calstr)
 }
 
 #' Get calendar name or id
@@ -184,6 +197,7 @@ getXPtr <- function(calstr) {
 #' current calendar.
 #'
 #' @title Get calendar name, or id
+#' @param xp A calendar object created via \code{getCalendar}
 #' @return A string with the calendar name
 #' @examples
 #' getName()

@@ -1,5 +1,10 @@
 2026-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
+	* src/xptr.cpp (getCalendar): Renamed from getXPtr, added
+	documentation
+	* man/getCalendar.Rd: New documentation
+	* man/getName.Rd: Updated documentation
+	* man/isBusinessDay.Rd: Idem
 	* src/dates.cpp (isBusinessDay): Generalized making date vector
 	optional using current date, also allow calendar external pointer
 	* src/RcppExports.cpp: Regenerated
