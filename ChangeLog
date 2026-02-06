@@ -1,3 +1,7 @@
+2026-02-04  Dirk Eddelbuettel  <edd@debian.org>
+
+	* inst/include/qlcal_as_wrap.h: Use inline throughout
+
 2026-01-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date
