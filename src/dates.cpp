@@ -1,7 +1,7 @@
 
 //  QlCal -- R interface to QuantLib Calendars
 //
-//  Copyright (C) 2002 - 2021  Dirk Eddelbuettel <edd@debian.org>
+//  Copyright (C) 2002 - 2026  Dirk Eddelbuettel <edd@debian.org>
 //
 //  This file is part of QlCal
 //
@@ -50,28 +50,6 @@ QlCal::CalendarContainer gblcal;
 void setCalendar(std::string calstr) {
     gblcal.setCalendar(calstr);
 }
-
-//' Get calendar name or id
-//'
-//' This function returns the corresponding (full) name (as in the underlying
-//' implementationclass) or identification string (used to select it) of the
-//' current calendar.
-//'
-//' @title Get calendar name, or id
-//' @return A string with the calendar name
-//' @examples
-//' getName()
-// [[Rcpp::export]]
-std::string getName() {
-    return gblcal.getName();
-}
-
-//' @rdname getName
-// [[Rcpp::export]]
-std::string getId() {
-    return gblcal.getId();
-}
-
 
 //' Advance a date to the next business day plus an optional shift
 //'

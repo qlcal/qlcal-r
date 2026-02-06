@@ -17,25 +17,6 @@ setCalendar <- function(calstr) {
     invisible(.Call(`_qlcal_setCalendar`, calstr))
 }
 
-#' Get calendar name or id
-#'
-#' This function returns the corresponding (full) name (as in the underlying
-#' implementationclass) or identification string (used to select it) of the
-#' current calendar.
-#'
-#' @title Get calendar name, or id
-#' @return A string with the calendar name
-#' @examples
-#' getName()
-getName <- function() {
-    .Call(`_qlcal_getName`)
-}
-
-#' @rdname getName
-getId <- function() {
-    .Call(`_qlcal_getId`)
-}
-
 #' Advance a date to the next business day plus an optional shift
 #'
 #' This function takes a given date and advances it to the next business day
@@ -190,6 +171,33 @@ getHolidays <- function(from, to, includeWeekends = FALSE) {
 #' @rdname getHolidays
 getBusinessDays <- function(from, to) {
     .Call(`_qlcal_getBusinessDays`, from, to)
+}
+
+getXPtr <- function(calstr) {
+    .Call(`_qlcal_getXPtr`, calstr)
+}
+
+isBusinessDate <- function(date = NULL, xp = NULL) {
+    .Call(`_qlcal_isBusinessDate`, date, xp)
+}
+
+#' Get calendar name or id
+#'
+#' This function returns the corresponding (full) name (as in the underlying
+#' implementationclass) or identification string (used to select it) of the
+#' current calendar.
+#'
+#' @title Get calendar name, or id
+#' @return A string with the calendar name
+#' @examples
+#' getName()
+getName <- function(xp = NULL) {
+    .Call(`_qlcal_getName`, xp)
+}
+
+#' @rdname getName
+getId <- function(xp = NULL) {
+    .Call(`_qlcal_getId`, xp)
 }
 
 # Register entry points for exported C++ functions
