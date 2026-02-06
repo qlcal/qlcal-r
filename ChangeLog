@@ -10,6 +10,7 @@
 	* src/RcppExports.cpp: Regenerated
 	* R/RcppExports.R: Idem
 	* inst/include/qlcal_RcppExports.h: Idem
+	* src/Makevars.win: Add xptr.cpp
 
 2026-02-05  Dirk Eddelbuettel  <edd@debian.org>
 

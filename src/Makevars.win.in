@@ -69,6 +69,7 @@ SOURCES = \
         calendars.cpp \
         dates.cpp \
         utils.cpp \
+	xptr.cpp \
         RcppExports.cpp
 
 OBJECTS = $(SOURCES:.cpp=.o)
