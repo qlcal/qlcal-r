@@ -42,7 +42,7 @@ RcppExport SEXP _qlcal_setCalendar(SEXP calstrSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -75,7 +75,7 @@ RcppExport SEXP _qlcal_getName() {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -108,7 +108,7 @@ RcppExport SEXP _qlcal_getId() {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -146,7 +146,7 @@ RcppExport SEXP _qlcal_advanceDate(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SE
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -180,7 +180,7 @@ RcppExport SEXP _qlcal_isBusinessDay(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -214,7 +214,7 @@ RcppExport SEXP _qlcal_isHoliday(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -248,7 +248,7 @@ RcppExport SEXP _qlcal_isWeekend(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -282,7 +282,7 @@ RcppExport SEXP _qlcal_isEndOfMonth(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -316,7 +316,7 @@ RcppExport SEXP _qlcal_getEndOfMonth(SEXP datesSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -351,7 +351,7 @@ RcppExport SEXP _qlcal_adjust_cpp(SEXP datesSEXP, SEXP bdcSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -389,7 +389,7 @@ RcppExport SEXP _qlcal_advanceUnits_cpp(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEX
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -426,7 +426,7 @@ RcppExport SEXP _qlcal_businessDaysBetween(SEXP fromSEXP, SEXP toSEXP, SEXP incl
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -462,7 +462,7 @@ RcppExport SEXP _qlcal_getHolidays(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeeke
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -497,10 +497,33 @@ RcppExport SEXP _qlcal_getBusinessDays(SEXP fromSEXP, SEXP toSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
+        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
+}
+// getXPtr
+Rcpp::XPtr<QlCal::CalendarContainer> getXPtr(std::string calstr);
+RcppExport SEXP _qlcal_getXPtr(SEXP calstrSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< std::string >::type calstr(calstrSEXP);
+    rcpp_result_gen = Rcpp::wrap(getXPtr(calstr));
+    return rcpp_result_gen;
+END_RCPP
+}
+// isBusinessDate
+bool isBusinessDate(Rcpp::Nullable<Rcpp::Date> date, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
+RcppExport SEXP _qlcal_isBusinessDate(SEXP dateSEXP, SEXP xpSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::Date> >::type date(dateSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
+    rcpp_result_gen = Rcpp::wrap(isBusinessDate(date, xp));
+    return rcpp_result_gen;
+END_RCPP
 }
 
 // validate (ensure exported C++ functions exist before calling them)
@@ -560,6 +583,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_businessDaysBetween", (DL_FUNC) &_qlcal_businessDaysBetween, 4},
     {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 3},
     {"_qlcal_getBusinessDays", (DL_FUNC) &_qlcal_getBusinessDays, 2},
+    {"_qlcal_getXPtr", (DL_FUNC) &_qlcal_getXPtr, 1},
+    {"_qlcal_isBusinessDate", (DL_FUNC) &_qlcal_isBusinessDate, 2},
     {"_qlcal_RcppExport_registerCCallable", (DL_FUNC) &_qlcal_RcppExport_registerCCallable, 0},
     {NULL, NULL, 0}
 };

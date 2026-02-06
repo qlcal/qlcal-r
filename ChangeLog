@@ -1,3 +1,10 @@
+2026-02-05  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/xptr.cpp: Initial proof of concept use of XPtr
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* src/Makevars.in: Add xptr.cpp
+
 2026-02-04  Dirk Eddelbuettel  <edd@debian.org>
 
 	* inst/include/qlcal_as_wrap.h: Use inline throughout

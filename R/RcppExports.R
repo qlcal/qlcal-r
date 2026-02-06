@@ -192,6 +192,14 @@ getBusinessDays <- function(from, to) {
     .Call(`_qlcal_getBusinessDays`, from, to)
 }
 
+getXPtr <- function(calstr) {
+    .Call(`_qlcal_getXPtr`, calstr)
+}
+
+isBusinessDate <- function(date = NULL, xp = NULL) {
+    .Call(`_qlcal_isBusinessDate`, date, xp)
+}
+
 # Register entry points for exported C++ functions
 methods::setLoadAction(function(ns) {
     .Call(`_qlcal_RcppExport_registerCCallable`)
