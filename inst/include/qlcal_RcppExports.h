@@ -66,17 +66,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::Date >(rcpp_result_gen);
     }
 
-    inline Rcpp::LogicalVector isBusinessDay(Rcpp::DateVector dates) {
-        typedef SEXP(*Ptr_isBusinessDay)(SEXP);
+    inline Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_isBusinessDay)(SEXP,SEXP);
         static Ptr_isBusinessDay p_isBusinessDay = NULL;
         if (p_isBusinessDay == NULL) {
-            validateSignature("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::DateVector)");
+            validateSignature("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_isBusinessDay = (Ptr_isBusinessDay)R_GetCCallable("qlcal", "_qlcal_isBusinessDay");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_isBusinessDay(Shield<SEXP>(Rcpp::wrap(dates)));
+            rcpp_result_gen = p_isBusinessDay(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -295,27 +295,6 @@ namespace qlcal {
         if (rcpp_result_gen.inherits("try-error"))
             throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
         return Rcpp::as<Rcpp::XPtr<QlCal::CalendarContainer> >(rcpp_result_gen);
-    }
-
-    inline bool isBusinessDate(Rcpp::Nullable<Rcpp::Date> date = R_NilValue, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
-        typedef SEXP(*Ptr_isBusinessDate)(SEXP,SEXP);
-        static Ptr_isBusinessDate p_isBusinessDate = NULL;
-        if (p_isBusinessDate == NULL) {
-            validateSignature("bool(*isBusinessDate)(Rcpp::Nullable<Rcpp::Date>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
-            p_isBusinessDate = (Ptr_isBusinessDate)R_GetCCallable("qlcal", "_qlcal_isBusinessDate");
-        }
-        RObject rcpp_result_gen;
-        {
-            RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_isBusinessDate(Shield<SEXP>(Rcpp::wrap(date)), Shield<SEXP>(Rcpp::wrap(xp)));
-        }
-        if (rcpp_result_gen.inherits("interrupted-error"))
-            throw Rcpp::internal::InterruptedException();
-        if (Rcpp::internal::isLongjumpSentinel(rcpp_result_gen))
-            throw Rcpp::LongjumpException(rcpp_result_gen);
-        if (rcpp_result_gen.inherits("try-error"))
-            throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
-        return Rcpp::as<bool >(rcpp_result_gen);
     }
 
     inline std::string getName(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {

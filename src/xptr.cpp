@@ -26,32 +26,6 @@ Rcpp::XPtr<QlCal::CalendarContainer> getXPtr(std::string calstr) {
     return p;
 }
 
-// [[Rcpp::export]]
-bool isBusinessDate(Rcpp::Nullable<Rcpp::Date> date = R_NilValue,
-                    Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
-    Rcpp::Date d;
-    if (date.isNull()) {
-        const std::time_t t_c = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-        std::ostringstream oss;
-        oss << std::put_time(std::localtime(&t_c), "%Y-%m-%d");
-        d = Rcpp::Date(oss.str());
-    } else {
-        d = Rcpp::Date(date);
-    }
-    Rcpp::Rcout << "d is " << d << std::endl;
-    ql::Date qd = Rcpp::as<ql::Date>(d);
-
-    ql::Calendar cal;
-    if (xp.isNotNull()) {
-        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
-        cal = p->getCalendar();
-    } else {
-        QlCal::CalendarContainer calct;
-        cal = calct.getCalendar();
-    }
-    return cal.isBusinessDay(qd);
-}
-
 //' Get calendar name or id
 //'
 //' This function returns the corresponding (full) name (as in the underlying

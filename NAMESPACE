@@ -14,7 +14,6 @@ export("adjust",
        "getId",
        "getName",
        "setCalendar",
-       "getXPtr",
-       "isBusinessDate")
+       "getXPtr")
 S3method("print", "qlcalendar")
 importFrom("Rcpp", "evalCpp")

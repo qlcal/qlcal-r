@@ -28,6 +28,7 @@
 #include "qlcal_as_wrap.h"
 
 #include <boost/date_time/posix_time/conversion.hpp>
+#include <chrono>
 
 
 namespace ql = QuantLib;
@@ -98,11 +99,32 @@ Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Day
 //' @examples
 //' isBusinessDay(Sys.Date()+0:6)
 // [[Rcpp::export]]
-Rcpp::LogicalVector isBusinessDay(Rcpp::DateVector dates) {
+Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
+                                  Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    Rcpp::DateVector datesvec;
+    if (dates.isNull()) {       // no argument given so create length one vector of current date
+        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
+        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
+        // before C++20 it is UTC
+        //         const auto n = std::chrono::system_clock::now();
+        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
+        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
+        // so we cheat and ask R to not fall for timezone issues
+        Rcpp::Function f = Rcpp::Function("Sys.Date");
+        datesvec = f();
+    } else {
+        datesvec = Rcpp::DateVector(dates); // instantiate from Nullable wrapper
+    }
+
     ql::Calendar cal = gblcal.getCalendar();
-    int n = dates.size();
+    if (xp.isNotNull()) {
+        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
+        cal = p->getCalendar();
+    }
+
+    int n = datesvec.size();
     Rcpp::LogicalVector bizdays(n);
-    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
+    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(datesvec);
     for (auto i=0; i<n; i++) {
         bizdays[i] = cal.isBusinessDay(dv[i]);
     }

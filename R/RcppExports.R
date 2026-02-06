@@ -56,8 +56,8 @@ advanceDate <- function(rd, days = 0L, unit = "Days", bdc = "Following", eom = F
 #' @return A logical vector indicating which dates are business days
 #' @examples
 #' isBusinessDay(Sys.Date()+0:6)
-isBusinessDay <- function(dates) {
-    .Call(`_qlcal_isBusinessDay`, dates)
+isBusinessDay <- function(dates = NULL, xp = NULL) {
+    .Call(`_qlcal_isBusinessDay`, dates, xp)
 }
 
 #' Test a vector of dates for holiday
@@ -175,10 +175,6 @@ getBusinessDays <- function(from, to) {
 
 getXPtr <- function(calstr) {
     .Call(`_qlcal_getXPtr`, calstr)
-}
-
-isBusinessDate <- function(date = NULL, xp = NULL) {
-    .Call(`_qlcal_isBusinessDate`, date, xp)
 }
 
 #' Get calendar name or id

@@ -86,20 +86,21 @@ RcppExport SEXP _qlcal_advanceDate(SEXP rdSEXP, SEXP daysSEXP, SEXP unitSEXP, SE
     return rcpp_result_gen;
 }
 // isBusinessDay
-Rcpp::LogicalVector isBusinessDay(Rcpp::DateVector dates);
-static SEXP _qlcal_isBusinessDay_try(SEXP datesSEXP) {
+Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
+static SEXP _qlcal_isBusinessDay_try(SEXP datesSEXP, SEXP xpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< Rcpp::DateVector >::type dates(datesSEXP);
-    rcpp_result_gen = Rcpp::wrap(isBusinessDay(dates));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::DateVector> >::type dates(datesSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
+    rcpp_result_gen = Rcpp::wrap(isBusinessDay(dates, xp));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_isBusinessDay(SEXP datesSEXP) {
+RcppExport SEXP _qlcal_isBusinessDay(SEXP datesSEXP, SEXP xpSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_isBusinessDay_try(datesSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_isBusinessDay_try(datesSEXP, xpSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -470,41 +471,6 @@ RcppExport SEXP _qlcal_getXPtr(SEXP calstrSEXP) {
     UNPROTECT(1);
     return rcpp_result_gen;
 }
-// isBusinessDate
-bool isBusinessDate(Rcpp::Nullable<Rcpp::Date> date, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
-static SEXP _qlcal_isBusinessDate_try(SEXP dateSEXP, SEXP xpSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::Date> >::type date(dateSEXP);
-    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
-    rcpp_result_gen = Rcpp::wrap(isBusinessDate(date, xp));
-    return rcpp_result_gen;
-END_RCPP_RETURN_ERROR
-}
-RcppExport SEXP _qlcal_isBusinessDate(SEXP dateSEXP, SEXP xpSEXP) {
-    SEXP rcpp_result_gen;
-    {
-        Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_isBusinessDate_try(dateSEXP, xpSEXP));
-    }
-    Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
-    if (rcpp_isInterrupt_gen) {
-        UNPROTECT(1);
-        Rf_onintr();
-    }
-    bool rcpp_isLongjump_gen = Rcpp::internal::isLongjumpSentinel(rcpp_result_gen);
-    if (rcpp_isLongjump_gen) {
-        Rcpp::internal::resumeJump(rcpp_result_gen);
-    }
-    Rboolean rcpp_isError_gen = Rf_inherits(rcpp_result_gen, "try-error");
-    if (rcpp_isError_gen) {
-        SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
-        UNPROTECT(1);
-        (Rf_error)("%s", CHAR(rcpp_msgSEXP_gen));
-    }
-    UNPROTECT(1);
-    return rcpp_result_gen;
-}
 // getName
 std::string getName(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
 static SEXP _qlcal_getName_try(SEXP xpSEXP) {
@@ -580,7 +546,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
     if (signatures.empty()) {
         signatures.insert("void(*setCalendar)(std::string)");
         signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool)");
-        signatures.insert("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::DateVector)");
+        signatures.insert("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::LogicalVector(*isHoliday)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::DateVector)");
         signatures.insert("Rcpp::LogicalVector(*isEndOfMonth)(Rcpp::DateVector)");
@@ -591,7 +557,6 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool)");
         signatures.insert("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date)");
         signatures.insert("Rcpp::XPtr<QlCal::CalendarContainer>(*getXPtr)(std::string)");
-        signatures.insert("bool(*isBusinessDate)(Rcpp::Nullable<Rcpp::Date>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("std::string(*getName)(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("std::string(*getId)(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
     }
@@ -613,7 +578,6 @@ RcppExport SEXP _qlcal_RcppExport_registerCCallable() {
     R_RegisterCCallable("qlcal", "_qlcal_getHolidays", (DL_FUNC)_qlcal_getHolidays_try);
     R_RegisterCCallable("qlcal", "_qlcal_getBusinessDays", (DL_FUNC)_qlcal_getBusinessDays_try);
     R_RegisterCCallable("qlcal", "_qlcal_getXPtr", (DL_FUNC)_qlcal_getXPtr_try);
-    R_RegisterCCallable("qlcal", "_qlcal_isBusinessDate", (DL_FUNC)_qlcal_isBusinessDate_try);
     R_RegisterCCallable("qlcal", "_qlcal_getName", (DL_FUNC)_qlcal_getName_try);
     R_RegisterCCallable("qlcal", "_qlcal_getId", (DL_FUNC)_qlcal_getId_try);
     R_RegisterCCallable("qlcal", "_qlcal_RcppExport_validate", (DL_FUNC)_qlcal_RcppExport_validate);
@@ -623,7 +587,7 @@ RcppExport SEXP _qlcal_RcppExport_registerCCallable() {
 static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_setCalendar", (DL_FUNC) &_qlcal_setCalendar, 1},
     {"_qlcal_advanceDate", (DL_FUNC) &_qlcal_advanceDate, 5},
-    {"_qlcal_isBusinessDay", (DL_FUNC) &_qlcal_isBusinessDay, 1},
+    {"_qlcal_isBusinessDay", (DL_FUNC) &_qlcal_isBusinessDay, 2},
     {"_qlcal_isHoliday", (DL_FUNC) &_qlcal_isHoliday, 1},
     {"_qlcal_isWeekend", (DL_FUNC) &_qlcal_isWeekend, 1},
     {"_qlcal_isEndOfMonth", (DL_FUNC) &_qlcal_isEndOfMonth, 1},
@@ -634,7 +598,6 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 3},
     {"_qlcal_getBusinessDays", (DL_FUNC) &_qlcal_getBusinessDays, 2},
     {"_qlcal_getXPtr", (DL_FUNC) &_qlcal_getXPtr, 1},
-    {"_qlcal_isBusinessDate", (DL_FUNC) &_qlcal_isBusinessDate, 2},
     {"_qlcal_getName", (DL_FUNC) &_qlcal_getName, 1},
     {"_qlcal_getId", (DL_FUNC) &_qlcal_getId, 1},
     {"_qlcal_RcppExport_registerCCallable", (DL_FUNC) &_qlcal_RcppExport_registerCCallable, 0},
