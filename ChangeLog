@@ -3,7 +3,12 @@
 	* src/xptr.cpp: Initial proof of concept use of XPtr
 	* src/RcppExports.cpp: Regenerated
 	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+	* man/getName.Rd: Idem
 	* src/Makevars.in: Add xptr.cpp
+	* R/xptr.R: Minimal S3 wrapper
+	* R/dates.R: Moved two functions to xptr.R
+	* NAMESPACE: Additional exports
 
 2026-02-04  Dirk Eddelbuettel  <edd@debian.org>
 

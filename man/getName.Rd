@@ -5,9 +5,9 @@
 \alias{getId}
 \title{Get calendar name, or id}
 \usage{
-getName()
+getName(xp = NULL)
 
-getId()
+getId(xp = NULL)
 }
 \value{
 A string with the calendar name
