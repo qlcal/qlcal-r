@@ -87,17 +87,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::LogicalVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::LogicalVector isHoliday(Rcpp::DateVector dates) {
-        typedef SEXP(*Ptr_isHoliday)(SEXP);
+    inline Rcpp::LogicalVector isHoliday(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_isHoliday)(SEXP,SEXP);
         static Ptr_isHoliday p_isHoliday = NULL;
         if (p_isHoliday == NULL) {
-            validateSignature("Rcpp::LogicalVector(*isHoliday)(Rcpp::DateVector)");
+            validateSignature("Rcpp::LogicalVector(*isHoliday)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_isHoliday = (Ptr_isHoliday)R_GetCCallable("qlcal", "_qlcal_isHoliday");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_isHoliday(Shield<SEXP>(Rcpp::wrap(dates)));
+            rcpp_result_gen = p_isHoliday(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

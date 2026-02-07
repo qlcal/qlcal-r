@@ -54,7 +54,7 @@ advanceDate <- function(rd, days = 0L, unit = "Days", bdc = "Following", eom = F
 #' @title Test for business days
 #' @param dates An optional Date vector with dates to be examined, if missing the
 #' current day is used
-#' @param xp An option calendar object
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A logical vector indicating which dates are business days
 #' @examples
 #' isBusinessDay(Sys.Date()+0:6)
@@ -69,12 +69,14 @@ isBusinessDay <- function(dates = NULL, xp = NULL) {
 #' date is a holiday in the currently active (global) calendar.
 #'
 #' @title Test for holidays
-#' @param dates A Date vector with dates to be examined
+#' @param dates An optional Date vector with dates to be examined, if missing the
+#' current day is used
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A logical vector indicating which dates are holidays
 #' @examples
 #' isHoliday(Sys.Date()+0:6)
-isHoliday <- function(dates) {
-    .Call(`_qlcal_isHoliday`, dates)
+isHoliday <- function(dates = NULL, xp = NULL) {
+    .Call(`_qlcal_isHoliday`, dates, xp)
 }
 
 #' Test a vector of dates for weekends

@@ -10,7 +10,7 @@ isBusinessDay(dates = NULL, xp = NULL)
 \item{dates}{An optional Date vector with dates to be examined, if missing the
 current day is used}
 
-\item{xp}{An option calendar object}
+\item{xp}{An optional calendar object, if missing the default instance is used}
 }
 \value{
 A logical vector indicating which dates are business days

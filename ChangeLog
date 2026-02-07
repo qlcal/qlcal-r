@@ -1,3 +1,11 @@
+2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/dates.cpp (isHoliday): Extend generalization
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+	* man/isHoliday.Rd: Updated documentation
+
 2026-02-06  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/xptr.cpp (getCalendar): Renamed from getXPtr, added

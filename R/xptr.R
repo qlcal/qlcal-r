@@ -1,5 +1,5 @@
 
 print.qlcalendar <- function(x, ...) {
-    cat("<qlcalendar object for '", getName(x), "'>\n", sep="")
+    cat("<qlcal calendar object '", getId(x), "' aka '", getName(x), "'>\n", sep="")
     invisible(x)
 }

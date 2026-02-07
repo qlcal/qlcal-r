@@ -96,7 +96,7 @@ Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Day
 //' @title Test for business days
 //' @param dates An optional Date vector with dates to be examined, if missing the
 //' current day is used
-//' @param xp An option calendar object
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A logical vector indicating which dates are business days
 //' @examples
 //' isBusinessDay(Sys.Date()+0:6)
@@ -140,16 +140,39 @@ Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_Nil
 //' date is a holiday in the currently active (global) calendar.
 //'
 //' @title Test for holidays
-//' @param dates A Date vector with dates to be examined
+//' @param dates An optional Date vector with dates to be examined, if missing the
+//' current day is used
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A logical vector indicating which dates are holidays
 //' @examples
 //' isHoliday(Sys.Date()+0:6)
 // [[Rcpp::export]]
-Rcpp::LogicalVector isHoliday(Rcpp::DateVector dates) {
+Rcpp::LogicalVector isHoliday(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
+                              Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    Rcpp::DateVector datesvec;
+    if (dates.isNull()) {       // no argument given so create length one vector of current date
+        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
+        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
+        // before C++20 it is UTC
+        //         const auto n = std::chrono::system_clock::now();
+        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
+        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
+        // so we cheat and ask R to not fall for timezone issues
+        Rcpp::Function f = Rcpp::Function("Sys.Date");
+        datesvec = f();
+    } else {
+        datesvec = Rcpp::DateVector(dates); // instantiate from Nullable wrapper
+    }
+
     ql::Calendar cal = gblcal.getCalendar();
-    int n = dates.size();
+    if (xp.isNotNull()) {
+        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
+        cal = p->getCalendar();
+    }
+
+    int n = datesvec.size();
     Rcpp::LogicalVector holdays(n);
-    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
+    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(datesvec);
     for (auto i=0; i<n; i++) {
         holdays[i] = !cal.isBusinessDay(dv[i]);
     }
