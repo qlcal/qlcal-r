@@ -87,6 +87,19 @@ Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Day
     return Rcpp::wrap(newdate);
 }
 
+// We need a default of just 'today' when no argument is given
+Rcpp::DateVector defaultDatevector() {
+    // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
+    //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
+    // before C++20 it is UTC
+    //         const auto n = std::chrono::system_clock::now();
+    //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
+    //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
+    // so we cheat and ask R to not fall for timezone issues
+    Rcpp::Function f = Rcpp::Function("Sys.Date");
+    return f();
+}
+
 //' Test a vector of dates for business day
 //'
 //' This function takes a vector of dates and returns a logical vector
@@ -105,15 +118,7 @@ Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_Nil
                                   Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
     Rcpp::DateVector datesvec;
     if (dates.isNull()) {       // no argument given so create length one vector of current date
-        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
-        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
-        // before C++20 it is UTC
-        //         const auto n = std::chrono::system_clock::now();
-        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
-        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
-        // so we cheat and ask R to not fall for timezone issues
-        Rcpp::Function f = Rcpp::Function("Sys.Date");
-        datesvec = f();
+        datesvec = defaultDatevector();
     } else {
         datesvec = Rcpp::DateVector(dates); // instantiate from Nullable wrapper
     }
@@ -151,15 +156,7 @@ Rcpp::LogicalVector isHoliday(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValu
                               Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
     Rcpp::DateVector datesvec;
     if (dates.isNull()) {       // no argument given so create length one vector of current date
-        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
-        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
-        // before C++20 it is UTC
-        //         const auto n = std::chrono::system_clock::now();
-        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
-        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
-        // so we cheat and ask R to not fall for timezone issues
-        Rcpp::Function f = Rcpp::Function("Sys.Date");
-        datesvec = f();
+        datesvec = defaultDatevector();
     } else {
         datesvec = Rcpp::DateVector(dates); // instantiate from Nullable wrapper
     }
