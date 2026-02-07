@@ -1,7 +1,7 @@
 2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/dates.cpp (isHoliday): Extend generalization
-	(defaultDatevector): Factor out helper function
+	(createDatevector): Factor out helper function
 	* src/RcppExports.cpp: Regenerated
 	* R/RcppExports.R: Idem
 	* inst/include/qlcal_RcppExports.h: Idem
