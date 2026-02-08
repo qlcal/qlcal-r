@@ -30,10 +30,13 @@
 #include <boost/date_time/posix_time/conversion.hpp>
 #include <chrono>
 
-
 namespace ql = QuantLib;
 
 QlCal::CalendarContainer gblcal;
+
+// forward declarations for internal helper functions at bottom of file
+Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates);
+ql::Calendar getCalendarInstance(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>);
 
 //' Set a calendar
 //'
@@ -74,46 +77,21 @@ void setCalendar(std::string calstr) {
 //' \dQuote{ModifiedPreceding}, \dQuote{Unadjusted},
 //' \dQuote{HalfMonthModifiedFollowing} and \dQuote{Nearest}.
 //' @param eom An optional boolean toggle whether end-of-month is to be respected
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return The advanced date is returned
 //' @examples
 //' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
 //' @seealso The \code{advanceUnits} functions offers the same functionality from R.
 // [[Rcpp::export]]
 Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Days",
-                       const std::string& bdc = "Following", bool eom=false) {
-    ql::Calendar cal = gblcal.getCalendar();
+                       const std::string& bdc = "Following", bool eom=false,
+                       Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    ql::Calendar cal = getCalendarInstance(xp);
     ql::Date d = Rcpp::as<ql::Date>(rd);
     ql::BusinessDayConvention bdcval = getBusinessDayConvention(bdc);
     ql::TimeUnit tuval = getTimeUnit(unit);
     ql::Date newdate = cal.advance(d, days, tuval, bdcval, eom);
     return Rcpp::wrap(newdate);
-}
-
-// Internal helper: We either instantiate dates if given or use a default
-Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates) {
-    if (dates.isNull()) {       // no argument given so create length one vector of current date
-        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
-        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
-        // before C++20 it is UTC
-        //         const auto n = std::chrono::system_clock::now();
-        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
-        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
-        // so we cheat and ask R to not fall for timezone issues
-        // TODO: once R 4.6.0 is out and we have C++20 we can conditionally use it here
-        Rcpp::Function f = Rcpp::Function("Sys.Date");
-        return f();
-    } else {
-        return Rcpp::DateVector(dates); // instantiate from Nullable wrapper
-    }
-}
-// Internal helper: We either instantiate cal or use default global one
-ql::Calendar getCalendarInstance(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
-    if (xp.isNotNull()) {
-        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
-        return p->getCalendar();
-    } else {
-        return gblcal.getCalendar();
-    }
 }
 
 //' Test a vector of dates for business day
@@ -207,16 +185,21 @@ Rcpp::LogicalVector isWeekend(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValu
 //' date is at the end of a month in the currently active (global) calendar.
 //'
 //' @title Test for end-of-month
-//' @param dates A Date vector with dates to be examined
+//' @param dates An optional Date vector with dates to be examined, if missing the
+//' current day is used
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A logical vector indicating which dates are end-of-month
 //' @examples
 //' isEndOfMonth(Sys.Date()+0:6)
 // [[Rcpp::export]]
-Rcpp::LogicalVector isEndOfMonth(Rcpp::DateVector dates) {
-    ql::Calendar cal = gblcal.getCalendar();
-    int n = dates.size();
+Rcpp::LogicalVector isEndOfMonth(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
+                                 Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    Rcpp::DateVector datesvec = createDateVector(dates);
+    ql::Calendar cal = getCalendarInstance(xp);
+
+    int n = datesvec.size();
     Rcpp::LogicalVector eom(n);
-    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
+    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(datesvec);
     for (auto i=0; i<n; i++) {
         eom[i] = cal.isEndOfMonth(dv[i]);
     }
@@ -348,4 +331,31 @@ Rcpp::DateVector getBusinessDays(Rcpp::Date from, Rcpp::Date to) {
         dv[i] = Rcpp::qlDate2Rcpp(holidays[i]);
     }
     return dv;
+}
+
+// Internal helper: We either instantiate dates if given or use a default
+Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates) {
+    if (dates.isNull()) {       // no argument given so create length one vector of current date
+        // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
+        //         const auto current_local_time{std::chrono::current_zone()->to_local(time_pt_utc)};
+        // before C++20 it is UTC
+        //         const auto n = std::chrono::system_clock::now();
+        //         const auto d = std::chrono::duration_cast<std::chrono::hours>(n.time_since_epoch()).count();
+        //         datesvec = Rcpp::DateVector(Rcpp::NumericVector{d/24.0}); // C++20 will give us chrono::days
+        // so we cheat and ask R to not fall for timezone issues
+        // TODO: once R 4.6.0 is out and we have C++20 we can conditionally use it here
+        Rcpp::Function f = Rcpp::Function("Sys.Date");
+        return f();
+    } else {
+        return Rcpp::DateVector(dates); // instantiate from Nullable wrapper
+    }
+}
+// Internal helper: We either instantiate cal or use default global one
+ql::Calendar getCalendarInstance(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp) {
+    if (xp.isNotNull()) {
+        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
+        return p->getCalendar();
+    } else {
+        return gblcal.getCalendar();
+    }
 }

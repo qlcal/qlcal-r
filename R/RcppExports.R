@@ -39,12 +39,13 @@ setCalendar <- function(calstr) {
 #' \dQuote{ModifiedPreceding}, \dQuote{Unadjusted},
 #' \dQuote{HalfMonthModifiedFollowing} and \dQuote{Nearest}.
 #' @param eom An optional boolean toggle whether end-of-month is to be respected
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return The advanced date is returned
 #' @examples
 #' advanceDate(Sys.Date(), 2)  # today to the next biz day, plus 2 days
 #' @seealso The \code{advanceUnits} functions offers the same functionality from R.
-advanceDate <- function(rd, days = 0L, unit = "Days", bdc = "Following", eom = FALSE) {
-    .Call(`_qlcal_advanceDate`, rd, days, unit, bdc, eom)
+advanceDate <- function(rd, days = 0L, unit = "Days", bdc = "Following", eom = FALSE, xp = NULL) {
+    .Call(`_qlcal_advanceDate`, rd, days, unit, bdc, eom, xp)
 }
 
 #' Test a vector of dates for business day
@@ -105,12 +106,14 @@ isWeekend <- function(dates = NULL, xp = NULL) {
 #' date is at the end of a month in the currently active (global) calendar.
 #'
 #' @title Test for end-of-month
-#' @param dates A Date vector with dates to be examined
+#' @param dates An optional Date vector with dates to be examined, if missing the
+#' current day is used
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A logical vector indicating which dates are end-of-month
 #' @examples
 #' isEndOfMonth(Sys.Date()+0:6)
-isEndOfMonth <- function(dates) {
-    .Call(`_qlcal_isEndOfMonth`, dates)
+isEndOfMonth <- function(dates = NULL, xp = NULL) {
+    .Call(`_qlcal_isEndOfMonth`, dates, xp)
 }
 
 #' Compute a vector of dates with end-of-month

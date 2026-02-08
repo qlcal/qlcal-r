@@ -5,7 +5,7 @@
 \title{Advance a date}
 \usage{
 advanceDate(rd, days = 0L, unit = "Days", bdc = "Following",
-  eom = FALSE)
+  eom = FALSE, xp = NULL)
 }
 \arguments{
 \item{rd}{A Date object describing the date to be advanced to the
@@ -25,6 +25,8 @@ is \dQuote{Following}, and supported values are
 \dQuote{HalfMonthModifiedFollowing} and \dQuote{Nearest}.}
 
 \item{eom}{An optional boolean toggle whether end-of-month is to be respected}
+
+\item{xp}{An optional calendar object, if missing the default instance is used}
 }
 \value{
 The advanced date is returned

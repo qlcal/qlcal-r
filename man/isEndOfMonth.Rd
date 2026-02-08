@@ -4,10 +4,13 @@
 \alias{isEndOfMonth}
 \title{Test for end-of-month}
 \usage{
-isEndOfMonth(dates)
+isEndOfMonth(dates = NULL, xp = NULL)
 }
 \arguments{
-\item{dates}{A Date vector with dates to be examined}
+\item{dates}{An optional Date vector with dates to be examined, if missing the
+current day is used}
+
+\item{xp}{An optional calendar object, if missing the default instance is used}
 }
 \value{
 A logical vector indicating which dates are end-of-month

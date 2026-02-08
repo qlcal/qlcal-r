@@ -45,17 +45,17 @@ namespace qlcal {
             throw Rcpp::exception(Rcpp::as<std::string>(rcpp_result_gen).c_str());
     }
 
-    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, const std::string& unit = "Days", const std::string& bdc = "Following", bool eom = false) {
-        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP,SEXP,SEXP);
+    inline Rcpp::Date advanceDate(Rcpp::Date rd, int days = 0, const std::string& unit = "Days", const std::string& bdc = "Following", bool eom = false, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_advanceDate)(SEXP,SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_advanceDate p_advanceDate = NULL;
         if (p_advanceDate == NULL) {
-            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool)");
+            validateSignature("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_advanceDate = (Ptr_advanceDate)R_GetCCallable("qlcal", "_qlcal_advanceDate");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)), Shield<SEXP>(Rcpp::wrap(unit)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(eom)));
+            rcpp_result_gen = p_advanceDate(Shield<SEXP>(Rcpp::wrap(rd)), Shield<SEXP>(Rcpp::wrap(days)), Shield<SEXP>(Rcpp::wrap(unit)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(eom)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -129,17 +129,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::LogicalVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::LogicalVector isEndOfMonth(Rcpp::DateVector dates) {
-        typedef SEXP(*Ptr_isEndOfMonth)(SEXP);
+    inline Rcpp::LogicalVector isEndOfMonth(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_isEndOfMonth)(SEXP,SEXP);
         static Ptr_isEndOfMonth p_isEndOfMonth = NULL;
         if (p_isEndOfMonth == NULL) {
-            validateSignature("Rcpp::LogicalVector(*isEndOfMonth)(Rcpp::DateVector)");
+            validateSignature("Rcpp::LogicalVector(*isEndOfMonth)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_isEndOfMonth = (Ptr_isEndOfMonth)R_GetCCallable("qlcal", "_qlcal_isEndOfMonth");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_isEndOfMonth(Shield<SEXP>(Rcpp::wrap(dates)));
+            rcpp_result_gen = p_isEndOfMonth(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

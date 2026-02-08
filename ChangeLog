@@ -5,6 +5,13 @@
 	* src/dates.cpp (setCalendar): Reference `getCalendar`, update docs
 	* man/getCalendar.Rd: Updated
 	* man/setCalendar.Rd: Idem
+	* src/dates.cpp (isEndOfMonth): Support optional dates and calendar
+	* src/dates.cpp (advanceDate): Support optional calendar
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+	* man/advanceDate.Rd: Updated documentation
+	* man/isEndOfMonth.Rd: Idem
 
 2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
