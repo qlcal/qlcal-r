@@ -3,16 +3,18 @@
 
 #' Set a calendar
 #'
-#' This function sets a calendar to the given market or country convention.
-#' Note that at present only the default \sQuote{TARGET} and \sQuote{UnitedStates}
-#' are supported.
+#' This function sets the default calendar to the given market or country convention.
+#' Note that additional calendar objects can be created with the \code{getCalendar}
+#' function.
 #'
 #' @title Set a calendar
 #' @param calstr A character variable containing the market for which a calendar
 #' is to be set
 #' @return Nothing is returned but the global state is changed
+#' @seealso \code{getCalendar}
 #' @examples
-#' setCalendar("UnitedStates")
+#' setCalendar("UnitedStates/NYSE")
+#' setCalendar("Canada/TSX")
 setCalendar <- function(calstr) {
     invisible(.Call(`_qlcal_setCalendar`, calstr))
 }
@@ -187,6 +189,7 @@ getBusinessDays <- function(from, to) {
 #' @title Get new calendar objectb
 #' @param calstr Character variable identifying desired calendar
 #' @return A external pointer classed as S3 class 'qlcalendar'
+#' @seealso \code{setCalendar}
 #' @examples
 #' xp <- getCalendar("UnitedStates/NYSE")
 #' xp  # invokes the print method

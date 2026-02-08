@@ -22,6 +22,7 @@ extern QlCal::CalendarContainer gblcal;
 //' @title Get new calendar objectb
 //' @param calstr Character variable identifying desired calendar
 //' @return A external pointer classed as S3 class 'qlcalendar'
+//' @seealso \code{setCalendar}
 //' @examples
 //' xp <- getCalendar("UnitedStates/NYSE")
 //' xp  # invokes the print method

@@ -17,10 +17,14 @@ Nothing is returned but the global state is changed
 Set a calendar
 }
 \details{
-This function sets a calendar to the given market or country convention.
-Note that at present only the default \sQuote{TARGET} and \sQuote{UnitedStates}
-are supported.
+This function sets the default calendar to the given market or country convention.
+Note that additional calendar objects can be created with the \code{getCalendar}
+function.
 }
 \examples{
-setCalendar("UnitedStates")
+setCalendar("UnitedStates/NYSE")
+setCalendar("Canada/TSX")
+}
+\seealso{
+\code{getCalendar}
 }

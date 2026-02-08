@@ -37,16 +37,18 @@ QlCal::CalendarContainer gblcal;
 
 //' Set a calendar
 //'
-//' This function sets a calendar to the given market or country convention.
-//' Note that at present only the default \sQuote{TARGET} and \sQuote{UnitedStates}
-//' are supported.
+//' This function sets the default calendar to the given market or country convention.
+//' Note that additional calendar objects can be created with the \code{getCalendar}
+//' function.
 //'
 //' @title Set a calendar
 //' @param calstr A character variable containing the market for which a calendar
 //' is to be set
 //' @return Nothing is returned but the global state is changed
+//' @seealso \code{getCalendar}
 //' @examples
-//' setCalendar("UnitedStates")
+//' setCalendar("UnitedStates/NYSE")
+//' setCalendar("Canada/TSX")
 // [[Rcpp::export]]
 void setCalendar(std::string calstr) {
     gblcal.setCalendar(calstr);
