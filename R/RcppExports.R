@@ -13,8 +13,8 @@
 #' @return Nothing is returned but the global state is changed
 #' @seealso \code{getCalendar}
 #' @examples
-#' setCalendar("UnitedStates/NYSE")
-#' setCalendar("Canada/TSX")
+#' setCalendar("UnitedStates/NYSE")  # sets global calendar
+#' setCalendar("Canada/TSX")         # reset global calendar
 setCalendar <- function(calstr) {
     invisible(.Call(`_qlcal_setCalendar`, calstr))
 }
@@ -193,6 +193,8 @@ getBusinessDays <- function(from, to) {
 #' @examples
 #' xp <- getCalendar("UnitedStates/NYSE")
 #' xp  # invokes the print method
+#' xp2 <- getCalendar("Canada/TSX")
+#' xp2 # invokes the print method
 getCalendar <- function(calstr) {
     .Call(`_qlcal_getCalendar`, calstr)
 }

@@ -47,8 +47,8 @@ QlCal::CalendarContainer gblcal;
 //' @return Nothing is returned but the global state is changed
 //' @seealso \code{getCalendar}
 //' @examples
-//' setCalendar("UnitedStates/NYSE")
-//' setCalendar("Canada/TSX")
+//' setCalendar("UnitedStates/NYSE")  # sets global calendar
+//' setCalendar("Canada/TSX")         # reset global calendar
 // [[Rcpp::export]]
 void setCalendar(std::string calstr) {
     gblcal.setCalendar(calstr);

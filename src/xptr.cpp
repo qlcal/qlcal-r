@@ -26,6 +26,8 @@ extern QlCal::CalendarContainer gblcal;
 //' @examples
 //' xp <- getCalendar("UnitedStates/NYSE")
 //' xp  # invokes the print method
+//' xp2 <- getCalendar("Canada/TSX")
+//' xp2 # invokes the print method
 // [[Rcpp::export]]
 Rcpp::XPtr<QlCal::CalendarContainer> getCalendar(std::string calstr) {
     auto p = Rcpp::XPtr<QlCal::CalendarContainer>(new QlCal::CalendarContainer);

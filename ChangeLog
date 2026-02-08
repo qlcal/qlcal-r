@@ -1,8 +1,10 @@
 2026-02-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/xptr.cpp (getCalendar): Simplify removing a helper function,
-	cross-reference \code{setCalendar}
+	cross-reference `setCalendar`, update example
+	* src/dates.cpp (setCalendar): Reference `getCalendar`, update docs
 	* man/getCalendar.Rd: Updated
+	* man/setCalendar.Rd: Idem
 
 2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
 

@@ -22,8 +22,8 @@ Note that additional calendar objects can be created with the \code{getCalendar}
 function.
 }
 \examples{
-setCalendar("UnitedStates/NYSE")
-setCalendar("Canada/TSX")
+setCalendar("UnitedStates/NYSE")  # sets global calendar
+setCalendar("Canada/TSX")         # reset global calendar
 }
 \seealso{
 \code{getCalendar}
