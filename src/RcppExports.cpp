@@ -156,20 +156,21 @@ RcppExport SEXP _qlcal_isHoliday(SEXP datesSEXP, SEXP xpSEXP) {
     return rcpp_result_gen;
 }
 // isWeekend
-Rcpp::LogicalVector isWeekend(Rcpp::DateVector dates);
-static SEXP _qlcal_isWeekend_try(SEXP datesSEXP) {
+Rcpp::LogicalVector isWeekend(Rcpp::Nullable<Rcpp::DateVector> dates, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
+static SEXP _qlcal_isWeekend_try(SEXP datesSEXP, SEXP xpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
-    Rcpp::traits::input_parameter< Rcpp::DateVector >::type dates(datesSEXP);
-    rcpp_result_gen = Rcpp::wrap(isWeekend(dates));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::DateVector> >::type dates(datesSEXP);
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
+    rcpp_result_gen = Rcpp::wrap(isWeekend(dates, xp));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_isWeekend(SEXP datesSEXP) {
+RcppExport SEXP _qlcal_isWeekend(SEXP datesSEXP, SEXP xpSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_isWeekend_try(datesSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_isWeekend_try(datesSEXP, xpSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -549,7 +550,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("Rcpp::Date(*advanceDate)(Rcpp::Date,int,const std::string&,const std::string&,bool)");
         signatures.insert("Rcpp::LogicalVector(*isBusinessDay)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::LogicalVector(*isHoliday)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
-        signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::DateVector)");
+        signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::LogicalVector(*isEndOfMonth)(Rcpp::DateVector)");
         signatures.insert("Rcpp::DateVector(*getEndOfMonth)(Rcpp::DateVector)");
         signatures.insert("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int)");
@@ -590,7 +591,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_advanceDate", (DL_FUNC) &_qlcal_advanceDate, 5},
     {"_qlcal_isBusinessDay", (DL_FUNC) &_qlcal_isBusinessDay, 2},
     {"_qlcal_isHoliday", (DL_FUNC) &_qlcal_isHoliday, 2},
-    {"_qlcal_isWeekend", (DL_FUNC) &_qlcal_isWeekend, 1},
+    {"_qlcal_isWeekend", (DL_FUNC) &_qlcal_isWeekend, 2},
     {"_qlcal_isEndOfMonth", (DL_FUNC) &_qlcal_isEndOfMonth, 1},
     {"_qlcal_getEndOfMonth", (DL_FUNC) &_qlcal_getEndOfMonth, 1},
     {"_qlcal_adjust_cpp", (DL_FUNC) &_qlcal_adjust_cpp, 2},

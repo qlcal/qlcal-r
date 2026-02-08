@@ -177,16 +177,21 @@ Rcpp::LogicalVector isHoliday(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValu
 //' date is a weekend in the currently active (global) calendar.
 //'
 //' @title Test for weekends
-//' @param dates A Date vector with dates to be examined
+//' @param dates An optional Date vector with dates to be examined, if missing the
+//' current day is used
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A logical vector indicating which dates are weekends
 //' @examples
 //' isWeekend(Sys.Date()+0:6)
 // [[Rcpp::export]]
-Rcpp::LogicalVector isWeekend(Rcpp::DateVector dates) {
-    ql::Calendar cal = gblcal.getCalendar();
-    int n = dates.size();
+Rcpp::LogicalVector isWeekend(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
+                              Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    Rcpp::DateVector datesvec = createDateVector(dates);
+    ql::Calendar cal = getCalendarInstance(xp);
+
+    int n = datesvec.size();
     Rcpp::LogicalVector weekends(n);
-    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
+    std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(datesvec);
     for (auto i=0; i<n; i++) {
         weekends[i] = cal.isWeekend(dv[i].weekday());
     }

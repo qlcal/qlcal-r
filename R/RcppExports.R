@@ -86,12 +86,14 @@ isHoliday <- function(dates = NULL, xp = NULL) {
 #' date is a weekend in the currently active (global) calendar.
 #'
 #' @title Test for weekends
-#' @param dates A Date vector with dates to be examined
+#' @param dates An optional Date vector with dates to be examined, if missing the
+#' current day is used
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A logical vector indicating which dates are weekends
 #' @examples
 #' isWeekend(Sys.Date()+0:6)
-isWeekend <- function(dates) {
-    .Call(`_qlcal_isWeekend`, dates)
+isWeekend <- function(dates = NULL, xp = NULL) {
+    .Call(`_qlcal_isWeekend`, dates, xp)
 }
 
 #' Test a vector of dates for end-of-month

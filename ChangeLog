@@ -1,6 +1,6 @@
 2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/dates.cpp (isHoliday): Extend generalization
+	* src/dates.cpp (isHoliday,isWeekend): Extend generalization
 	(createDatevector,getCalendarInstance): Factor out helper functions
 	* src/RcppExports.cpp: Regenerated
 	* R/RcppExports.R: Idem
