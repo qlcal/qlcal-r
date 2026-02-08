@@ -87,7 +87,7 @@ Rcpp::Date advanceDate(Rcpp::Date rd, int days=0, const std::string& unit = "Day
     return Rcpp::wrap(newdate);
 }
 
-// We either instantiate dates if given or use a default
+// Internal helper: We either instantiate dates if given or use a default
 Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates) {
     if (dates.isNull()) {       // no argument given so create length one vector of current date
         // C++20   const auto time_pt_utc{std::chrono::system_clock::now()};
@@ -102,6 +102,15 @@ Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates) {
         return f();
     } else {
         return Rcpp::DateVector(dates); // instantiate from Nullable wrapper
+    }
+}
+// Internal helper: We either instantiate cal or use default global one
+ql::Calendar getCalendarInstance(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    if (xp.isNotNull()) {
+        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
+        return p->getCalendar();
+    } else {
+        return gblcal.getCalendar();
     }
 }
 
@@ -122,12 +131,7 @@ Rcpp::DateVector createDateVector(Rcpp::Nullable<Rcpp::DateVector> dates) {
 Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
                                   Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
     Rcpp::DateVector datesvec = createDateVector(dates);
-
-    ql::Calendar cal = gblcal.getCalendar();
-    if (xp.isNotNull()) {
-        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
-        cal = p->getCalendar();
-    }
+    ql::Calendar cal = getCalendarInstance(xp);
 
     int n = datesvec.size();
     Rcpp::LogicalVector bizdays(n);
@@ -155,12 +159,7 @@ Rcpp::LogicalVector isBusinessDay(Rcpp::Nullable<Rcpp::DateVector> dates = R_Nil
 Rcpp::LogicalVector isHoliday(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilValue,
                               Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
     Rcpp::DateVector datesvec = createDateVector(dates);
-
-    ql::Calendar cal = gblcal.getCalendar();
-    if (xp.isNotNull()) {
-        Rcpp::XPtr<QlCal::CalendarContainer> p = Rcpp::XPtr<QlCal::CalendarContainer>(xp);
-        cal = p->getCalendar();
-    }
+    ql::Calendar cal = getCalendarInstance(xp);
 
     int n = datesvec.size();
     Rcpp::LogicalVector holdays(n);
