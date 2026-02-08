@@ -23,3 +23,6 @@ to a new QuantLib Calendar object identified by the calendar string.
 xp <- getCalendar("UnitedStates/NYSE")
 xp  # invokes the print method
 }
+\seealso{
+\code{setCalendar}
+}

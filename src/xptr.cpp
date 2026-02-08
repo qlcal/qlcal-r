@@ -14,10 +14,6 @@ namespace ql = QuantLib;
 
 extern QlCal::CalendarContainer gblcal;
 
-template <typename T> Rcpp::XPtr<T> make_xptr(T* p) {
-    return Rcpp::XPtr<T>(p);
-}
-
 //' Get new calendar
 //'
 //' This function returns an external pointer, classed as small S3 helper class,
@@ -31,7 +27,7 @@ template <typename T> Rcpp::XPtr<T> make_xptr(T* p) {
 //' xp  # invokes the print method
 // [[Rcpp::export]]
 Rcpp::XPtr<QlCal::CalendarContainer> getCalendar(std::string calstr) {
-    auto p = make_xptr(new QlCal::CalendarContainer);
+    auto p = Rcpp::XPtr<QlCal::CalendarContainer>(new QlCal::CalendarContainer);
     p->setCalendar(calstr);
     p.attr("class") = Rcpp::CharacterVector::create("qlcalendar", "externalptr");
     return p;

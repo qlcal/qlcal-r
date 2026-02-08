@@ -1,3 +1,9 @@
+2026-02-08  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/xptr.cpp (getCalendar): Simplify removing a helper function,
+	cross-reference \code{setCalendar}
+	* man/getCalendar.Rd: Updated
+
 2026-02-07  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/dates.cpp (isHoliday,isWeekend): Extend generalization
