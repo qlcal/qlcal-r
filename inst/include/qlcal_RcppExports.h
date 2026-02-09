@@ -150,17 +150,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::LogicalVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::DateVector getEndOfMonth(Rcpp::DateVector dates) {
-        typedef SEXP(*Ptr_getEndOfMonth)(SEXP);
+    inline Rcpp::DateVector getEndOfMonth(Rcpp::DateVector dates, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_getEndOfMonth)(SEXP,SEXP);
         static Ptr_getEndOfMonth p_getEndOfMonth = NULL;
         if (p_getEndOfMonth == NULL) {
-            validateSignature("Rcpp::DateVector(*getEndOfMonth)(Rcpp::DateVector)");
+            validateSignature("Rcpp::DateVector(*getEndOfMonth)(Rcpp::DateVector,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_getEndOfMonth = (Ptr_getEndOfMonth)R_GetCCallable("qlcal", "_qlcal_getEndOfMonth");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_getEndOfMonth(Shield<SEXP>(Rcpp::wrap(dates)));
+            rcpp_result_gen = p_getEndOfMonth(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

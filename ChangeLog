@@ -1,3 +1,11 @@
+2026-02-09  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/xptr.cpp (getEndOfMonth): Support optional calendar
+	* man/getEndOfMonth.Rd: Updated
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+
 2026-02-08  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/xptr.cpp (getCalendar): Simplify removing a helper function,

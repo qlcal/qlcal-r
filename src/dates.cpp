@@ -215,12 +215,14 @@ Rcpp::LogicalVector isEndOfMonth(Rcpp::Nullable<Rcpp::DateVector> dates = R_NilV
 //'
 //' @title Compute end-of-month
 //' @param dates A Date vector with dates
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A Date vector with dates which are end-of-month
 //' @examples
 //' getEndOfMonth(Sys.Date()+0:6)
 // [[Rcpp::export]]
-Rcpp::DateVector getEndOfMonth(Rcpp::DateVector dates) {
-    ql::Calendar cal = gblcal.getCalendar();
+Rcpp::DateVector getEndOfMonth(Rcpp::DateVector dates,
+                               Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    ql::Calendar cal = getCalendarInstance(xp);
     int n = dates.size();
     Rcpp::DateVector ndates(n);
     std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);

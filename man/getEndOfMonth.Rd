@@ -4,10 +4,12 @@
 \alias{getEndOfMonth}
 \title{Compute end-of-month}
 \usage{
-getEndOfMonth(dates)
+getEndOfMonth(dates, xp = NULL)
 }
 \arguments{
 \item{dates}{A Date vector with dates}
+
+\item{xp}{An optional calendar object, if missing the default instance is used}
 }
 \value{
 A Date vector with dates which are end-of-month

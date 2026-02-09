@@ -124,11 +124,12 @@ isEndOfMonth <- function(dates = NULL, xp = NULL) {
 #'
 #' @title Compute end-of-month
 #' @param dates A Date vector with dates
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A Date vector with dates which are end-of-month
 #' @examples
 #' getEndOfMonth(Sys.Date()+0:6)
-getEndOfMonth <- function(dates) {
-    .Call(`_qlcal_getEndOfMonth`, dates)
+getEndOfMonth <- function(dates, xp = NULL) {
+    .Call(`_qlcal_getEndOfMonth`, dates, xp)
 }
 
 #' @rdname adjust
