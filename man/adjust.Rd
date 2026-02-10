@@ -5,16 +5,20 @@
 \alias{adjust}
 \title{Compute adjusted dates}
 \usage{
-adjust_cpp(dates, bdc = 0L)
+adjust_cpp(dates, bdc = 0L, cal = NULL)
 
 adjust(dates, bdc = c("Following", "ModifiedFollowing", "Preceding",
-  "ModifiedPreceding", "Unadjusted", "HalfMonthModifiedFollowing", "Nearest"))
+  "ModifiedPreceding", "Unadjusted", "HalfMonthModifiedFollowing", "Nearest"),
+  cal = NULL)
 }
 \arguments{
 \item{dates}{A Date vector with dates}
 
 \item{bdc}{A character variable describing one of several supported values,
 the C++ version implements expects a corresponding integer value}
+
+\item{cal}{An optional calendar object, default is \code{NULL} in which case
+the global calendar is used}
 }
 \value{
 A Date vector with dates adjust according to business-day convention

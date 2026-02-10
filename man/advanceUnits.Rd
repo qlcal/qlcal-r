@@ -5,12 +5,12 @@
 \alias{advanceUnits}
 \title{Compute adjusted dates}
 \usage{
-advanceUnits_cpp(dates, n, unit, bdc, emr)
+advanceUnits_cpp(dates, n, unit, bdc, emr, cal = NULL)
 
 advanceUnits(dates, n, unit = c("Days", "Weeks", "Months", "Years", "Hours",
   "Minutes", "Seconds", "Milliseconds", "Microseconds"), bdc = c("Following",
   "ModifiedFollowing", "Preceding", "ModifiedPreceding", "Unadjusted",
-  "HalfMonthModifiedFollowing", "Nearest"), emr = FALSE)
+  "HalfMonthModifiedFollowing", "Nearest"), emr = FALSE, cal = NULL)
 }
 \arguments{
 \item{dates}{A Date vector with dates}
@@ -24,6 +24,9 @@ the C++ version implements expects a corresponding integer value}
 the C++ version implements expects a corresponding integer value}
 
 \item{emr}{A boolean variable select end-of-month, default is \sQuote{FALSE}}
+
+\item{cal}{An optional calendar object, default is \code{NULL} in which case
+the global calendar is used}
 }
 \value{
 A Date vector with dates advanced according to the selected inputs

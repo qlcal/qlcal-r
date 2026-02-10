@@ -234,30 +234,31 @@ Rcpp::DateVector getEndOfMonth(Rcpp::DateVector dates,
 
 //' @rdname adjust
 // [[Rcpp::export]]
-Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc=0) {
-    ql::Calendar cal = gblcal.getCalendar();
+Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc=0,
+                            Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal = R_NilValue) {
+    ql::Calendar calinst = getCalendarInstance(cal);
     ql::BusinessDayConvention bdcval = getBusinessDayConvention(bdc);
     int n = dates.size();
     Rcpp::DateVector adjusted(n);
     std::vector<ql::Date> dv = Rcpp::as< std::vector<ql::Date> >(dates);
     for (auto i=0; i<n; i++) {
-        adjusted[i] = Rcpp::qlDate2Rcpp(cal.adjust(dv[i], bdcval));
+        adjusted[i] = Rcpp::qlDate2Rcpp(calinst.adjust(dv[i], bdcval));
     }
     return adjusted;
 }
 
 //' @rdname advanceUnits
 // [[Rcpp::export]]
-Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit,
-                                  int bdc, bool emr) {
-    ql::Calendar cal = gblcal.getCalendar();
+Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr,
+                                  Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal = R_NilValue) {
+    ql::Calendar calinst = getCalendarInstance(cal);
     ql::BusinessDayConvention bdc_ = getBusinessDayConvention(bdc);
     ql::TimeUnit tu = getTimeUnit(unit);
     int ndays = dates.size();
     Rcpp::DateVector adv(ndays);
     std::vector<ql::Date> odv = Rcpp::as< std::vector<ql::Date> >(dates);
     for (auto i=0; i<ndays; i++) {
-        ql::Date nd = cal.advance(odv[i], n, tu, bdc_, (emr == 1) ? true : false);
+        ql::Date nd = calinst.advance(odv[i], n, tu, bdc_, (emr == 1) ? true : false);
         adv[i] = Rcpp::qlDate2Rcpp(nd);
     }
     return adv;

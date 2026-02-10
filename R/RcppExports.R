@@ -133,13 +133,13 @@ getEndOfMonth <- function(dates, xp = NULL) {
 }
 
 #' @rdname adjust
-adjust_cpp <- function(dates, bdc = 0L) {
-    .Call(`_qlcal_adjust_cpp`, dates, bdc)
+adjust_cpp <- function(dates, bdc = 0L, cal = NULL) {
+    .Call(`_qlcal_adjust_cpp`, dates, bdc, cal)
 }
 
 #' @rdname advanceUnits
-advanceUnits_cpp <- function(dates, n, unit, bdc, emr) {
-    .Call(`_qlcal_advanceUnits_cpp`, dates, n, unit, bdc, emr)
+advanceUnits_cpp <- function(dates, n, unit, bdc, emr, cal = NULL) {
+    .Call(`_qlcal_advanceUnits_cpp`, dates, n, unit, bdc, emr, cal)
 }
 
 #' Compute the number of business days between dates

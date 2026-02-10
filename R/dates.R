@@ -12,15 +12,18 @@
 ##' @param dates A Date vector with dates
 ##' @param bdc A character variable describing one of several supported values,
 ##' the C++ version implements expects a corresponding integer value
+##' @param cal An optional calendar object, default is \code{NULL} in which case
+##' the global calendar is used
 ##' @return A Date vector with dates adjust according to business-day convention
 ##' @examples
 ##' adjust(Sys.Date()+0:6)
 adjust <- function(dates, bdc=c("Following", "ModifiedFollowing",
                                 "Preceding", "ModifiedPreceding",
                                 "Unadjusted", "HalfMonthModifiedFollowing",
-                                "Nearest")) {
+                                "Nearest"),
+                   cal = NULL) {
     bdc <- match.arg(bdc)
-    adjust_cpp(dates, .matchBDC(bdc))
+    adjust_cpp(dates, .matchBDC(bdc), cal)
 }
 
 ##' Advance a vector of dates by a given number of time units
@@ -47,6 +50,8 @@ adjust <- function(dates, bdc=c("Following", "ModifiedFollowing",
 ##' the C++ version implements expects a corresponding integer value
 ##' @param emr A boolean variable select end-of-month, default is \sQuote{FALSE}
 ##' @return A Date vector with dates advanced according to the selected inputs
+##' @param cal An optional calendar object, default is \code{NULL} in which case
+##' the global calendar is used
 ##' @examples
 ##' advanceUnits(Sys.Date()+0:6, 5, "Days", "Following")
 advanceUnits <- function(dates, n,
@@ -57,10 +62,10 @@ advanceUnits <- function(dates, n,
                                "Preceding", "ModifiedPreceding",
                                "Unadjusted", "HalfMonthModifiedFollowing",
                                "Nearest"),
-                         emr=FALSE) {
+                         emr=FALSE, cal=NULL) {
     unit <- match.arg(unit)
     bdc <- match.arg(bdc)
-    advanceUnits_cpp(dates, n, .matchUnit(unit), .matchBDC(bdc), emr)
+    advanceUnits_cpp(dates, n, .matchUnit(unit), .matchBDC(bdc), emr, cal)
 }
 
 ## Internal helper

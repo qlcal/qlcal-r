@@ -1,3 +1,13 @@
+2026-02-10  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/xptr.cpp (adjust_cpp, advanceUnits_cpp): Support optional calendar
+	* man/adjust.Rd: Updated
+	* man/advanceUnits.Rd: Idem
+	* R/dates.R: Idem
+	* src/RcppExports.cpp: Regenerated
+	* R/RcppExports.R: Idem
+	* inst/include/qlcal_RcppExports.h: Idem
+
 2026-02-09  Dirk Eddelbuettel  <edd@debian.org>
 
 	* src/xptr.cpp (getEndOfMonth): Support optional calendar

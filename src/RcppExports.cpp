@@ -262,21 +262,22 @@ RcppExport SEXP _qlcal_getEndOfMonth(SEXP datesSEXP, SEXP xpSEXP) {
     return rcpp_result_gen;
 }
 // adjust_cpp
-Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc);
-static SEXP _qlcal_adjust_cpp_try(SEXP datesSEXP, SEXP bdcSEXP) {
+Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal);
+static SEXP _qlcal_adjust_cpp_try(SEXP datesSEXP, SEXP bdcSEXP, SEXP calSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::DateVector >::type dates(datesSEXP);
     Rcpp::traits::input_parameter< int >::type bdc(bdcSEXP);
-    rcpp_result_gen = Rcpp::wrap(adjust_cpp(dates, bdc));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type cal(calSEXP);
+    rcpp_result_gen = Rcpp::wrap(adjust_cpp(dates, bdc, cal));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_adjust_cpp(SEXP datesSEXP, SEXP bdcSEXP) {
+RcppExport SEXP _qlcal_adjust_cpp(SEXP datesSEXP, SEXP bdcSEXP, SEXP calSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_adjust_cpp_try(datesSEXP, bdcSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_adjust_cpp_try(datesSEXP, bdcSEXP, calSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -297,8 +298,8 @@ RcppExport SEXP _qlcal_adjust_cpp(SEXP datesSEXP, SEXP bdcSEXP) {
     return rcpp_result_gen;
 }
 // advanceUnits_cpp
-Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr);
-static SEXP _qlcal_advanceUnits_cpp_try(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP emrSEXP) {
+Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal);
+static SEXP _qlcal_advanceUnits_cpp_try(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP emrSEXP, SEXP calSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::DateVector >::type dates(datesSEXP);
@@ -306,15 +307,16 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type unit(unitSEXP);
     Rcpp::traits::input_parameter< int >::type bdc(bdcSEXP);
     Rcpp::traits::input_parameter< bool >::type emr(emrSEXP);
-    rcpp_result_gen = Rcpp::wrap(advanceUnits_cpp(dates, n, unit, bdc, emr));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type cal(calSEXP);
+    rcpp_result_gen = Rcpp::wrap(advanceUnits_cpp(dates, n, unit, bdc, emr, cal));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_advanceUnits_cpp(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP emrSEXP) {
+RcppExport SEXP _qlcal_advanceUnits_cpp(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEXP, SEXP bdcSEXP, SEXP emrSEXP, SEXP calSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_advanceUnits_cpp_try(datesSEXP, nSEXP, unitSEXP, bdcSEXP, emrSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_advanceUnits_cpp_try(datesSEXP, nSEXP, unitSEXP, bdcSEXP, emrSEXP, calSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -556,8 +558,8 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("Rcpp::LogicalVector(*isWeekend)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::LogicalVector(*isEndOfMonth)(Rcpp::Nullable<Rcpp::DateVector>,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*getEndOfMonth)(Rcpp::DateVector,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
-        signatures.insert("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int)");
-        signatures.insert("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool)");
+        signatures.insert("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
+        signatures.insert("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool)");
         signatures.insert("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool)");
         signatures.insert("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date)");
@@ -597,8 +599,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_isWeekend", (DL_FUNC) &_qlcal_isWeekend, 2},
     {"_qlcal_isEndOfMonth", (DL_FUNC) &_qlcal_isEndOfMonth, 2},
     {"_qlcal_getEndOfMonth", (DL_FUNC) &_qlcal_getEndOfMonth, 2},
-    {"_qlcal_adjust_cpp", (DL_FUNC) &_qlcal_adjust_cpp, 2},
-    {"_qlcal_advanceUnits_cpp", (DL_FUNC) &_qlcal_advanceUnits_cpp, 5},
+    {"_qlcal_adjust_cpp", (DL_FUNC) &_qlcal_adjust_cpp, 3},
+    {"_qlcal_advanceUnits_cpp", (DL_FUNC) &_qlcal_advanceUnits_cpp, 6},
     {"_qlcal_businessDaysBetween", (DL_FUNC) &_qlcal_businessDaysBetween, 4},
     {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 3},
     {"_qlcal_getBusinessDays", (DL_FUNC) &_qlcal_getBusinessDays, 2},

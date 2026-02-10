@@ -171,17 +171,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::DateVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc = 0) {
-        typedef SEXP(*Ptr_adjust_cpp)(SEXP,SEXP);
+    inline Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc = 0, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal = R_NilValue) {
+        typedef SEXP(*Ptr_adjust_cpp)(SEXP,SEXP,SEXP);
         static Ptr_adjust_cpp p_adjust_cpp = NULL;
         if (p_adjust_cpp == NULL) {
-            validateSignature("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int)");
+            validateSignature("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_adjust_cpp = (Ptr_adjust_cpp)R_GetCCallable("qlcal", "_qlcal_adjust_cpp");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_adjust_cpp(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(bdc)));
+            rcpp_result_gen = p_adjust_cpp(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(cal)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
@@ -192,17 +192,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::DateVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr) {
-        typedef SEXP(*Ptr_advanceUnits_cpp)(SEXP,SEXP,SEXP,SEXP,SEXP);
+    inline Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal = R_NilValue) {
+        typedef SEXP(*Ptr_advanceUnits_cpp)(SEXP,SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_advanceUnits_cpp p_advanceUnits_cpp = NULL;
         if (p_advanceUnits_cpp == NULL) {
-            validateSignature("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool)");
+            validateSignature("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_advanceUnits_cpp = (Ptr_advanceUnits_cpp)R_GetCCallable("qlcal", "_qlcal_advanceUnits_cpp");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_advanceUnits_cpp(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(n)), Shield<SEXP>(Rcpp::wrap(unit)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(emr)));
+            rcpp_result_gen = p_advanceUnits_cpp(Shield<SEXP>(Rcpp::wrap(dates)), Shield<SEXP>(Rcpp::wrap(n)), Shield<SEXP>(Rcpp::wrap(unit)), Shield<SEXP>(Rcpp::wrap(bdc)), Shield<SEXP>(Rcpp::wrap(emr)), Shield<SEXP>(Rcpp::wrap(cal)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();
