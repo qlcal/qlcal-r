@@ -375,22 +375,23 @@ RcppExport SEXP _qlcal_businessDaysBetween(SEXP fromSEXP, SEXP toSEXP, SEXP incl
     return rcpp_result_gen;
 }
 // getHolidays
-Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends);
-static SEXP _qlcal_getHolidays_try(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeekendsSEXP) {
+Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
+static SEXP _qlcal_getHolidays_try(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeekendsSEXP, SEXP xpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::Date >::type from(fromSEXP);
     Rcpp::traits::input_parameter< Rcpp::Date >::type to(toSEXP);
     Rcpp::traits::input_parameter< bool >::type includeWeekends(includeWeekendsSEXP);
-    rcpp_result_gen = Rcpp::wrap(getHolidays(from, to, includeWeekends));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
+    rcpp_result_gen = Rcpp::wrap(getHolidays(from, to, includeWeekends, xp));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_getHolidays(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeekendsSEXP) {
+RcppExport SEXP _qlcal_getHolidays(SEXP fromSEXP, SEXP toSEXP, SEXP includeWeekendsSEXP, SEXP xpSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_getHolidays_try(fromSEXP, toSEXP, includeWeekendsSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_getHolidays_try(fromSEXP, toSEXP, includeWeekendsSEXP, xpSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -562,7 +563,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
-        signatures.insert("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool)");
+        signatures.insert("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date)");
         signatures.insert("Rcpp::XPtr<QlCal::CalendarContainer>(*getCalendar)(std::string)");
         signatures.insert("std::string(*getName)(Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
@@ -603,7 +604,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_adjust_cpp", (DL_FUNC) &_qlcal_adjust_cpp, 3},
     {"_qlcal_advanceUnits_cpp", (DL_FUNC) &_qlcal_advanceUnits_cpp, 6},
     {"_qlcal_businessDaysBetween", (DL_FUNC) &_qlcal_businessDaysBetween, 5},
-    {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 3},
+    {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 4},
     {"_qlcal_getBusinessDays", (DL_FUNC) &_qlcal_getBusinessDays, 2},
     {"_qlcal_getCalendar", (DL_FUNC) &_qlcal_getCalendar, 1},
     {"_qlcal_getName", (DL_FUNC) &_qlcal_getName, 1},

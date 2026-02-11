@@ -174,11 +174,12 @@ businessDaysBetween <- function(from, to, includeFirst = TRUE, includeLast = FAL
 #' @param to A Date object with the end date
 #' @param includeWeekends A boolean indicating if weekends should be included, default
 #' is \sQuote{FALSE}
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A Date vector with holidays or business days between the given dates
 #' @examples
 #' getHolidays(Sys.Date(), Sys.Date() + 30)
-getHolidays <- function(from, to, includeWeekends = FALSE) {
-    .Call(`_qlcal_getHolidays`, from, to, includeWeekends)
+getHolidays <- function(from, to, includeWeekends = FALSE, xp = NULL) {
+    .Call(`_qlcal_getHolidays`, from, to, includeWeekends, xp)
 }
 
 #' @rdname getHolidays

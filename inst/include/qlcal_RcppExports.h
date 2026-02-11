@@ -234,17 +234,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::NumericVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends = false) {
-        typedef SEXP(*Ptr_getHolidays)(SEXP,SEXP,SEXP);
+    inline Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends = false, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_getHolidays)(SEXP,SEXP,SEXP,SEXP);
         static Ptr_getHolidays p_getHolidays = NULL;
         if (p_getHolidays == NULL) {
-            validateSignature("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool)");
+            validateSignature("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_getHolidays = (Ptr_getHolidays)R_GetCCallable("qlcal", "_qlcal_getHolidays");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_getHolidays(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)), Shield<SEXP>(Rcpp::wrap(includeWeekends)));
+            rcpp_result_gen = p_getHolidays(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)), Shield<SEXP>(Rcpp::wrap(includeWeekends)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

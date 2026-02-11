@@ -310,12 +310,14 @@ Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector 
 //' @param to A Date object with the end date
 //' @param includeWeekends A boolean indicating if weekends should be included, default
 //' is \sQuote{FALSE}
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A Date vector with holidays or business days between the given dates
 //' @examples
 //' getHolidays(Sys.Date(), Sys.Date() + 30)
 // [[Rcpp::export]]
-Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends=false) {
-    ql::Calendar cal = gblcal.getCalendar();
+Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekends=false,
+                             Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+    ql::Calendar cal = getCalendarInstance(xp);
     std::vector<ql::Date> holidays = cal.holidayList(Rcpp::as<ql::Date>(from),
                                                      Rcpp::as<ql::Date>(to), includeWeekends);
     int n = holidays.size();
