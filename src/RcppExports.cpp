@@ -337,23 +337,24 @@ RcppExport SEXP _qlcal_advanceUnits_cpp(SEXP datesSEXP, SEXP nSEXP, SEXP unitSEX
     return rcpp_result_gen;
 }
 // businessDaysBetween
-Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector to, bool includeFirst, bool includeLast);
-static SEXP _qlcal_businessDaysBetween_try(SEXP fromSEXP, SEXP toSEXP, SEXP includeFirstSEXP, SEXP includeLastSEXP) {
+Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector to, bool includeFirst, bool includeLast, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp);
+static SEXP _qlcal_businessDaysBetween_try(SEXP fromSEXP, SEXP toSEXP, SEXP includeFirstSEXP, SEXP includeLastSEXP, SEXP xpSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::traits::input_parameter< Rcpp::DateVector >::type from(fromSEXP);
     Rcpp::traits::input_parameter< Rcpp::DateVector >::type to(toSEXP);
     Rcpp::traits::input_parameter< bool >::type includeFirst(includeFirstSEXP);
     Rcpp::traits::input_parameter< bool >::type includeLast(includeLastSEXP);
-    rcpp_result_gen = Rcpp::wrap(businessDaysBetween(from, to, includeFirst, includeLast));
+    Rcpp::traits::input_parameter< Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> >::type xp(xpSEXP);
+    rcpp_result_gen = Rcpp::wrap(businessDaysBetween(from, to, includeFirst, includeLast, xp));
     return rcpp_result_gen;
 END_RCPP_RETURN_ERROR
 }
-RcppExport SEXP _qlcal_businessDaysBetween(SEXP fromSEXP, SEXP toSEXP, SEXP includeFirstSEXP, SEXP includeLastSEXP) {
+RcppExport SEXP _qlcal_businessDaysBetween(SEXP fromSEXP, SEXP toSEXP, SEXP includeFirstSEXP, SEXP includeLastSEXP, SEXP xpSEXP) {
     SEXP rcpp_result_gen;
     {
         Rcpp::RNGScope rcpp_rngScope_gen;
-        rcpp_result_gen = PROTECT(_qlcal_businessDaysBetween_try(fromSEXP, toSEXP, includeFirstSEXP, includeLastSEXP));
+        rcpp_result_gen = PROTECT(_qlcal_businessDaysBetween_try(fromSEXP, toSEXP, includeFirstSEXP, includeLastSEXP, xpSEXP));
     }
     Rboolean rcpp_isInterrupt_gen = Rf_inherits(rcpp_result_gen, "interrupted-error");
     if (rcpp_isInterrupt_gen) {
@@ -560,7 +561,7 @@ static int _qlcal_RcppExport_validate(const char* sig) {
         signatures.insert("Rcpp::DateVector(*getEndOfMonth)(Rcpp::DateVector,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*adjust_cpp)(Rcpp::DateVector,int,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*advanceUnits_cpp)(Rcpp::DateVector,int,int,int,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
-        signatures.insert("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool)");
+        signatures.insert("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
         signatures.insert("Rcpp::DateVector(*getHolidays)(Rcpp::Date,Rcpp::Date,bool)");
         signatures.insert("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date)");
         signatures.insert("Rcpp::XPtr<QlCal::CalendarContainer>(*getCalendar)(std::string)");
@@ -601,7 +602,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_qlcal_getEndOfMonth", (DL_FUNC) &_qlcal_getEndOfMonth, 2},
     {"_qlcal_adjust_cpp", (DL_FUNC) &_qlcal_adjust_cpp, 3},
     {"_qlcal_advanceUnits_cpp", (DL_FUNC) &_qlcal_advanceUnits_cpp, 6},
-    {"_qlcal_businessDaysBetween", (DL_FUNC) &_qlcal_businessDaysBetween, 4},
+    {"_qlcal_businessDaysBetween", (DL_FUNC) &_qlcal_businessDaysBetween, 5},
     {"_qlcal_getHolidays", (DL_FUNC) &_qlcal_getHolidays, 3},
     {"_qlcal_getBusinessDays", (DL_FUNC) &_qlcal_getBusinessDays, 2},
     {"_qlcal_getCalendar", (DL_FUNC) &_qlcal_getCalendar, 1},

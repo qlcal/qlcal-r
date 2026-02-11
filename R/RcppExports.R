@@ -155,12 +155,13 @@ advanceUnits_cpp <- function(dates, n, unit, bdc, emr, cal = NULL) {
 #' is \sQuote{TRUE}
 #' @param includeLast A boolean indicating if the end date is included, default
 #' is \sQuote{FALSE}
+#' @param xp An optional calendar object, if missing the default instance is used
 #' @return A numeric vector with the number of business dates between the
 #' corresponding date pair
 #' @examples
 #' businessDaysBetween(Sys.Date() + 0:6, Sys.Date() + 3 + 0:6)
-businessDaysBetween <- function(from, to, includeFirst = TRUE, includeLast = FALSE) {
-    .Call(`_qlcal_businessDaysBetween`, from, to, includeFirst, includeLast)
+businessDaysBetween <- function(from, to, includeFirst = TRUE, includeLast = FALSE, xp = NULL) {
+    .Call(`_qlcal_businessDaysBetween`, from, to, includeFirst, includeLast, xp)
 }
 
 #' Compute the number of holidays (or business days) between two dates

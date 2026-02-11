@@ -213,17 +213,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::DateVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector to, bool includeFirst = true, bool includeLast = false) {
-        typedef SEXP(*Ptr_businessDaysBetween)(SEXP,SEXP,SEXP,SEXP);
+    inline Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector to, bool includeFirst = true, bool includeLast = false, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_businessDaysBetween)(SEXP,SEXP,SEXP,SEXP,SEXP);
         static Ptr_businessDaysBetween p_businessDaysBetween = NULL;
         if (p_businessDaysBetween == NULL) {
-            validateSignature("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool)");
+            validateSignature("Rcpp::NumericVector(*businessDaysBetween)(Rcpp::DateVector,Rcpp::DateVector,bool,bool,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_businessDaysBetween = (Ptr_businessDaysBetween)R_GetCCallable("qlcal", "_qlcal_businessDaysBetween");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_businessDaysBetween(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)), Shield<SEXP>(Rcpp::wrap(includeFirst)), Shield<SEXP>(Rcpp::wrap(includeLast)));
+            rcpp_result_gen = p_businessDaysBetween(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)), Shield<SEXP>(Rcpp::wrap(includeFirst)), Shield<SEXP>(Rcpp::wrap(includeLast)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

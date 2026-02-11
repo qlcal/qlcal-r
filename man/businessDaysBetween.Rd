@@ -4,7 +4,8 @@
 \alias{businessDaysBetween}
 \title{Compute number of business dates between calendar dates}
 \usage{
-businessDaysBetween(from, to, includeFirst = TRUE, includeLast = FALSE)
+businessDaysBetween(from, to, includeFirst = TRUE, includeLast = FALSE,
+  xp = NULL)
 }
 \arguments{
 \item{from}{A Date vector with interval start dates}
@@ -16,6 +17,8 @@ is \sQuote{TRUE}}
 
 \item{includeLast}{A boolean indicating if the end date is included, default
 is \sQuote{FALSE}}
+
+\item{xp}{An optional calendar object, if missing the default instance is used}
 }
 \value{
 A numeric vector with the number of business dates between the

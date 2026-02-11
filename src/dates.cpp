@@ -250,7 +250,8 @@ Rcpp::DateVector adjust_cpp(Rcpp::DateVector dates, int bdc=0,
 //' @rdname advanceUnits
 // [[Rcpp::export]]
 Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int bdc, bool emr,
-                                  Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> cal = R_NilValue) {
+                                  Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>
+                                  cal = R_NilValue) {
     ql::Calendar calinst = getCalendarInstance(cal);
     ql::BusinessDayConvention bdc_ = getBusinessDayConvention(bdc);
     ql::TimeUnit tu = getTimeUnit(unit);
@@ -278,14 +279,17 @@ Rcpp::DateVector advanceUnits_cpp(Rcpp::DateVector dates, int n, int unit, int b
 //' is \sQuote{TRUE}
 //' @param includeLast A boolean indicating if the end date is included, default
 //' is \sQuote{FALSE}
+//' @param xp An optional calendar object, if missing the default instance is used
 //' @return A numeric vector with the number of business dates between the
 //' corresponding date pair
 //' @examples
 //' businessDaysBetween(Sys.Date() + 0:6, Sys.Date() + 3 + 0:6)
 // [[Rcpp::export]]
 Rcpp::NumericVector businessDaysBetween(Rcpp::DateVector from, Rcpp::DateVector to,
-                                        bool includeFirst=true, bool includeLast=false) {
-    ql::Calendar cal = gblcal.getCalendar();
+                                        bool includeFirst=true, bool includeLast=false,
+                                        Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>
+                                        xp = R_NilValue) {
+    ql::Calendar cal = getCalendarInstance(xp);
     int n = from.size();
     Rcpp::NumericVector between(n);
     std::vector<ql::Date> fdv = Rcpp::as< std::vector<ql::Date> >(from);
