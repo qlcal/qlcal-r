@@ -255,17 +255,17 @@ namespace qlcal {
         return Rcpp::as<Rcpp::DateVector >(rcpp_result_gen);
     }
 
-    inline Rcpp::DateVector getBusinessDays(Rcpp::Date from, Rcpp::Date to) {
-        typedef SEXP(*Ptr_getBusinessDays)(SEXP,SEXP);
+    inline Rcpp::DateVector getBusinessDays(Rcpp::Date from, Rcpp::Date to, Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>> xp = R_NilValue) {
+        typedef SEXP(*Ptr_getBusinessDays)(SEXP,SEXP,SEXP);
         static Ptr_getBusinessDays p_getBusinessDays = NULL;
         if (p_getBusinessDays == NULL) {
-            validateSignature("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date)");
+            validateSignature("Rcpp::DateVector(*getBusinessDays)(Rcpp::Date,Rcpp::Date,Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>)");
             p_getBusinessDays = (Ptr_getBusinessDays)R_GetCCallable("qlcal", "_qlcal_getBusinessDays");
         }
         RObject rcpp_result_gen;
         {
             RNGScope RCPP_rngScope_gen;
-            rcpp_result_gen = p_getBusinessDays(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)));
+            rcpp_result_gen = p_getBusinessDays(Shield<SEXP>(Rcpp::wrap(from)), Shield<SEXP>(Rcpp::wrap(to)), Shield<SEXP>(Rcpp::wrap(xp)));
         }
         if (rcpp_result_gen.inherits("interrupted-error"))
             throw Rcpp::internal::InterruptedException();

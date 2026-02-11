@@ -183,8 +183,8 @@ getHolidays <- function(from, to, includeWeekends = FALSE, xp = NULL) {
 }
 
 #' @rdname getHolidays
-getBusinessDays <- function(from, to) {
-    .Call(`_qlcal_getBusinessDays`, from, to)
+getBusinessDays <- function(from, to, xp = NULL) {
+    .Call(`_qlcal_getBusinessDays`, from, to, xp)
 }
 
 #' Get new calendar

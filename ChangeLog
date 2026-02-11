@@ -1,7 +1,7 @@
 2026-02-11  Dirk Eddelbuettel  <edd@debian.org>
 
-	* src/dates.cpp (businessDaysBetween,getHolidays): : Support optional
-	calendar
+	* src/dates.cpp (businessDaysBetween,getHolidays,getBusinessDays):
+	Support optional calendar
 	* man/businessDaysBetween.Rd: Updated
 	* man/getHolidays.Rd: Idem
 	* src/RcppExports.cpp: Idem

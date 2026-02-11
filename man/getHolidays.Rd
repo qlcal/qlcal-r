@@ -7,7 +7,7 @@
 \usage{
 getHolidays(from, to, includeWeekends = FALSE, xp = NULL)
 
-getBusinessDays(from, to)
+getBusinessDays(from, to, xp = NULL)
 }
 \arguments{
 \item{from}{A Date object with the start date}

@@ -330,8 +330,10 @@ Rcpp::DateVector getHolidays(Rcpp::Date from, Rcpp::Date to, bool includeWeekend
 
 //' @rdname getHolidays
 // [[Rcpp::export]]
-Rcpp::DateVector getBusinessDays(Rcpp::Date from, Rcpp::Date to) {
-    ql::Calendar cal = gblcal.getCalendar();
+Rcpp::DateVector getBusinessDays(Rcpp::Date from, Rcpp::Date to,
+                                 Rcpp::Nullable<Rcpp::XPtr<QlCal::CalendarContainer>>
+                                 xp = R_NilValue) {
+    ql::Calendar cal = getCalendarInstance(xp);
     std::vector<ql::Date> holidays = cal.businessDayList(Rcpp::as<ql::Date>(from),
                                                          Rcpp::as<ql::Date>(to));
     int n = holidays.size();
