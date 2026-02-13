@@ -70,4 +70,19 @@ if (requireNamespace("qlcal", quietly=TRUE)) {
         ## and more dates more omitted here
     ))
     stopifnot( ! isBusinessDay(historicalHolidays) )
+
+
+    ## simple tests for getting calendar objects
+    ca <- getCalendar("Canada::TSX")
+    us <- getCalendar("UnitedStates::NYSE")
+    July1 <- as.Date("2025-07-01")  		# Tuesday that year
+    July4 <- as.Date("2025-07-04")  		# Friday
+    stopifnot( isBusinessDay( July1, us ))  # Canada Day
+    stopifnot( !isBusinessDay( July1, ca )) # Canada Day
+    stopifnot( isHoliday( July1, ca ))      # Canada Day
+    stopifnot( !isHoliday( July1, us ))     # Canada Day
+    stopifnot( !isBusinessDay( July4, us )) # July 4
+    stopifnot( isBusinessDay( July4, ca ))  # July 4
+    stopifnot( isHoliday( July4, us ))      # July 4
+    stopifnot( !isHoliday( July4, ca ))     # July 4
 }
