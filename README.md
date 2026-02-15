@@ -14,14 +14,28 @@
 ### Motivation
 
 `qlcal` lets us access various global (exchange or settlement) calendars.
-Here is a quick example for the NYSE in 2022 where Juneteenth is making a first appearance as the most recently added federal holiday:
+Here is a quick example for the NYSE:
 
 ```r
 > library(qlcal)
-> setCalendar("UnitedStates/NYSE")
-> getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"))
-[1] "2022-01-17" "2022-02-21" "2022-04-15" "2022-05-30" "2022-06-20"
-[6] "2022-07-04" "2022-09-05" "2022-11-24" "2022-12-26"
+> setCalendar("UnitedStates/NYSE")     # set the global defaut calendar
+> getHolidays(as.Date("2026-01-01"), as.Date("2026-12-31"))
+ [1] "2026-01-01" "2026-01-19" "2026-02-16" "2026-04-03" "2026-05-25" "2026-06-19" "2026-07-03"
+ [8] "2026-09-07" "2026-11-26" "2026-12-25"
+>
+```
+
+As of version 0.1.0, we can also create 'calendar objects' that we can pass
+to the calendaring functions. Here we keep US and NYSE as the default but
+also query Canada and its TSX exchange calendar:
+
+```r
+> ca <- getCalendar("Canada/TSX")      # get an override calendar object
+> ca
+<qlcal calendar object 'Canada/TSX' aka 'TSX'>
+> getHolidays(as.Date("2026-01-01"), as.Date("2026-12-31"), xp=ca)
+ [1] "2026-01-01" "2026-02-16" "2026-04-03" "2026-05-18" "2026-07-01" "2026-08-03" "2026-09-07"
+ [8] "2026-10-12" "2026-12-25" "2026-12-28"
 >
 ```
 
@@ -40,24 +54,24 @@ Going forward, the idea is to regroup the QuantLib calendaring functionality in 
 Here we examine holiday lists for given calendars, specified by country and possibly exchange:
 
 ```r
-R> library(qlcal)
-R> fromD <- as.Date("2017-01-01")
-R> toD <- as.Date("2017-12-31")
-R> getHolidays(fromD, toD)        # default calender ie TARGET
-[1] "2017-04-14" "2017-04-17" "2017-05-01" "2017-12-25" "2017-12-26"
-R> setCalendar("UnitedStates")
-R> getHolidays(fromD, toD)        # US aka US::Settlement
-[1] "2017-01-02" "2017-01-16" "2017-02-20" "2017-05-29" "2017-07-04" "2017-09-04"
-[7] "2017-10-09" "2017-11-10" "2017-11-23" "2017-12-25"
-R> setCalendar("UnitedStates::NYSE")
-R> getHolidays(fromD, toD)        # US New York Stock Exchange
-[1] "2017-01-02" "2017-01-16" "2017-02-20" "2017-04-14" "2017-05-29" "2017-07-04"
-[7] "2017-09-04" "2017-11-23" "2017-12-25"
-R>
+> library(qlcal)
+> fromD <- as.Date("2026-01-01")
+> toD <- as.Date("2026-12-31")
+> getHolidays(fromD, toD)        # default calender ie TARGET
+[1] "2026-01-01" "2026-04-03" "2026-04-06" "2026-05-01" "2026-12-25"
+> us <- getCalendar("UnitedStates")
+> getHolidays(fromD, toD, xp=us)   # UnitedStates/Settlement
+ [1] "2026-01-01" "2026-01-19" "2026-02-16" "2026-05-25" "2026-06-19" "2026-07-03" "2026-09-07"
+ [8] "2026-10-12" "2026-11-11" "2026-11-26" "2026-12-25"
+> usny <- getCalendar("UnitedStates/NYSE")
+> getHolidays(fromD, toD, xp=usny) # UnitedStates/NYSE
+ [1] "2026-01-01" "2026-01-19" "2026-02-16" "2026-04-03" "2026-05-25" "2026-06-19" "2026-07-03"
+ [8] "2026-09-07" "2026-11-26" "2026-12-25"
+>
 ```
 
 This shows the difference between the default US settlement calendar and the NYSE calendar
-which we selected explicitly.
+which were selected explicitly (instead of via the global override as above).
 
 As all calendars are now supported (and are listed in a convenience vector `calendars`):
 
@@ -102,8 +116,7 @@ We can then for example quickly count number of holiday per calendar (by computi
 
 ```r
 > getHols <- function(cal) {    # simple helper function
-+    setCalendar(cal)
-+    getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"))
++    getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"), xp=getCalendar(cal))
 + }
 > D <- data.table(calendar=calendars)
 > D[ , `:=`(n = length(getHols(calendar)),

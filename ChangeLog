@@ -1,3 +1,7 @@
+2026-02-15  Dirk Eddelbuettel  <edd@debian.org>
+
+	* README.md: Update discussion and examples with getCalendar() use
+
 2026-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
 	* tests/calendars.R: Add simple tests for calendar objects using NYSE
