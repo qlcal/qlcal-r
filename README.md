@@ -44,8 +44,10 @@ also query Canada and its TSX exchange calendar:
 This package started as an integration of the (somewhat experimental) [Quantuccia](https://github.com/pcaspers/Quantuccia) package (see next section) to R by means of [Rcpp](https://github.com/RcppCore/Rcpp) in package [RcppQuantuccia](https://github.com/eddelbuettel/rcppquantuccia).
 But [Quantuccia](https://github.com/pcaspers/Quantuccia) did not continue beyond its initial proof of concept.
 So as of RcppQuantuccia release 0.0.5, we have refocused it on an _even smaller subset_ of
-[QuantLib](https://github.com/lballabio/quantlib): just the calendaring.  So code for pricers, math, models, schedules, ... that was in [Quantuccia](https://github.com/pcaspers/Quantuccia) has been removed. The calendaring, along with all its support code, is now current with the current
-[QuantLib](https://github.com/lballabio/quantlib) release which, as of this writing, is 1.24.
+[QuantLib](https://github.com/lballabio/quantlib): just the calendaring.  So code for pricers, math, models, schedules, ... that was in [Quantuccia](https://github.com/pcaspers/Quantuccia) has been removed. The calendaring, along with all its support code, is generally current with the current
+[QuantLib](https://github.com/lballabio/quantlib) release (as can be seen
+from the [ChangeLog](https://github.com/qlcal/qlcal-r/blob/master/ChangeLog)
+or [NEWS])(https://github.com/qlcal/qlcal-r/blob/master/inst/NEWS.Rd) files.
 
 Going forward, the idea is to regroup the QuantLib calendaring functionality in a small and self-contained library `qlcal`, and provide frontends such as this R package.
 

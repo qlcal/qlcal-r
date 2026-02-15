@@ -1,6 +1,7 @@
 2026-02-15  Dirk Eddelbuettel  <edd@debian.org>
 
-	* README.md: Update discussion and examples with getCalendar() use
+	* README.md: Update discussion and examples with getCalendar() use;
+	reference ChangeLog and NEWS for currentness regarding QuantLib
 
 2026-02-13  Dirk Eddelbuettel  <edd@debian.org>
 
