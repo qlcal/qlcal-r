@@ -1,12 +1,11 @@
 
-suppressMessages( { library(RcppQuantuccia); library(data.table) } )
+suppressMessages( { library(qlcal); library(data.table) } )
 options(width=150)
 
 str(calendars)   # show (some) known calendars
 
 getHols <- function(cal) {    # simple helper function
-    setCalendar(cal)
-    getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"))
+    getHolidays(as.Date("2022-01-01"), as.Date("2022-12-31"), xp=getCalendar(cal))
 }
 D <- data.table(calendar=calendars)
 D[ , `:=`(n = length(getHols(calendar)),
