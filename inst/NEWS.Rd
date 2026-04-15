@@ -3,6 +3,13 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.1.1 (2026-04-15)}{
+  \itemize{
+    \item Synchronized with QuantLib 1.42 released two days ago
+    \item Calendar updates for China, Singapore, Taiwan
+  }
+}
+
 \section{Changes in version 0.1.0 (2026-02-18)}{
   \itemize{
     \item Invalid calendars return id \sQuote{TARGET} now
