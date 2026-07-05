@@ -3,6 +3,7 @@
 name: ci
 
 on:
+  workflow_dispatch:
   push:
   pull_request:
 
@@ -25,6 +26,9 @@ jobs:
 
       - name: Setup
         uses: eddelbuettel/github-actions/r-ci@master
+
+      - name: Setup ccache for R
+        uses: eddelbuettel/github-actions/ccache-with-R@master
 
       - name: Dependencies
         run: ./run.sh install_deps
