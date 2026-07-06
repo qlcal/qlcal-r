@@ -33,6 +33,12 @@ jobs:
       - name: Dependencies
         run: ./run.sh install_deps
 
+      - name: Check
+        run: |
+          ccache --set-config "hash_dir = false"
+          ccache --set-config "sloppiness = include_file_ctime"
+          ccache --show-config
+
       - name: Test
         run: ./run.sh run_tests
 
