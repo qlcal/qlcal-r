@@ -35,8 +35,8 @@ jobs:
 
       - name: Check
         run: |
-          ccache --set-config "hash_dir = false"
-          ccache --set-config "sloppiness = include_file_ctime"
+          ccache --set-config "hash_dir=false"
+          ccache --set-config "sloppiness=include_file_ctime"
           ccache --show-config
 
       - name: Test
