@@ -33,14 +33,24 @@ jobs:
       - name: Dependencies
         run: ./run.sh install_deps
 
-      - name: Check
+      - name: ccache 1
         run: |
-          ccache --set-config "hash_dir=false"
-          ccache --set-config "sloppiness=include_file_ctime"
-          ccache --show-config
+          ccache -z
 
       - name: Test
         run: ./run.sh run_tests
+
+      - name: ccache 2
+        run: |
+          ccache -s
+          ccache -z
+
+      - name: Test again
+        run: ./run.sh run_tests
+
+      - name: ccache 3
+        run: |
+          ccache -s
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
