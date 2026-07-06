@@ -16,7 +16,7 @@ CXX20=ccache g++ #-std=c++20
 CXX23=ccache g++ #-std=c++23
 EOF
 
-test -d ${HOME}/.config/ccache || mkdir -pv ${HOME}/.config/ccache
+test -d ${HOME}/.config/ccache || mkdir -p ${HOME}/.config/ccache
 
 cfgfile=${HOME}/.config/ccache/ccache.conf
 ## test -f ${cfgfile} && echo "** Have ccache.conf" && cat ${cfgfile}
