@@ -16,9 +16,10 @@ CXX20=ccache g++ #-std=c++20
 CXX23=ccache g++ #-std=c++23
 EOF
 
-test -d ${GIHUB_WORKSPACE}/.ccache || mkdir -p ${GITHUB_WORKSPACE}/.ccache
+ls -a
+test -d .ccache || mkdir -pv .ccache
 
-cat <<EOF > ${GIHUB_WORKSPACE}/.ccache/ccache.conf
+cat <<EOF > .ccache/ccache.conf
 max_size = 9.87G
 # important for R CMD INSTALL *.tar.gz as tarballs are expanded freshly -> fresh ctime
 sloppiness = include_file_ctime
