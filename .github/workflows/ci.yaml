@@ -9,6 +9,9 @@ on:
 
 env:
   _R_CHECK_FORCE_SUGGESTS_: "false"
+  CCACHE_BASEDIR: ${{ github.workspace }} # Rewrites absolute paths to relative paths
+  CCACHE_DIR: ${{ github.workspace }}/.ccache # Explicit local storage for Github caching
+  CCACHE_NOHASHDIR: "true" # Extra insurance to ignore compiler binary path changes
 
 jobs:
   ci:
