@@ -39,7 +39,6 @@ jobs:
           append-timestamp: true
           variant: ccache
           max-size: 10G # Github has a 10GB repo cache limit
-          verbose: 2
 
       - name: Configure ccache for R
         shell: bash

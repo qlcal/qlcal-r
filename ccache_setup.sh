@@ -18,16 +18,20 @@ EOF
 
 test -d ${HOME}/.config/ccache || mkdir -pv ${HOME}/.config/ccache
 
-test -f ${HOME}/.config/ccache/ccache.conf && echo "** Have ccache.conf" && cat ${HOME}/.config/ccache/ccache.conf
+cfgfile=${HOME}/.config/ccache/ccache.conf
+## test -f ${cfgfile} && echo "** Have ccache.conf" && cat ${cfgfile}
 
-cat <<EOF > ${HOME}/.config/ccache/ccache.conf
+cat <<EOF > ${cfgfile}
+# set base directory
 base_dir = $(pwd)
+# set cache location directory
 cache_dir = $(pwd)/.ccache
-max_size = 9.87G
+# set max size, this is also the default value at GH
+max_size = 10G
 # important for R CMD INSTALL *.tar.gz as tarballs are expanded freshly -> fresh ctime
 sloppiness = include_file_ctime
-# also important as the (temp.) directory name will differ
+# also important as the (temporary) directory name will differ
 hash_dir = false
 EOF
 
-test -f ${HOME}/.config/ccache/ccache.conf && echo "** Now have ccache.conf" && cat ${HOME}/.config/ccache/ccache.conf
+## test -f ${cfgfile} && echo "** Now have ccache.conf" && cat ${cfgfile}
