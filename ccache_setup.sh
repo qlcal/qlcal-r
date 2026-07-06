@@ -18,7 +18,7 @@ EOF
 
 test -d .config/ccache || mkdir -pv .config/ccache
 
-test -f .config/ccache/ccache.conf && cat .config/ccache/ccache.conf
+test -f .config/ccache/ccache.conf && echo "** Have ccache.conf" && cat .config/ccache/ccache.conf
 
 cat <<EOF > .config/ccache/ccache.conf
 base_dir = $(pwd)
@@ -30,4 +30,4 @@ sloppiness = include_file_ctime
 hash_dir = false
 EOF
 
-test -f .config/ccache/ccache.conf && cat .config/ccache/ccache.conf
+test -f .config/ccache/ccache.conf && echo "** Now have ccache.conf" && cat .config/ccache/ccache.conf
