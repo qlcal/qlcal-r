@@ -45,7 +45,7 @@ jobs:
           ccache -s
           ccache -z
 
-      - name: Test again
+      - name: Test again, for good measure
         run: ./run.sh run_tests
 
       - name: ccache 3
