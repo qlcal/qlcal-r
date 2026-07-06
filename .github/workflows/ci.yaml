@@ -30,45 +30,11 @@ jobs:
       - name: Setup ccache for R
         uses: eddelbuettel/github-actions/ccache-with-R@master
 
-      # - name: Get ccache
-      #   uses: hendrikmuhs/ccache-action@v1.2.23
-      #   with:
-      #     key: ccache_file
-      #     restore-keys: ccache_file
-      #     append-timestamp: true
-      #     variant: ccache
-      #     max-size: 10G # Github has a 10GB repo cache limit
-
-      # - name: Configure ccache for R
-      #   shell: bash
-      #   run: |
-      #     ./ccache_setup.sh
-      #     ccache -p
-      #   env:
-      #     GH_TOKEN: ${{ github.token }}
-
       - name: Dependencies
         run: ./run.sh install_deps
 
-      - name: ccache 1
-        run: |
-          ccache -z
-          ccache -p
-
       - name: Test
         run: ./run.sh run_tests
-
-      - name: ccache 2
-        run: |
-          ccache -s
-          ccache -z
-
-      - name: Test again, for good measure
-        run: ./run.sh run_tests
-
-      - name: ccache 3
-        run: |
-          ccache -s
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
