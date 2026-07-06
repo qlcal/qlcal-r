@@ -16,10 +16,11 @@ CXX20=ccache g++ #-std=c++20
 CXX23=ccache g++ #-std=c++23
 EOF
 
-ls -a
-test -d .ccache || mkdir -pv .ccache
+test -d .config/ccache || mkdir -pv .config/ccache
 
-cat <<EOF > .ccache/ccache.conf
+test -f .config/ccache/ccache.conf && cat .config/ccache/ccache.conf
+
+cat <<EOF > .config/ccache/ccache.conf
 base_dir = $(pwd)
 cache_dir = $(pwd)/.ccache
 max_size = 9.87G
@@ -28,3 +29,5 @@ sloppiness = include_file_ctime
 # also important as the (temp.) directory name will differ
 hash_dir = false
 EOF
+
+test -f .config/ccache/ccache.conf && cat .config/ccache/ccache.conf
