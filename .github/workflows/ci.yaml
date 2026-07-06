@@ -44,8 +44,6 @@ jobs:
       - name: Configure ccache for R
         shell: bash
         run: |
-          pwd
-          ls -l
           ./ccache_setup.sh
           ccache -p
         env:
