@@ -20,6 +20,8 @@ ls -a
 test -d .ccache || mkdir -pv .ccache
 
 cat <<EOF > .ccache/ccache.conf
+base_dir = $(pwd)
+cache_dir = $(pwd)/.ccache
 max_size = 9.87G
 # important for R CMD INSTALL *.tar.gz as tarballs are expanded freshly -> fresh ctime
 sloppiness = include_file_ctime
