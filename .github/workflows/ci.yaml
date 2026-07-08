@@ -46,7 +46,12 @@ jobs:
       #- name: Test
       #  run: ./run.sh run_tests
       - name: Build
-        run: R CMD build --no-build-vignettes --no-manual
+        run: R CMD build --no-build-vignettes --no-manual .
+
+      - name: Install
+        run: |
+          ls -l
+          R CMD INSTALL qlcal*.tar.gz
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
