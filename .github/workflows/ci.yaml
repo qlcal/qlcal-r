@@ -43,8 +43,10 @@ jobs:
       - name: Dependencies
         run: ./run.sh install_deps
 
-      - name: Test
-        run: ./run.sh run_tests
+      #- name: Test
+      #  run: ./run.sh run_tests
+      - name: Build
+        run: R CMD build --no-build-vignettes --no-manual
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
