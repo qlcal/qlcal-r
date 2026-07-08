@@ -15,3 +15,4 @@ inst/include/ql/math/randomnumbers/sobolrsg.hpp
 ^GTAGS
 src/ql/time/calendars/Makefile.am
 src/ql/time/calendars/Makefile.in
+^\.ccache
