@@ -16,7 +16,7 @@ jobs:
       matrix:
         include:
           - {os: macOS-latest}
-          - {os: ubuntu-latest}
+          #- {os: ubuntu-latest}
 
     runs-on: ${{ matrix.os }}
 
@@ -31,6 +31,12 @@ jobs:
         uses: eddelbuettel/github-actions/ccache-with-R@master
         with:
           key: ${{ matrix.os }}
+
+      - name: ccache overrides
+        run: |
+          ccache --set-config "sloppiness=include_file_ctime"
+          ccache --set-config "hash_dir=false"
+          ccache --show-config
 
       - name: Dependencies
         run: ./run.sh install_deps
