@@ -43,13 +43,14 @@ jobs:
       - name: Dependencies
         run: ./run.sh install_deps
 
-      #- name: Test
-      #  run: ./run.sh run_tests
-      - name: Build
-        run: R CMD build --no-build-vignettes --no-manual .
+      - name: Test
+        run: ./run.sh run_tests
 
-      - name: Check
-        run: R CMD check --no-build-vignettes --no-manual qlcal*.tar.gz
+      #- name: Build
+      #  run: R CMD build --no-build-vignettes --no-manual .
+
+      #- name: Check
+      #  run: R CMD check --no-build-vignettes --no-manual qlcal*.tar.gz
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
