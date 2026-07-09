@@ -34,10 +34,11 @@ jobs:
 
       - name: Turn on ccache log
         run: |
-          ccache --set-config "log_file=ccache_log.txt"
+          ccache --set-config "log_file=/tmp/ccache_log.txt"
           ccache --set-config "debug=true"
           ccache --verbose
           ccache --verbose
+          ccache --show-config
 
       - name: Dependencies
         run: ./run.sh install_deps
@@ -46,7 +47,7 @@ jobs:
         run: ./run.sh run_tests
 
       - name: Show ccache log
-        run: cat ccache_log.txt
+        run: cat /tmp/ccache_log.txt
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
