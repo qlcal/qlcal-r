@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - {os: macOS-latest}
+          #- {os: macOS-latest}
           - {os: ubuntu-latest}
 
     runs-on: ${{ matrix.os }}
@@ -32,11 +32,21 @@ jobs:
         with:
           key: ${{ matrix.os }}
 
+      - name: Turn on ccache log
+        run: |
+          ccache --set-config "log_file=ccache_log.txt"
+          ccache --set-config "debug=true"
+          ccache --verbose
+          ccache --verbose
+
       - name: Dependencies
         run: ./run.sh install_deps
 
       - name: Test
         run: ./run.sh run_tests
+
+      - name: Show ccache log
+        run: cat ccache_log.txt
 
       #- name: Coverage
       #  if: ${{ matrix.os == 'ubuntu-latest' }}
