@@ -37,7 +37,6 @@ jobs:
           ccache --set-config "log_file=/tmp/ccache_log.txt"
           ccache --set-config "debug=true"
           ccache --verbose
-          ccache --verbose
           ccache --show-config
 
       - name: Dependencies
