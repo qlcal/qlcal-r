@@ -1,5 +1,7 @@
 2026-07-12  Dirk Eddelbuettel  <edd@debian.org>
 
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
 	* src/calendars.cpp: Updated Israel constructors, added new calendars
 	* R/calendars.R: Updated set of known calendars
 
