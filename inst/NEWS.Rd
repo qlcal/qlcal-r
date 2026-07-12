@@ -3,6 +3,17 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.1.1.1 (2026-07-12)}{
+  \itemize{
+    \item Synchronized with QuantLib 1.43(-rc)
+    \item Calendar updates for India, Israel, and South Korea; small
+    interface update for Israle
+    \item New calendars for Croatia, Malta, Montenegro, North Macedonia,
+    Serbia, Slovenia, Uzebekistan
+    \item Updates to a number of helper functions
+  }
+}
+
 \section{Changes in version 0.1.1 (2026-04-15)}{
   \itemize{
     \item Synchronized with QuantLib 1.42 released two days ago
