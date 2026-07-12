@@ -1,3 +1,37 @@
+2026-07-12  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/calendars.cpp: Updated Israel constructors, added new calendars
+	* R/calendars.R: Updated set of known calendars
+
+	* src/ql/time/calendars/croatia.cpp: New calendar from QuantLib 1.43
+	* src/ql/time/calendars/croatia.hpp: Idem
+	* src/ql/time/calendars/islamicholidays.cpp: Idem
+	* src/ql/time/calendars/islamicholidays.hpp: Idem
+	* src/ql/time/calendars/malta.cpp: Idem
+	* src/ql/time/calendars/malta.hpp: Idem
+	* src/ql/time/calendars/montenegro.cpp: Idem
+	* src/ql/time/calendars/montenegro.hpp: Idem
+	* src/ql/time/calendars/northmacedonia.cpp: Idem
+	* src/ql/time/calendars/northmacedonia.hpp: Idem
+	* src/ql/time/calendars/serbia.cpp: Idem
+	* src/ql/time/calendars/serbia.hpp: Idem
+	* src/ql/time/calendars/slovenia.cpp: Idem
+	* src/ql/time/calendars/slovenia.hpp: Idem
+	* src/ql/time/calendars/uzbekistan.cpp: Idem
+	* src/ql/time/calendars/uzbekistan.hpp: Idem
+
+	* src/ql/optional.hpp: Updated in QuantLib 1.43
+	* src/ql/patterns/observable.hpp: Idem
+	* src/ql/shared_ptr.hpp: Idem
+	* src/ql/time/calendars/all.hpp: Idem
+	* src/ql/time/calendars/india.cpp: Idem
+	* src/ql/time/calendars/india.hpp: Idem
+	* src/ql/time/calendars/israel.cpp: Idem
+	* src/ql/time/calendars/israel.hpp: Idem
+	* src/ql/time/calendars/nullcalendar.hpp: Idem
+	* src/ql/time/calendars/southkorea.cpp: Idem
+	* src/ql/time/date.hpp: Idem
+
 2026-07-05  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml (jobs): Add ccache

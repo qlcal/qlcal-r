@@ -6,8 +6,8 @@
 @CXXSTD@
 
 ## We need the headers in inst/include
-## This one helps with Boost noise but is not allowed by CRAN as 'not portable': -Wno-parentheses
-PKG_CPPFLAGS = -I. -I../inst/include/ -DBOOST_NO_AUTO_PTR -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE -DQL_USE_STD_OPTIONAL
+## This one helps with Boost noise but is not allowed by CRAN as 'not portable':  -Wno-nonnull -Wno-deprecated-declarations
+PKG_CPPFLAGS = -I. -I../inst/include/ -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE -DQL_USE_STD_OPTIONAL
 
 SOURCES = \
         ql/patterns/observable.cpp \
@@ -20,6 +20,7 @@ SOURCES = \
         ql/time/calendars/canada.cpp \
         ql/time/calendars/chile.cpp \
         ql/time/calendars/china.cpp \
+        ql/time/calendars/croatia.cpp \
         ql/time/calendars/czechrepublic.cpp \
         ql/time/calendars/denmark.cpp \
         ql/time/calendars/finland.cpp \
@@ -30,19 +31,25 @@ SOURCES = \
         ql/time/calendars/iceland.cpp \
         ql/time/calendars/india.cpp \
         ql/time/calendars/indonesia.cpp \
+        ql/time/calendars/islamicholidays.cpp \
         ql/time/calendars/israel.cpp \
         ql/time/calendars/italy.cpp \
         ql/time/calendars/japan.cpp \
         ql/time/calendars/jointcalendar.cpp \
+        ql/time/calendars/malta.cpp \
         ql/time/calendars/mexico.cpp \
+        ql/time/calendars/montenegro.cpp \
         ql/time/calendars/newzealand.cpp \
         ql/time/calendars/norway.cpp \
+        ql/time/calendars/northmacedonia.cpp \
         ql/time/calendars/poland.cpp \
         ql/time/calendars/romania.cpp \
         ql/time/calendars/russia.cpp \
         ql/time/calendars/saudiarabia.cpp \
+        ql/time/calendars/serbia.cpp \
         ql/time/calendars/singapore.cpp \
         ql/time/calendars/slovakia.cpp \
+        ql/time/calendars/slovenia.cpp \
         ql/time/calendars/southafrica.cpp \
         ql/time/calendars/southkorea.cpp \
         ql/time/calendars/sweden.cpp \
@@ -54,6 +61,7 @@ SOURCES = \
         ql/time/calendars/ukraine.cpp \
         ql/time/calendars/unitedkingdom.cpp \
         ql/time/calendars/unitedstates.cpp \
+        ql/time/calendars/uzbekistan.cpp \
         ql/time/calendars/weekendsonly.cpp \
 	ql/time/businessdayconvention.cpp \
 	ql/time/calendar.cpp \

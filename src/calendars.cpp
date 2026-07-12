@@ -1,7 +1,7 @@
 
 //  QlCal -- R interface to QuantLib Calendars
 //
-//  Copyright (C) 2002 - 2023  Dirk Eddelbuettel <edd@debian.org>
+//  Copyright (C) 2002-2026  Dirk Eddelbuettel <edd@debian.org>
 //
 //  This file is part of QlCal
 //
@@ -101,6 +101,9 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
                    txt == "China::IB") {
             p_cal.reset(new ql::China(ql::China::IB));
 
+        } else if (txt == "Croatia") {
+            p_cal.reset(new ql::Croatia());
+
         } else if (txt == "CzechRepublic") {
             p_cal.reset(new ql::CzechRepublic());
 
@@ -150,8 +153,13 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "Indonesia") {
             p_cal.reset(new ql::Indonesia());
 
-        } else if (txt == "Israel") {
-            p_cal.reset(new ql::Israel());
+        } else if (txt == "Israel" ||
+                   txt == "Israel/TASE") {
+            p_cal.reset(new ql::Israel(ql::Israel::TASE));
+        } else if (txt == "Israel/SHIR") {
+            p_cal.reset(new ql::Israel(ql::Israel::SHIR));
+        } else if (txt == "Israel/Telbor") {
+            p_cal.reset(new ql::Israel(ql::Israel::Telbor));
 
         } else if (txt == "Italy" ||
                    txt == "Italy/Settlement" ||
@@ -164,14 +172,23 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "Japan") {
             p_cal.reset(new ql::Japan());
 
+        } else if (txt == "Malta") {
+            p_cal.reset(new ql::Malta());
+
         } else if (txt == "Mexico") {
             p_cal.reset(new ql::Mexico());
+
+        } else if (txt == "Montenegro") {
+            p_cal.reset(new ql::Montenegro());
 
         } else if (txt == "NewZealand" ||
                    txt == "NewZealand/Wellington") {
             p_cal.reset(new ql::NewZealand(ql::NewZealand::Wellington));
         } else if (txt == "NewZealand/Auckland") {
             p_cal.reset(new ql::NewZealand(ql::NewZealand::Auckland));
+
+        } else if (txt == "NorthMacedonia") {
+            p_cal.reset(new ql::NorthMacedonia());
 
         } else if (txt == "Norway") {
             p_cal.reset(new ql::Norway());
@@ -193,11 +210,17 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "SaudiArabia") {
             p_cal.reset(new ql::SaudiArabia());
 
+        } else if (txt == "Serbia") {
+            p_cal.reset(new ql::Serbia());
+
         } else if (txt == "Singapore") {
             p_cal.reset(new ql::Singapore());
 
         } else if (txt == "Slovakia") {
             p_cal.reset(new ql::Slovakia());
+
+        } else if (txt == "Slovenia") {
+            p_cal.reset(new ql::Slovenia());
 
         } else if (txt == "SouthAfrica") {
             p_cal.reset(new ql::SouthAfrica());
@@ -238,6 +261,9 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
         } else if (txt == "UnitedKingdom/Metals" ||
                    txt == "UnitedKingdom::Metals") {
             p_cal.reset(new ql::UnitedKingdom(ql::UnitedKingdom::Metals));
+
+        } else if (txt == "Uzbekistan") {
+            p_cal.reset(new ql::Uzbekistan());
 
         } else if (txt == "WeekendsOnly") {
             p_cal.reset(new ql::WeekendsOnly());
