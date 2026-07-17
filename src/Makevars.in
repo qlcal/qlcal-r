@@ -7,7 +7,7 @@
 
 ## We need the headers in inst/include
 ## This one helps with Boost noise but is not allowed by CRAN as 'not portable':  -Wno-nonnull -Wno-deprecated-declarations
-PKG_CPPFLAGS = -I. -I../inst/include/ -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE -DQL_USE_STD_OPTIONAL
+PKG_CPPFLAGS = -I. -I../inst/include/ -DQL_USE_STD_SHARED_PTR -DQL_HIGH_RESOLUTION_DATE -DQL_USE_STD_OPTIONAL @XTRAFLAGS@
 
 SOURCES = \
         ql/patterns/observable.cpp \

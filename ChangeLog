@@ -1,3 +1,8 @@
+2026-07-17  Dirk Eddelbuettel  <edd@debian.org>
+
+	* tools/configure.R: Detect .git and add extra compilation flags
+	* src/Makevars.in: Accommdate extra flags set by configure.R
+
 2026-07-16  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Roll micro version and date

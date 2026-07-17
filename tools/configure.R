@@ -7,9 +7,17 @@ if (rver < "4.2.0") {
     ## for R 4.2.0 C++14 is standard, for R 4.3.0 it is C++17 so no need
     cxxstd <- "#CXX_STD = CXX14"
 }
+if (dir.exists(".git")) {
+    ## development from a .git directory can use these flags
+    xtraflags <- "-Wno-nonnull -Wno-deprecated-declarations"
+} else {
+    ## else build from tarball so stick with existing flags
+    xtraflags <- ""
+}
 win <- if (Sys.info()[["sysname"]] == "Windows") ".win" else ""
 infile <- file.path("src", paste0("Makevars", win, ".in"))
 outfile <- file.path("src", paste0("Makevars", win))
 lines <- readLines(infile)
 lines <- gsub("@CXXSTD@", cxxstd, lines)
+lines <- gsub("@XTRAFLAGS@", xtraflags, lines)
 writeLines(lines, outfile)
