@@ -1,3 +1,9 @@
+2026-07-21  Maximilian Muecke  <muecke.maximilian@gmail.com>
+
+	* src/calendars.cpp: Add Poland/WSE, Russia/MOEX, Romania/Public and
+	Indonesia market calendars
+	* R/calendars.R: Updated set of known calendars
+
 2026-07-21  Dirk Eddelbuettel  <edd@debian.org>
 
 	* DESCRIPTION (Version, Date): Release 0.1.3
