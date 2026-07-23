@@ -3,6 +3,17 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
+\section{Changes in version 0.1.4 (2026-xx-yy)}{
+  \itemize{
+    \item Add missing market calendars for Poland, Russia, Romania, Indonesia
+    (Maximilian Muecke in \ghpr{21})
+    \item Add (semi-deprecated) alternate separators '::' for Israel and New
+    Zealand markets (Maximilian Muecke in \ghpr{22})
+    \item Fix several typos across source, configuration and documentation files
+    (Maximilian Muecke in \ghpr{23})
+  }
+}
+
 \section{Changes in version 0.1.3 (2026-07-21)}{
   \itemize{
     \item Add missing 'vector' header to new IslamicHolidays calendar file,
