@@ -18,7 +18,7 @@ Here is a quick example for the NYSE:
 
 ```r
 > library(qlcal)
-> setCalendar("UnitedStates/NYSE")     # set the global defaut calendar
+> setCalendar("UnitedStates/NYSE")     # set the global default calendar
 > getHolidays(as.Date("2026-01-01"), as.Date("2026-12-31"))
  [1] "2026-01-01" "2026-01-19" "2026-02-16" "2026-04-03" "2026-05-25" "2026-06-19" "2026-07-03"
  [8] "2026-09-07" "2026-11-26" "2026-12-25"
@@ -59,7 +59,7 @@ Here we examine holiday lists for given calendars, specified by country and poss
 > library(qlcal)
 > fromD <- as.Date("2026-01-01")
 > toD <- as.Date("2026-12-31")
-> getHolidays(fromD, toD)        # default calender ie TARGET
+> getHolidays(fromD, toD)        # default calendar ie TARGET
 [1] "2026-01-01" "2026-04-03" "2026-04-06" "2026-05-01" "2026-12-25"
 > us <- getCalendar("UnitedStates")
 > getHolidays(fromD, toD, xp=us)   # UnitedStates/Settlement
@@ -177,7 +177,7 @@ or if you prefer non-release development version these can be installed from Git
 remotes::install_github("qlcal/qlcal-r")
 ```
 
-It only requires `Rcpp` and `BH` both of which are available whereever `R` itself runs.
+It only requires `Rcpp` and `BH` both of which are available wherever `R` itself runs.
 
 Note that the package requires C++14 or newer due to the `BH` (_i.e._ Boost) use.  As R nags when we
 set `CXX_STD` we switched to requested `R (>= 4.2.0)` where this requirement is implicitly

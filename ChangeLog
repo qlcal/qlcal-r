@@ -4,6 +4,11 @@
 
 2026-07-23  Maximilian Muecke  <muecke.maximilian@gmail.com>
 
+	* configure: Correct compiler flag hint '-Wno-nonull' to '-Wno-nonnull'
+	* src/xptr.cpp: Fix typos in roxygen documentation
+	* R/RcppExports.R: Idem
+	* R/dates.R: Idem
+	* README.md: Fix typos
 	* src/calendars.cpp: Accept '::' alias spellings for Israel and
 	NewZealand market calendars
 

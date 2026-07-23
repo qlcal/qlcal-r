@@ -192,7 +192,7 @@ getBusinessDays <- function(from, to, xp = NULL) {
 #' This function returns an external pointer, classed as small S3 helper class,
 #' to a new QuantLib Calendar object identified by the calendar string.
 #'
-#' @title Get new calendar objectb
+#' @title Get new calendar object
 #' @param calstr Character variable identifying desired calendar
 #' @return A external pointer classed as S3 class 'qlcalendar'
 #' @seealso \code{setCalendar}
@@ -208,7 +208,7 @@ getCalendar <- function(calstr) {
 #' Get calendar name or id
 #'
 #' This function returns the corresponding (full) name (as in the underlying
-#' implementationclass) or identification string (used to select it) of the
+#' implementation class) or identification string (used to select it) of the
 #' current calendar.
 #'
 #' @title Get calendar name, or id
