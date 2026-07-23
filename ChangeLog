@@ -1,3 +1,8 @@
+2026-07-23  Maximilian Muecke  <muecke.maximilian@gmail.com>
+
+	* src/calendars.cpp: Accept '::' alias spellings for Israel and
+	NewZealand market calendars
+
 2026-07-21  Maximilian Muecke  <muecke.maximilian@gmail.com>
 
 	* src/calendars.cpp: Add Poland/WSE, Russia/MOEX, Romania/Public and

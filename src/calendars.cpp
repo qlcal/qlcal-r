@@ -162,11 +162,14 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
             p_cal.reset(new ql::Indonesia(ql::Indonesia::JSX));
 
         } else if (txt == "Israel" ||
-                   txt == "Israel/TASE") {
+                   txt == "Israel/TASE" ||
+                   txt == "Israel::TASE") {
             p_cal.reset(new ql::Israel(ql::Israel::TASE));
-        } else if (txt == "Israel/SHIR") {
+        } else if (txt == "Israel/SHIR" ||
+                   txt == "Israel::SHIR") {
             p_cal.reset(new ql::Israel(ql::Israel::SHIR));
-        } else if (txt == "Israel/Telbor") {
+        } else if (txt == "Israel/Telbor" ||
+                   txt == "Israel::Telbor") {
             p_cal.reset(new ql::Israel(ql::Israel::Telbor));
 
         } else if (txt == "Italy" ||
@@ -190,9 +193,11 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
             p_cal.reset(new ql::Montenegro());
 
         } else if (txt == "NewZealand" ||
-                   txt == "NewZealand/Wellington") {
+                   txt == "NewZealand/Wellington" ||
+                   txt == "NewZealand::Wellington") {
             p_cal.reset(new ql::NewZealand(ql::NewZealand::Wellington));
-        } else if (txt == "NewZealand/Auckland") {
+        } else if (txt == "NewZealand/Auckland" ||
+                   txt == "NewZealand::Auckland") {
             p_cal.reset(new ql::NewZealand(ql::NewZealand::Auckland));
 
         } else if (txt == "NorthMacedonia") {
