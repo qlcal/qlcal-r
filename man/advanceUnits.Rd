@@ -38,7 +38,7 @@ Advance a vector of dates by a given number of time units
 This function takes a vector of dates and returns another vector of dates
 of the same length returning at each position the date advanced by the given
 number of steps in the selected time unit, also respecting a business day
-convention and and of month boolean switch. Currently supported values for
+convention and end-of-month boolean switch. Currently supported values for
 the time unit are \sQuote{Days}, \sQuote{Weeks}, \sQuote{Months} \sQuote{Years},
 \sQuote{Hours}, \sQuote{Seconds}, \sQuote{Milliseconds} and \sQuote{Microseconds};
 all are specified as integers. Note that intra-daily units are not currently

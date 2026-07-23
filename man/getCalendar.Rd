@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{getCalendar}
 \alias{getCalendar}
-\title{Get new calendar objectb}
+\title{Get new calendar object}
 \usage{
 getCalendar(calstr)
 }

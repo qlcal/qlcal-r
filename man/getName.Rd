@@ -20,7 +20,7 @@ Get calendar name or id
 }
 \details{
 This function returns the corresponding (full) name (as in the underlying
-implementationclass) or identification string (used to select it) of the
+implementation class) or identification string (used to select it) of the
 current calendar.
 }
 \examples{
