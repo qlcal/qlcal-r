@@ -17,6 +17,7 @@ jobs:
         include:
           #- {os: macOS-latest}
           #- {os: ubuntu-latest}
+          - {os: blacksmith-6vcpu-macos-latest}
           - {os: blacksmith-4vcpu-ubuntu-2404}
 
     runs-on: ${{ matrix.os }}

@@ -2,7 +2,7 @@
 
 	* .github/workflows/ci.yaml: Switch to actions/checkout@v7
 
-	* .github/workflows/ci.yaml: Try blacksmith CI cunner
+	* .github/workflows/ci.yaml: Try blacksmith CI runner
 
 2026-07-23  Dirk Eddelbuettel  <edd@debian.org>
 
