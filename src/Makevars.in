@@ -36,12 +36,14 @@ SOURCES = \
         ql/time/calendars/italy.cpp \
         ql/time/calendars/japan.cpp \
         ql/time/calendars/jointcalendar.cpp \
+        ql/time/calendars/malaysia.cpp \
         ql/time/calendars/malta.cpp \
         ql/time/calendars/mexico.cpp \
         ql/time/calendars/montenegro.cpp \
         ql/time/calendars/newzealand.cpp \
         ql/time/calendars/norway.cpp \
         ql/time/calendars/northmacedonia.cpp \
+        ql/time/calendars/philippines.cpp \
         ql/time/calendars/poland.cpp \
         ql/time/calendars/romania.cpp \
         ql/time/calendars/russia.cpp \
