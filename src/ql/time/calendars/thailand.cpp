@@ -39,10 +39,10 @@ namespace QuantLib {
             || ((d == 1 || (d == 3 && w == Monday)) && m == January)
             // Chakri Memorial Day
             || ((d == 6 || ((d == 7 || d == 8) && w == Monday)) && m == April)
-            // Songkran Festival (was cancelled in 2020 due to the Covid-19 Pandamic)
+            // Songkran Festival (was cancelled in 2020 due to the Covid-19 Pandemic)
             || ((d == 13 || d == 14 || d == 15) && m == April && y != 2020)
             // Substitution Songkran Festival, usually not more than 5 days in total (was cancelled
-            // in 2020 due to the Covid-19 Pandamic)
+            // in 2020 due to the Covid-19 Pandemic)
             || (d == 16 && (w == Monday || w == Tuesday) && m == April && y != 2020)
             // Labor Day
             || ((d == 1 || ((d == 2 || d == 3) && w == Monday)) && m == May)
@@ -52,7 +52,7 @@ namespace QuantLib {
             || ((d == 03 || ((d == 04 || d == 05) && w == Monday)) && m == June && y >= 2019)
             // H.M. King Maha Vajiralongkorn Phra Vajiraklaochaoyuhua’s Birthday
             || ((d == 28 || ((d == 29 || d == 30) && w == Monday)) && m == July && y >= 2017)
-            // 	​H.M. Queen Sirikit The Queen Mother’s Birthday / Mother’s Day
+            // H.M. Queen Sirikit The Queen Mother’s Birthday / Mother’s Day
             || ((d == 12 || ((d == 13 || d == 14) && w == Monday)) && m == August)
             // H.M. King Bhumibol Adulyadej The Great Memorial Day
             || ((d == 13 || ((d == 14 || d == 15) && w == Monday)) && m == October && y >= 2017)
