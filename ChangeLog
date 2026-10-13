@@ -1,9 +1,33 @@
 2026-10-13  Dirk Eddelbuettel  <edd@debian.org>
 
-        * src/ql/time/calendars/malaysia.cpp: New calendar from QuantLib 1.44
+	* DESCRIPTION (Version, Date): Roll micro version and date
+
+	* R/calendars.R: Reflect two new calendars, and deprecated Italy::Exchange
+	* src/calendars.cpp: Idem
+	* src/ql/time/calendars/all.hpp: Include two new country headers
+
+	* src/ql/time/calendars/malaysia.cpp: New calendar from QuantLib 1.44
         * src/ql/time/calendars/malaysia.hpp: Idem
         * src/ql/time/calendars/philippines.cpp: Idem
         * src/ql/time/calendars/philippines.hpp: Idem
+	* src/Makevars.in: Add dependency on two new cpp files
+	* src/Makevars.win.in: Add dependency on two new cpp files
+
+        * src/ql/time/calendars/argentina.hpp: Updated calendar from QuantLib 1.44
+        * src/ql/time/calendars/bespokecalendar.hpp: Idem
+        * src/ql/time/calendars/hongkong.cpp: Idem
+        * src/ql/time/calendars/indonesia.cpp: Idem
+        * src/ql/time/calendars/italy.cpp: Idem
+        * src/ql/time/calendars/italy.hpp: Idem
+        * src/ql/time/calendars/saudiarabia.cpp: Idem
+        * src/ql/time/calendars/saudiarabia.hpp: Idem
+        * src/ql/time/calendars/singapore.cpp: Idem
+        * src/ql/time/calendars/singapore.hpp: Idem
+        * src/ql/time/calendars/southafrica.cpp: Idem
+        * src/ql/time/calendars/sweden.hpp: Idem
+        * src/ql/time/calendars/thailand.cpp: Idem
+        * src/ql/time/calendars/thailand.hpp: Idem
+        * src/ql/time/calendars/turkey.cpp: Idem
 
 	* src/ql/optional.hpp: Updated from QuantLib 1.44
 	* src/ql/patterns/observable.hpp: Idem
