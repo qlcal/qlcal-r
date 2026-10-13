@@ -176,12 +176,12 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
                    txt == "Italy/Settlement" ||
                    txt == "Italy::Settlement") {
             p_cal.reset(new ql::Italy(ql::Italy::Settlement));
-        } else if (txt == "Italy/Exchange" ||
-                   txt == "Italy::Exchange") {
-            p_cal.reset(new ql::Italy(ql::Italy::Exchange));
 
         } else if (txt == "Japan") {
             p_cal.reset(new ql::Japan());
+
+        } else if (txt == "Malaysia") {
+            p_cal.reset(new ql::Malaysia());
 
         } else if (txt == "Malta") {
             p_cal.reset(new ql::Malta());
@@ -210,6 +210,9 @@ void QlCal::CalendarContainer::setCalendar(const std::string txt = "TARGET")  {
                    txt == "null" ||
                    txt == "NULL") {
             p_cal.reset(new ql::NullCalendar());
+
+        } else if (txt == "Philippines") {
+            p_cal.reset(new ql::Philippines());
 
         } else if (txt == "Poland" ||
                    txt == "Poland/Settlement" ||
