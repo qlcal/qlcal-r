@@ -1,3 +1,14 @@
+2026-10-13  Dirk Eddelbuettel  <edd@debian.org>
+
+	* src/ql/optional.hpp: Updated from QuantLib 1.44
+	* src/ql/patterns/observable.hpp: Idem
+	* src/ql/settings.cpp: Idem
+	* src/ql/settings.hpp: Idem
+	* src/ql/time/date.cpp: Idem
+	* src/ql/time/period.cpp: Idem
+	* src/ql/utilitities/null.hpp: Idem
+	* src/ql/utilitities/null_deleter.hpp: Idem
+
 2026-09-22  Dirk Eddelbuettel  <edd@debian.org>
 
 	* .github/workflows/ci.yaml: Flip back from blacksmith CI runners
