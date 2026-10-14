@@ -3,7 +3,7 @@
 \newcommand{\ghpr}{\href{https://github.com/qlcal/qlcal-r/pull/#1}{##1}}
 \newcommand{\ghit}{\href{https://github.com/qlcal/qlcal-r/issues/#1}{##1}}
 
-\section{Changes in version 0.1.4 (2026-xx-yy)}{
+\section{Changes in version 0.1.4 (2026-10-13)}{
   \itemize{
     \item Add missing market calendars for Poland, Russia, Romania, Indonesia
     (Maximilian Muecke in \ghpr{21})
@@ -11,6 +11,8 @@
     Zealand markets (Maximilian Muecke in \ghpr{22})
     \item Fix several typos across source, configuration and documentation files
     (Maximilian Muecke in \ghpr{23})
+    \item Synchronize with QuantLib 1.44, add two new calendars, update
+    several others, and update general utility files (Dirk in \ghpr{24})
   }
 }
 
